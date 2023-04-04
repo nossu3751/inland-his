@@ -8,7 +8,7 @@ import { Router, ActivatedRoute, IsActiveMatchOptions } from '@angular/router';
 })
 export class NavbarComponent {
   // constructor(private router: Router, private activatedRoute: ActivatedRoute){}
-  mobileNavItems = [
+  navItems = [
     { route: '/', icon: 'home', tooltip: 'Home', label:"홈"},
     // { route: '/about', icon: 'info', tooltip: 'About', label:"소개" },
     { route: '/small_group', icon: 'group', tooltip: 'Small Group', label:"셀"},

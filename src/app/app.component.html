@@ -15,18 +15,14 @@
     </div>
   </ng-template> -->
 <div class="content">
-  <div class="container mt-5">
+  <div class="container">
     <div class="row">
       <div class="col text-center">
-        <img src="assets/his-logo-white.png" alt="Logo" class="logo mb-4">
-        <h1 class="mb-4">히즈 청년부</h1>
-        <p>Hello, {{ name }}! Welcome to the Angular test application.</p>
-        <input [(ngModel)]="name" class="form-control" placeholder="Enter your name">
-        <a href="#" class="btn btn-primary mt-3">Click me</a>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
-  <router-outlet></router-outlet>
+  
 </div>
 <!-- </ngx-pull-to-refresh> -->
 

@@ -1,37 +1,38 @@
 <mat-toolbar class="web-toolbar" >
     <div fxLayout="row" fxLayoutAlign="start center">
         <!-- <img fxHide.gt-sm src="assets/his-logo-white.png" alt="Logo" class="logo" fxFlex /> -->
-        <img src="assets/his-logo-white.png" alt="Logo" class="mobile-logo" fxFlex fxHide.gt-sm/>
+        <!-- <img src="assets/his-logo-white.png" alt="Logo" class="mobile-logo" fxFlex fxHide.gt-sm/> -->
+        <img src="assets/his-logo-white.png" alt="Logo" class="mobile-logo" fxFlex/>
     </div>
-    <div class="container nav-container">
-        
-        <div fxHide.lt-md>
-            <button mat-button routerLink="/">Home</button>
-            <button mat-button routerLink="/verses">Verses</button>
-            <button mat-button routerLink="/small_group">Small Group</button>
-            <button mat-button routerLink="/ministries">Ministries</button>
-            <button mat-button routerLink="/offering">Offerings</button>
-        </div>
-        
+    <div class="web-toolbar-spacer"></div>
+    <ng-container *ngFor="let navItem of navItems">
+            <div class="web-menu-wrapper"
+                routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{exact: true}"
+                fxLayout="row" fxLayoutAlign="center center">
+                <a mat-icon-button 
+                    [routerLink]="navItem.route">
+                   
+                    <div>{{navItem.label}}</div>
+                </a>
+            </div>
+            <div class="web-toolbar-spacer"></div>
+    </ng-container>
+    <div fxLayout="row" fxLayoutAlign="end center">
+        <!-- <img fxHide.gt-sm src="assets/his-logo-white.png" alt="Logo" class="logo" fxFlex /> -->
+        <!-- <img src="assets/his-logo-white.png" alt="Logo" class="mobile-logo" fxFlex fxHide.gt-sm/> -->
+        <!-- <img src="assets/his-logo-white.png" alt="Logo" class="mobile-logo" fxFlex/> -->
+        <mat-icon>
+            menu
+        </mat-icon>
     </div>
 </mat-toolbar>
 
 <mat-toolbar color="white" class="mobile-toolbar" fxHide.gt-sm>
-    <ng-container *ngFor="let navItem of mobileNavItems">
+    <ng-container *ngFor="let navItem of navItems">
 
         <div class="mobile-toolbar-spacer"></div>
             
-            <!-- <a mat-icon-button 
-                [routerLink]="navItem.route" 
-                [matTooltip]="navItem.tooltip"
-                routerLinkActive="active-link"
-                [routerLinkActiveOptions]="{exact: true}"
-            >
-            <div 
-                class="icon-wrapper" 
-                routerLinkActive #rla="routerLinkActive"
-                [ngClass]="{'active-link': rla.isActive}"
-            >   -->
             <a mat-icon-button 
                 [routerLink]="navItem.route" 
                 [matTooltip]="navItem.tooltip"
@@ -39,8 +40,7 @@
             <div 
                 class="icon-wrapper" 
                 routerLinkActive="active-link"
-                [routerLinkActiveOptions]="{exact: true}"
-            >  
+                [routerLinkActiveOptions]="{exact: true}">  
                 <mat-icon>{{ navItem.icon }}</mat-icon>
                 <div class="icon-label">{{ navItem.label }}</div>
                 </div>
