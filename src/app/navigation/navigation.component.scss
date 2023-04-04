@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 100;
+  }
+  
+  .nav {
+    display: flex;
+  }
+  
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+  }
+  
+  .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .header {
+      bottom: 0;
+      top: unset;
+    }
+  
+    .nav-text {
+      display: none;
+    }
+  
+    .icon {
+      display: block;
+    }
+  }
+  

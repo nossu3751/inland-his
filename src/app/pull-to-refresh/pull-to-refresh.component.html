@@ -1,0 +1,8 @@
+<div class="ptr" (pan)="onPan($event)">
+    <div class="ptr-indicator" [class.active]="indicatorActive">
+      <div class="spinner"></div>
+    </div>
+    <div class="ptr-content">
+      <ng-content></ng-content>
+    </div>
+  </div>

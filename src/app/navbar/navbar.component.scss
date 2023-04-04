@@ -1,0 +1,79 @@
+@import '../../styles.scss';
+
+  
+.icon-nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.web-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    // justify-content: space-around;
+    padding-left: env(safe-area-inset-left) !important;
+    padding-right: env(safe-area-inset-right) !important;
+    padding-top: env(safe-area-inset-top) !important;
+    // height: calc(56px + env(safe-area-inset-bottom)) !important;
+    height: var(--nav-height) !important;
+    // background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    background-color: var(--primary-color);
+}
+
+.nav-container {
+    height: 100% !important;
+}
+
+.mobile-logo {
+    padding: 0 10px;
+    top: calc(env(safe-area-inset-top) + (var(--nav-height) - (var(--nav-height) * var(--nav-logo-ratio))) / 2) !important;
+    height: calc(100% * var(--nav-logo-ratio));
+    position: absolute;
+    
+}
+
+.mobile-toolbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    padding-left: env(safe-area-inset-left) !important;
+    padding-right: env(safe-area-inset-right) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+    height: calc(var(--nav-height) + env(safe-area-inset-bottom)) !important;
+    border-top: 0.5px solid #bbb;
+    background-color: white;
+}
+
+.mobile-toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.icon-wrapper {
+    display: inline-block;
+    text-align: center;
+    color: var(--nav-item-color);
+}
+
+.icon-wrapper.active-link {
+    color: var(--primary-color);
+}
+
+.icon-wrapper:active-link,.icon-wrapper:hover {
+    color: var(--primary-color)
+}
+
+.icon-label {
+display: block;
+font-size: 0.6em;
+font-weight: bold;
+}
+
+
+  
+  
