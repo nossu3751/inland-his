@@ -8,6 +8,7 @@ import { SmallGroupComponent } from './small-group/small-group.component';
 import { OfferingComponent} from './offering/offering.component';
 import { MinistriesComponent } from './ministries/ministries.component';
 import { VersesComponent } from './verses/verses.component';
+import { BulletinComponent } from './components/core/bulletin/bulletin.component';
 // ...
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'small_group', component: SmallGroupComponent },
   { path: 'offering', component: OfferingComponent },
   { path: 'ministries', component: MinistriesComponent },
-  { path: 'verses', component: VersesComponent }
+  { path: 'verses', component: VersesComponent },
+  { path: 'bulletin', component: BulletinComponent}
 ];
 
 @NgModule({

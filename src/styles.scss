@@ -60,8 +60,8 @@ body {
   margin: 0;
   overflow-x: hidden;
   max-width: 100%;
-  padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
-  padding-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
+  // padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
+  // padding-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
 }
   
 .logo {

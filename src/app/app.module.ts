@@ -26,11 +26,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NavigationComponent } from './navigation/navigation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule} from '@angular/material/icon';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
@@ -42,6 +41,9 @@ import { VersesComponent } from './verses/verses.component';
 import { PullToRefreshComponent } from './pull-to-refresh/pull-to-refresh.component';
 import { HammerModule } from '@angular/platform-browser';
 import { NgxPullToRefreshModule } from 'ngx-pull-to-refresh';
+import { ScrollHideDirective } from './directives/scroll-hide.directive';
+import { BibleVersesComponent } from './components/core/bible-verses/bible-verses.component';
+import { BulletinComponent } from './components/core/bulletin/bulletin.component';
 
 // import { Mat}
 
@@ -49,7 +51,6 @@ import { NgxPullToRefreshModule } from 'ngx-pull-to-refresh';
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
     NavbarComponent,
     HomeComponent,
     AboutComponent,
@@ -57,7 +58,10 @@ import { NgxPullToRefreshModule } from 'ngx-pull-to-refresh';
     OfferingComponent,
     MinistriesComponent,
     VersesComponent,
-    PullToRefreshComponent
+    PullToRefreshComponent,
+    ScrollHideDirective,
+    BibleVersesComponent,
+    BulletinComponent
   ],
   imports: [
     BrowserModule,
