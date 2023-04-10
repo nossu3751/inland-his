@@ -1,0 +1,25 @@
+<div class="card">
+   <div class="carousel">
+    <div class="slides">
+      <div *ngFor="let image of images; let i = index" 
+           class="slide" 
+            [ngClass]="{ 'active': i === currentSlideIndex, 'previous': i === previousSlideIndex, 'next': i === nextSlideIndex }">
+            <!-- <app-block> -->
+                <!-- <app-block fxLayoutAlign=""center center>
+                    새신자 등록 링크
+                </app-block>
+                <app-block fxLayoutAlign=""center center>
+                    <button class="btn btn-primary">등록하기</button>
+                </app-block> -->
+                <img [src]="image" class="slide-image" height="100%" style="position: absolute"/>
+            <!-- </app-block> -->
+      </div>
+    </div>
+    <div class="indicators">
+      <div *ngFor="let image of images; let i = index" 
+           class="indicator" 
+           [ngClass]="{ 'active': i === currentSlideIndex }" 
+           (click)="currentSlideIndex = i"></div>
+    </div>
+  </div>
+</div>

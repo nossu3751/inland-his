@@ -1,0 +1,47 @@
+@import '../../../../styles.scss';
+
+:host {
+    width: 100%;
+    display: block;
+    z-index: 1000;
+}
+
+.mobile-toolbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    padding-left: env(safe-area-inset-left) !important;
+    padding-right: env(safe-area-inset-right) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+    height: calc(var(--nav-height) + env(safe-area-inset-bottom)) !important;
+    border-top: 0.5px solid #ddd;
+    background-color: white;
+}
+
+.mobile-toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.icon-wrapper {
+    display: inline-block;
+    text-align: center;
+    color: var(--nav-item-color);
+}
+
+.icon-wrapper.active-link {
+    color: var(--primary-color);
+}
+
+.icon-wrapper:active-link,.icon-wrapper:hover {
+    color: var(--primary-color)
+}
+
+.icon-label {
+display: block;
+font-size: 0.6em;
+font-weight: bold;
+}
+

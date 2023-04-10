@@ -1,0 +1,18 @@
+@import '../../../../styles.scss';
+
+:host {
+    width: 100%;
+    display: block;
+}
+
+.content-area {
+    width: 100%;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100vh - (var(--nav-height) * 2) - env(safe-area-inset-top) - env(safe-area-inset-bottom))
+}
+
+.content-area.large-screen {
+    height: calc(100vh - var(--nav-height) * 1.2 - env(safe-area-inset-bottom))
+}

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ScreenSizeService } from '../services/view/screen-size.service'
+import { ScreenSizeService } from '../../../services/view/screen-size.service'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-nav-padded-block',
+  templateUrl: './nav-padded-block.component.html',
+  styleUrls: ['./nav-padded-block.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class NavPaddedBlockComponent implements OnInit{
   constructor(private screenSizeService: ScreenSizeService) {}
   screenSizeClass = '';
 

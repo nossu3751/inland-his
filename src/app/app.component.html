@@ -1,46 +1,11 @@
-<!-- <ngx-pull-to-refresh (onRefresh)="onRefresh()" class="pull-to-refresh">
-  <div class="content">
-    <ul>
-      <li *ngFor="let item of items">{{ item }}</li>
-    </ul>
-  </div>
-</ngx-pull-to-refresh> -->
 
+<app-top-navbar></app-top-navbar>
 
-<app-navbar></app-navbar>
-<!-- <ngx-pull-to-refresh (onRefresh)="onRefresh()">
-  <ng-template ngxPtrIcon>
-    <div class="spinner-container">
-      <div class="custom-spinner"></div>
-    </div>
-  </ng-template> -->
-<div class="content">
-  <div class="container">
-    <div class="row">
-      <div class="col text-center">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div>
-  
-</div>
-<!-- </ngx-pull-to-refresh> -->
+<app-content-area>
+  <router-outlet></router-outlet>
+</app-content-area>
 
-
-<!-- <mat-toolbar color="primary" class="bottom-nav">
-  <button mat-icon-button routerLink="/home">
-    <mat-icon>home</mat-icon>
-  </button>
-  <button mat-icon-button routerLink="/search">
-    <mat-icon>search</mat-icon>
-  </button>
-  <button mat-icon-button routerLink="/favorites">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button routerLink="/profile">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-</mat-toolbar> -->
+<app-bottom-navbar></app-bottom-navbar>
 
 
 

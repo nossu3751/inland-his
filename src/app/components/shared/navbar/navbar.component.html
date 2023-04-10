@@ -5,8 +5,7 @@
         <img src="assets/his-logo-white.png" alt="Logo" class="mobile-logo" fxFlex/>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between center" fxHide.lt-md>
-        
-        <ng-container *ngFor="let navItem of navItems">
+        <ng-container *ngFor="let navItem of webNavItems">
             <div class="web-toolbar-spacer"></div>
             <div class="web-menu-wrapper web-nav-item"
                 [routerLink]="navItem.route"
@@ -19,8 +18,14 @@
             </div>
             <div class="web-toolbar-spacer"></div>
         </ng-container>
-    
     </div>
+    <!-- <div fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm>
+        
+            <div class="web-menu-wrapper web-nav-item">
+                {{routeNameMap.get("/" + currentRouteName)}}
+            </div>
+            
+    </div> -->
     <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper">
         <mat-icon class="menu">
             apps
@@ -29,7 +34,7 @@
 </mat-toolbar>
 
 <mat-toolbar color="white" class="mobile-toolbar" fxHide.gt-sm >
-    <ng-container *ngFor="let navItem of navItems">
+    <ng-container *ngFor="let navItem of mobileNavItems">
 
         <div class="mobile-toolbar-spacer"></div>
             

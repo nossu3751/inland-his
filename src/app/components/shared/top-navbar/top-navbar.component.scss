@@ -1,0 +1,72 @@
+@import '../../../../styles.scss';
+
+:host {
+    width: 100%;
+    display: block;
+}
+
+.web-toolbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    // justify-content: space-around;
+    padding-left: env(safe-area-inset-left) !important;
+    padding-right: env(safe-area-inset-right) !important;
+    padding-top: env(safe-area-inset-top) !important;
+    // height: calc(56px + env(safe-area-inset-bottom)) !important;
+    height: var(--nav-height) !important;
+    // background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    background-color: var(--primary-color);
+    justify-content: space-between;
+    transition: height 0.2s ease-in-out;
+    width: 100%;
+}
+
+.web-toolbar.large-screen {
+    height: calc(var(--nav-height) * 1.2) !important; 
+}
+
+.web-toolbar.large-screen:hover {
+    height: calc(var(--nav-height) * 1.2 * 1.2) !important; 
+}
+
+.web-toolbar-spacer {
+    flex: auto;
+}
+
+.web-menu-wrapper {
+    display: inline-block;
+    text-align: center;
+    color: white;
+    height: 100%;
+    padding:0 1rem 0 1rem;
+}
+
+.web-menu-wrapper.web-nav-item {
+    padding:0 3rem 0 3rem;
+}
+
+.web-menu-wrapper a {
+    color: var(--secondary-color) ;
+    font-weight: bold;
+    transition: font-size 0.2s ease-in-out;
+    font-size: small;
+}
+
+.web-menu-wrapper:hover a{
+    cursor: pointer;
+    font-size: larger;
+    color: var(--secondary-color) ;
+}
+
+.web-menu-wrapper.active-link a{
+    color: white !important;
+    font-weight:bolder;
+    font-size: larger;
+}
+
+.logo {
+    top: calc(env(safe-area-inset-top) + (var(--nav-height) - (var(--nav-height) * var(--nav-logo-ratio))) / 2) !important;
+    height: calc(var(--nav-height) * var(--nav-logo-ratio));  
+}

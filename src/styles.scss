@@ -38,6 +38,7 @@ $inland-his-theme: mat.define-light-theme((
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
+$carousel-indicator-width: 3px;
 /* Add your global styles here */
 /* Add your global styles here */
 :root {
@@ -58,15 +59,15 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   max-width: 100%;
   // padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
   // padding-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
 }
   
-.logo {
-  max-width: 100px;
-}
+// .logo {
+//   max-width: 100px;
+// }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
   background-color: var(--secondary-color) !important;
@@ -74,9 +75,7 @@ body {
   border: 2px solid var(--other-color-1);
 }
 
-.content {
-  flex: 1;
-}
+
 
 a {
   text-decoration: none;
@@ -98,7 +97,9 @@ a {
 // }
 
 // .content {
-//   flex: 1;
+//   width: 100%;
+//   position: absolute;
+//   // flex: 1;
 // }
 
 // .bottom-nav {
@@ -162,7 +163,18 @@ a {
   //   background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   // }
   
-html, body { height: 100%; }
+html, body { 
+  height: 100%; 
+  // -ms-overflow-style: none;  /* IE and Edge */
+  // scrollbar-width: none;  /* Firefox */
+  // overflow-y: scroll; /* Enable vertical scrolling */
+  // overflow-x: hidden;
+}
+
+// html::-webkit-scrollbar, body::-webkit-scrollbar { 
+//   display: none; /* Chrome, Safari, and Opera */
+// }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .ios-peek {
@@ -173,4 +185,34 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 50vh;
   background-color: white;
   width: 100vw;
+}
+
+.padded-background {
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
+    padding-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
+    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+}
+
+.padded-background.large-screen {
+  padding-top: calc(var(--nav-height) * 1.2 + env(safe-area-inset-top));
+  padding-bottom: calc(var(--nav-height) * 1.2 + env(safe-area-inset-bottom));
+}
+
+.content {
+  height: calc(100vh - calc(var(--nav-height) * 2 - env(safe-area-inset-bottom)) - env(safe-area-inset-top));
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hide-scroll {
+  overflow:hidden;
+}
+
+// .content {
+//   height: calc(100% - calc(var(--nav-height) - env(safe-area-inset-bottom)))
+// }
+
+.content.large-screen {
+  height: auto;
+  flex: 1 1 auto;
 }

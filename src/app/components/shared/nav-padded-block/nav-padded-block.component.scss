@@ -1,0 +1,12 @@
+.nav-padded {
+    width: 100%;
+    display: block;
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
+    padding-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
+    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+}
+
+.nav-padded.large-screen {
+    padding-top: calc(var(--nav-height) * 1.2 + env(safe-area-inset-top));
+    padding-bottom: 0;
+}

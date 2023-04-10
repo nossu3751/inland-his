@@ -1,26 +1,5 @@
-// import { NgModule } from '@angular/core';
-// import { BrowserModule } from '@angular/platform-browser';
-
-// import { AppRoutingModule } from './app-routing.module';
-// import { AppComponent } from './app.component';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-// @NgModule({
-//   declarations: [
-//     AppComponent
-//   ],
-//   imports: [
-//     BrowserModule,
-//     AppRoutingModule,
-//     NgbModule
-//   ],
-//   providers: [],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule { }
-
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, isDevMode } from '@angular/core';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
+import { NgModule, isDevMode} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,11 +18,20 @@ import { OfferingComponent } from './offering/offering.component';
 import { MinistriesComponent } from './ministries/ministries.component';
 import { VersesComponent } from './verses/verses.component';
 import { PullToRefreshComponent } from './pull-to-refresh/pull-to-refresh.component';
-import { HammerModule } from '@angular/platform-browser';
 import { NgxPullToRefreshModule } from 'ngx-pull-to-refresh';
 import { ScrollHideDirective } from './directives/scroll-hide.directive';
 import { BibleVersesComponent } from './components/core/bible-verses/bible-verses.component';
 import { BulletinComponent } from './components/core/bulletin/bulletin.component';
+import { NewComerComponent } from './components/core/new-comer/new-comer.component';
+import { BackgroundComponent } from './components/shared/background/background.component';
+import { BlockComponent } from './components/shared/block/block.component';
+import { NavPaddedBlockComponent } from './components/shared/nav-padded-block/nav-padded-block.component';
+import { BottomNavbarComponent } from './components/shared/bottom-navbar/bottom-navbar.component';
+import { TopNavbarComponent } from './components/shared/top-navbar/top-navbar.component';
+import { ContentAreaComponent } from './components/shared/content-area/content-area.component';
+import { HorizontalItemBoxComponent } from './components/shared/horizontal-item-box/horizontal-item-box.component';
+import { CarouselComponent } from './components/shared/carousel/carousel.component';
+
 
 // import { Mat}
 
@@ -61,7 +49,17 @@ import { BulletinComponent } from './components/core/bulletin/bulletin.component
     PullToRefreshComponent,
     ScrollHideDirective,
     BibleVersesComponent,
-    BulletinComponent
+    BulletinComponent,
+    NewComerComponent,
+    BackgroundComponent,
+    BlockComponent,
+    NavPaddedBlockComponent,
+    BottomNavbarComponent,
+    TopNavbarComponent,
+    ContentAreaComponent,
+    HorizontalItemBoxComponent,
+    CarouselComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -80,7 +78,8 @@ import { BulletinComponent } from './components/core/bulletin/bulletin.component
     MatTooltipModule,
     FlexLayoutModule,
     HammerModule,
-    NgxPullToRefreshModule
+    NgxPullToRefreshModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
