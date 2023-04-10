@@ -47,6 +47,7 @@ export class CarouselComponent {
   nextSlideIndex = (this.currentSlideIndex + 1) % this.images.length;
 
   autoplayInterval = 5000;
+  autoplayIntervalId:any;
 
   private touchStartX: number = 0;
   private touchEndX: number = 0;
@@ -55,6 +56,18 @@ export class CarouselComponent {
     setInterval(() => {
       this.onNextSlide();
     }, this.autoplayInterval);
+  }
+
+  resetAutoplayInterval() {
+    clearInterval(this.autoplayIntervalId);
+
+    this.autoplayIntervalId = setInterval(() => {
+      this.onNextSlide();
+    }, this.autoplayInterval);
+    
+    // this.autoplayIntervalId = setInterval(() => {
+    //   this.onNextSlide();
+    // }, this.autoplayInterval);
   }
 
   @HostListener('touchstart', ['$event'])
@@ -83,12 +96,14 @@ export class CarouselComponent {
     this.previousSlideIndex = this.currentSlideIndex;
     this.currentSlideIndex = this.nextSlideIndex;
     this.nextSlideIndex = (this.currentSlideIndex + 1) % this.images.length;
+    this.resetAutoplayInterval();
   }
 
   onPrevSlide() {
     this.nextSlideIndex = this.currentSlideIndex;
     this.currentSlideIndex = this.previousSlideIndex;
     this.previousSlideIndex = (this.previousSlideIndex - 1 + this.images.length) % this.images.length;
+    this.resetAutoplayInterval();
   }
 }
 

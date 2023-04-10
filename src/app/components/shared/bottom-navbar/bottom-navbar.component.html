@@ -1,4 +1,16 @@
 <mat-toolbar color="white" class="mobile-toolbar" fxHide.gt-sm >
+    <div class="mobile-toolbar-spacer"></div>
+            
+        <a mat-icon-button 
+            [routerLink]="'/'">
+            <div class="icon-wrapper" 
+                routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{exact: true}">
+                <app-logo-svg style="height:38px; width: 38px;"></app-logo-svg>
+            </div>
+        </a>
+
+        <div class="mobile-toolbar-spacer"></div>
     <ng-container *ngFor="let navItem of mobileNavItems">
 
         <div class="mobile-toolbar-spacer"></div>

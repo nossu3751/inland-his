@@ -40,8 +40,19 @@
 }
 
 .icon-label {
-display: block;
-font-size: 0.6em;
-font-weight: bold;
+    display: block;
+    font-size: 0.6em;
+    font-weight: bold;
 }
 
+
+// .home-logo {
+//     opacity: 0.5;
+//     height: 1.8em;
+//     color: red;
+//     // height: calc(var(--nav-height) * var(--nav-logo-ratio));  
+// }
+
+// .home-logo.active-link {
+//     opacity: 1;
+// }

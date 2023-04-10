@@ -31,6 +31,7 @@ import { TopNavbarComponent } from './components/shared/top-navbar/top-navbar.co
 import { ContentAreaComponent } from './components/shared/content-area/content-area.component';
 import { HorizontalItemBoxComponent } from './components/shared/horizontal-item-box/horizontal-item-box.component';
 import { CarouselComponent } from './components/shared/carousel/carousel.component';
+import { LogoSvgComponent } from './components/shared/logo-svg/logo-svg.component';
 
 
 // import { Mat}
@@ -59,6 +60,7 @@ import { CarouselComponent } from './components/shared/carousel/carousel.compone
     ContentAreaComponent,
     HorizontalItemBoxComponent,
     CarouselComponent,
+    LogoSvgComponent,
   
   ],
   imports: [

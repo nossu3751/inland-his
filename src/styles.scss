@@ -1,4 +1,6 @@
 
+
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -37,6 +39,7 @@ $inland-his-theme: mat.define-light-theme((
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 $carousel-indicator-width: 3px;
 /* Add your global styles here */
@@ -52,8 +55,7 @@ $carousel-indicator-width: 3px;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  // background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  font-family: 'Noto Sans', sans-serif;
   color: rgb(10, 10, 10);
   height: 100%;
   display: flex;
@@ -61,13 +63,7 @@ body {
   margin: 0;
   overflow: hidden;
   max-width: 100%;
-  // padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
-  // padding-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
 }
-  
-// .logo {
-//   max-width: 100px;
-// }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
   background-color: var(--secondary-color) !important;
@@ -81,101 +77,9 @@ a {
   text-decoration: none;
 }
 
-// .page {
-//   height: 100vh;
-//   width: 100vw;
-// }
-// html,
-// body {
-//   height: 100%;
-// }
-
-// body {
-//   display: flex;
-//   flex-direction: column;
-//   margin: 0;
-// }
-
-// .content {
-//   width: 100%;
-//   position: absolute;
-//   // flex: 1;
-// }
-
-// .bottom-nav {
-//   display: none;
-//   position: fixed;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   z-index: 1000;
-//   justify-content: space-around;
-//   align-items: center;
-// }
-
-// @media (max-width: 768px) {
-//   .bottom-nav {
-//     display: flex;
-//   }
-// }
-
-/* Media query for mobile view */
-// @media (max-width: 768px) {
-//   .desktop-nav {
-//     display: none;
-//   }
-//   .mobile-nav {
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
-//   }
-//   .bottom-nav {
-//     display: flex;
-//   }
-// }
-
-  // .button {
-  //   background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-  //   /* Replace '#purple' and '#lightpurple' with your desired colors */
-  //   border: 2px solid white;
-  //   border-radius: 25px;
-  //   color: white;
-  //   cursor: pointer;
-  //   font-size: 1rem;
-  //   padding: 12px 24px;
-  //   text-decoration: none;
-  //   // transition: background 0.3s;
-  // }
-  
-  
-//   button {
-//     background-image: linear-gradient(to right, var(--secondary-color), var(--primary-color));
-//     border: none;
-//     color: white;
-//     padding: 10px 20px;
-//     text-transform: uppercase;
-//     font-weight: bold;
-//     cursor: pointer;
-//     transition: background-image 0.3s;
-//   }
-  
-  // .button:hover {
-  //   background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  // }
-  
 html, body { 
   height: 100%; 
-  // -ms-overflow-style: none;  /* IE and Edge */
-  // scrollbar-width: none;  /* Firefox */
-  // overflow-y: scroll; /* Enable vertical scrolling */
-  // overflow-x: hidden;
 }
-
-// html::-webkit-scrollbar, body::-webkit-scrollbar { 
-//   display: none; /* Chrome, Safari, and Opera */
-// }
-
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .ios-peek {
   position: fixed;
@@ -208,11 +112,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   overflow:hidden;
 }
 
-// .content {
-//   height: calc(100% - calc(var(--nav-height) - env(safe-area-inset-bottom)))
-// }
-
 .content.large-screen {
   height: auto;
   flex: 1 1 auto;
+}
+
+.card.image {
+  border: none;
 }

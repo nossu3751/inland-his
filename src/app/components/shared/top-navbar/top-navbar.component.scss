@@ -68,5 +68,25 @@
 
 .logo {
     top: calc(env(safe-area-inset-top) + (var(--nav-height) - (var(--nav-height) * var(--nav-logo-ratio))) / 2) !important;
-    height: calc(var(--nav-height) * var(--nav-logo-ratio));  
+    // height: calc(var(--nav-height) * var(--nav-logo-ratio));  
+    height: 2em;
+}
+
+.home-logo {
+    top: calc(env(safe-area-inset-top) + (var(--nav-height) - (var(--nav-height) * var(--nav-logo-ratio))) / 2) !important;
+    opacity: 0.5;
+    height: 1.8em;
+    // height: calc(var(--nav-height) * var(--nav-logo-ratio));  
+}
+
+.home-logo.active-link {
+    opacity: 1;
+    height: 2.5em;
+}
+
+.top-bar-route-name {
+    // margin-left: 1em;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--secondary-color);
 }
