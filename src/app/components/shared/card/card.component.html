@@ -1,7 +1,10 @@
+
 <div 
     (mouseenter)="isHovered = true;"
-    (mouseleave)="isHovered = false"
-
+    (mouseleave)="isHovered = false;"
+    (click)="openLink(href)"
+   
+    
     [ngStyle]="{
         'height':height,
         'box-shadow':boxShadow,
@@ -13,9 +16,10 @@
         'border-color': borderColor,
         'border-style': 'solid',
         'border-width': '1px',
-        'background-color': isHovered ? hoveredBackgroundColor : backgroundColor,
+        'background-color': screenSizeClass === 'large-screen' ? isHovered ? hoveredBackgroundColor : backgroundColor : backgroundColor,
         'align-items':alignItems,
         'justify-content':justifyContent,
         'display':display}">
     <ng-content></ng-content>
 </div>
+

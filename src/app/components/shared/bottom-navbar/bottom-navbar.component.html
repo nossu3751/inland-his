@@ -1,7 +1,7 @@
 <mat-toolbar color="white" class="mobile-toolbar" fxHide.gt-sm >
     <div class="mobile-toolbar-spacer"></div>
             
-        <a mat-icon-button 
+        <a mat-icon-button appPreventContextMenu
             [routerLink]="'/'">
             <div class="icon-wrapper" 
                 routerLinkActive="active-link"
@@ -15,7 +15,7 @@
 
         <div class="mobile-toolbar-spacer"></div>
             
-            <a mat-icon-button 
+            <a mat-icon-button appPreventContextMenu
                 [routerLink]="navItem.route" 
                 [matTooltip]="navItem.tooltip">
             <div 

@@ -1,11 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ScreenSizeService } from 'src/app/services/view/screen-size.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent {
+export class CardComponent implements OnInit{
+  isHovered:boolean;
+  screenSizeClass:string;
+
+  constructor(private screenSizeService: ScreenSizeService){
+    this.isHovered = false;
+    this.screenSizeClass = '';
+  }
+  
   @Input() height: string = "150px";
   @Input() borderRadius: string = "1em";
   @Input() marginLeft: string = "1em";
@@ -19,11 +28,20 @@ export class CardComponent {
   @Input() justifyContent: string = "flex-start";
   @Input() display: string = "flex"
   @Input() hoveredBackgroundColor: string = "#f5f5f5"
+  @Input() href: string = ""
 
-  isHovered:boolean;
+  
 
-  constructor(){
+  openLink(link:string){
+    if (this.href !== ""){
+      window.open(link, "_blank", 'noopener,noreferrer');
+    }
     this.isHovered = false;
   }
   
+  ngOnInit(): void {
+    this.screenSizeService.screenSizeClass$.subscribe((screenSizeClass) => {
+      this.screenSizeClass = screenSizeClass;
+    });
+  }
 }

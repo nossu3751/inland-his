@@ -120,3 +120,12 @@ html, body {
 .card.image {
   border: none;
 }
+
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+  // touch-action: manipulation;
+}

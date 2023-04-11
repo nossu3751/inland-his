@@ -10,6 +10,16 @@ export class HomeComponent implements OnInit{
   constructor(private screenSizeService: ScreenSizeService) {}
   screenSizeClass = '';
 
+  // //This is just for testing purpose
+  // iframeModalOpen: boolean = false;
+  // iframeUrl: string = '';
+
+  // openIframeModal(url: string) {
+  //   this.iframeUrl = url;
+  //   this.iframeModalOpen = true;
+  // }
+  // //
+
   ngOnInit() {
     // this.checkScreenSize();
     this.screenSizeService.screenSizeClass$.subscribe((screenSizeClass) => {

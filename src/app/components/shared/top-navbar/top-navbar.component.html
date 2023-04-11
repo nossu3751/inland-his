@@ -9,17 +9,17 @@
         <!-- <img fxHide.gt-sm src="assets/his-logo-white.png" alt="Logo" class="logo" fxFlex /> -->
         <!-- <img src="assets/his-logo-white.png" alt="Logo" class="mobile-logo" fxFlex fxHide.gt-sm/> -->
         <!-- <img src="assets/his-logo-white.png" alt="Logo" class="logo" fxFlex/> -->
-        <mat-icon class="account">
+        <mat-icon class="account" appPreventContextMenu>
             person
         </mat-icon>
         <!-- <div class="top-bar-route-name" fxHide.gt-sm>
             {{navItemMap.get("/" + currentRouteName)}}
         </div> -->
     </div>
-    <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm>
+    <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu>
         {{navItemMap.get("/" + currentRouteName)}}
     </div>
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxHide.lt-md>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxHide.lt-md >
         <div class="web-toolbar-spacer"></div>
             <div class="web-menu-wrapper web-nav-item"
                 [routerLink]='"/"'
@@ -29,7 +29,7 @@
                         [routerLinkActiveOptions]="{exact: true}"
                         src="assets/his-logo-white.png" 
                         alt="Logo" 
-                        class="home-logo" fxFlex/>
+                        class="home-logo" fxFlex appPreventContextMenu/>
                 </a>
             </div>
             <div class="web-toolbar-spacer"></div>
@@ -41,13 +41,13 @@
                 [routerLinkActiveOptions]="{exact: true}"
                 fxLayout="row" fxLayoutAlign="center center">
                 <a mat-icon-button>  
-                    <div>{{navItem.label}}</div>
+                    <div appPreventContextMenu>{{navItem.label}}</div>
                 </a>
             </div>
             <div class="web-toolbar-spacer"></div>
         </ng-container>
     </div>
-    <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper">
+    <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" appPreventContextMenu>
         <mat-icon class="menu">
             apps
         </mat-icon>

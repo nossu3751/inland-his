@@ -35,6 +35,8 @@ import { LogoSvgComponent } from './components/shared/logo-svg/logo-svg.componen
 import { FlexContainerComponent } from './components/shared/flex-container/flex-container.component';
 import { FlexItemComponent } from './components/shared/flex-item/flex-item.component';
 import { CardComponent } from './components/shared/card/card.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { PreventContextMenuDirective } from './directives/prevent-context-menu.directive';
 
 
 // import { Mat}
@@ -67,7 +69,8 @@ import { CardComponent } from './components/shared/card/card.component';
     FlexContainerComponent,
     FlexItemComponent,
     CardComponent,
-  
+    SafeUrlPipe,
+    PreventContextMenuDirective,
   ],
   imports: [
     BrowserModule,

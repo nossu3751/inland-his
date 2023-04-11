@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
     }
 
   name = 'User';
-  title = 'inland-his'
+  title = '인랜드히즈'
   isLoading = false;
   ptrIndicator = '<div class="indicator"></div>';
   screenSizeClass = '';

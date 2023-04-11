@@ -15,6 +15,12 @@
 //     padding-bottom: calc(var(--nav-height) * 1.2 * 1.2 + env(safe-area-inset-bottom));
 // }
 
+:host {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
 
 
 .spinner-container {
