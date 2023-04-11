@@ -1,21 +1,58 @@
-<!-- <app-block class="test-div">
-    Hello
-</app-block>
-<app-block class="test-div2">
-    Hi
-</app-block> -->
-<!-- <app-block fxLayoutAlign="center center"> -->
+
 <app-block>
     <app-carousel></app-carousel>
 </app-block>
-<app-flex-container>
-    <app-flex-item>
-        <app-card marginTop="0" marginRight="0.5em"></app-card>
-    </app-flex-item>
-    <app-flex-item>
-        <app-card marginTop="0" marginRight="0.5em" marginLeft="0.5em"></app-card>
-    </app-flex-item>
-    <app-flex-item>
-        <app-card marginTop="0" marginLeft="0.5em"></app-card>
-    </app-flex-item>
-</app-flex-container>
+<app-block>
+    <app-flex-container>
+        <app-flex-item>
+            <app-card marginTop="0" marginRight="0.34em" height="75px" alignItems="center" justifyContent="center" hoveredBackgroundColor="#fff3f2">
+                <img src="assets/social-media-logos/youtube-logo.png" height="60%"/>
+            </app-card>
+        </app-flex-item>
+        <app-flex-item>
+            <app-card marginTop="0" marginRight="0.66em" marginLeft="0.66em" height="75px" alignItems="center" justifyContent="center" hoveredBackgroundColor="#fef2ff">
+                <img src="assets/social-media-logos/instagram-logo.png" height="60%"/>
+            </app-card>
+        </app-flex-item>
+        <app-flex-item>
+            <app-card marginTop="0" marginLeft="0.34em" height="75px" alignItems="center" justifyContent="center" hoveredBackgroundColor="#f3f2ff">
+                <img src="assets/social-media-logos/facebook-logo.png" height="60%"/>
+            </app-card>
+        </app-flex-item>
+    </app-flex-container>
+</app-block>
+<app-block fxHide.lt-md>
+    <app-flex-container>
+        <app-flex-item>
+            <app-card marginTop="0" marginRight="0.25em"></app-card>
+        </app-flex-item>
+        <app-flex-item>
+            <app-card marginTop="0" marginRight="0.5em" marginLeft="0.75em"></app-card>
+        </app-flex-item>
+        <app-flex-item>
+            <app-card marginTop="0" marginRight="0.75em" marginLeft="0.5em"></app-card>
+        </app-flex-item>
+        <app-flex-item>
+            <app-card marginTop="0" marginLeft="0.25em"></app-card>
+        </app-flex-item>
+    </app-flex-container>
+</app-block>
+<app-block fxHide.gt-sm>
+    <app-flex-container>
+        <app-flex-item>
+            <app-card marginTop="0" marginRight="0.5em"></app-card>
+        </app-flex-item>
+        <app-flex-item>
+            <app-card marginTop="0" marginLeft="0.5em"></app-card>
+        </app-flex-item>
+    </app-flex-container>
+    <app-flex-container>
+        <app-flex-item>
+            <app-card marginTop="0" marginRight="0.5em"></app-card>
+        </app-flex-item>
+        <app-flex-item>
+            <app-card marginTop="0" marginLeft="0.5em"></app-card>
+        </app-flex-item>
+    </app-flex-container>
+</app-block>
+

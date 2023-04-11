@@ -1,4 +1,8 @@
-<div [ngStyle]="{
+<div 
+    (mouseenter)="isHovered = true;"
+    (mouseleave)="isHovered = false"
+
+    [ngStyle]="{
         'height':height,
         'box-shadow':boxShadow,
         'border-radius':borderRadius,
@@ -6,10 +10,12 @@
         'margin-right':marginRight,
         'margin-top':marginTop,
         'margin-bottom':marginBottom,
-        'border-color':'#eee',
-        'align-items': 'stretch',
-        'justify-content': 'stretch',
+        'border-color': borderColor,
         'border-style': 'solid',
-        'border-width': '1px'}">
+        'border-width': '1px',
+        'background-color': isHovered ? hoveredBackgroundColor : backgroundColor,
+        'align-items':alignItems,
+        'justify-content':justifyContent,
+        'display':display}">
     <ng-content></ng-content>
 </div>
