@@ -1,6 +1,6 @@
 import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { NgModule, isDevMode} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -37,8 +37,26 @@ import { FlexItemComponent } from './components/shared/flex-item/flex-item.compo
 import { CardComponent } from './components/shared/card/card.component';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { PreventContextMenuDirective } from './directives/prevent-context-menu.directive';
-
-
+import { BibleSvgComponent } from './components/shared/svg/bible-svg/bible-svg.component';
+import { NoteSvgComponent } from './components/shared/svg/note-svg/note-svg.component';
+import { LeafletSvgComponent } from './components/shared/svg/leaflet-svg/leaflet-svg.component';
+import { PrayerSvgComponent } from './components/shared/svg/prayer-svg/prayer-svg.component';
+import { LoginComponent } from './components/core/login/login.component';
+import { SigninComponent } from './components/core/signin/signin.component';
+import { NewComerFormComponent } from './components/core/new-comer-form/new-comer-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { RouteModalComponent } from './components/shared/route-modal/route-modal.component';
+import { MatDialogModule} from '@angular/material/dialog';
+import { RouteModalOpenLogicDirective } from './directives/route-modal-open-logic.directive';
+import { CloseButtonComponent } from './components/shared/close-button/close-button.component';
+import { VideoAreaComponent } from './components/core/video-area/video-area.component'
+import { HttpClientModule } from '@angular/common/http';
+import { YouTubePlayer, YouTubePlayerModule } from '@angular/youtube-player';
+import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
+import { VideoListComponent } from './components/shared/video-list/video-list.component';
 // import { Mat}
 
 
@@ -71,6 +89,19 @@ import { PreventContextMenuDirective } from './directives/prevent-context-menu.d
     CardComponent,
     SafeUrlPipe,
     PreventContextMenuDirective,
+    BibleSvgComponent,
+    NoteSvgComponent,
+    LeafletSvgComponent,
+    PrayerSvgComponent,
+    LoginComponent,
+    SigninComponent,
+    NewComerFormComponent,
+    RouteModalComponent,
+    RouteModalOpenLogicDirective,
+    CloseButtonComponent,
+    VideoAreaComponent,
+    VideoPlayerComponent,
+    VideoListComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +121,15 @@ import { PreventContextMenuDirective } from './directives/prevent-context-menu.d
     FlexLayoutModule,
     HammerModule,
     NgxPullToRefreshModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    HttpClientModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

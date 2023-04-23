@@ -1,15 +1,21 @@
-<div class="card image">
+<div class="card image" [ngStyle]="{
+  'margin-bottom':marginBottom,
+  'margin-top':marginTop,
+  'margin-left':marginLeft,
+  'margin-right':marginRight
+}">
    <div class="carousel">
-    <div class="slides">
+    <div class="slides" [ngStyle]="{'height':height, 'width':width}">
       <div *ngFor="let image of images; let i = index" 
         class="slide" 
         [ngClass]="{ 'active': i === currentSlideIndex, 'previous': i === previousSlideIndex, 'next': i === nextSlideIndex }">
             <img [src]="image" class="slide-image" height="100%" style="position: absolute"/>
+            <div class="page-indicator">{{(i+1) + " of " + images.length}}</div>
       </div>
     </div>
     <div class="indicators">
       <div *ngFor="let image of images; let i = index" 
-           class="indicator" 
+           class="indicator" [ngStyle]="{'height':indicatorSize, 'width':indicatorSize}"
            [ngClass]="{ 'active': i === currentSlideIndex }" 
            (click)="currentSlideIndex = i"></div>
     </div>

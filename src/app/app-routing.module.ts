@@ -10,6 +10,8 @@ import { MinistriesComponent } from './ministries/ministries.component';
 import { VersesComponent } from './verses/verses.component';
 import { BulletinComponent } from './components/core/bulletin/bulletin.component';
 import { NewComerComponent } from './components/core/new-comer/new-comer.component';
+import { LoginComponent } from './components/core/login/login.component';
+import { SigninComponent } from './components/core/signin/signin.component';
 // ...
 
 const routes: Routes = [
@@ -20,7 +22,10 @@ const routes: Routes = [
   { path: 'ministries', component: MinistriesComponent },
   { path: 'verses', component: VersesComponent },
   { path: 'bulletin', component: BulletinComponent},
-  { path: 'new-comer', component: NewComerComponent}
+  { path: 'new-comer', component: NewComerComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'signin', component: SigninComponent}
+  
 ];
 
 @NgModule({

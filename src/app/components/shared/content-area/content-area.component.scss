@@ -10,10 +10,10 @@
     display: block;
     overflow-x: hidden;
     overflow-y: scroll;
-    height: calc(var(--html-height) - (var(--nav-height) + var(--nav-height))  - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
+    height: calc(var(--html-height) - (var(--nav-height) + var(--nav-height))  - env(safe-area-inset-top) - env(safe-area-inset-bottom));
     // height: 100vh;
 }
 
 .content-area.large-screen {
-    height: calc(100vh - var(--nav-height) * 1.2 - env(safe-area-inset-bottom));
+    height: calc(var(--html-height) - var(--nav-height) * 1.2 - env(safe-area-inset-bottom));
 }

@@ -1,0 +1,22 @@
+<div class="video-player-area">
+    <div class="video-player">
+        <div class="video-screen-area" 
+            #videoPlaceholderRef 
+            [ngStyle]="{
+                'height': playerHeight
+            }">
+            <youtube-player 
+                *ngIf="apiLoaded && videoId"
+                [disableCookies]="true"
+                [videoId]="videoId"
+                [width]="videoWidth"
+                [height]="videoHeight"
+                [playerVars]="{
+                    color: 'white',
+                    rel: 0
+                }">
+                Hello
+            </youtube-player>
+        </div>
+    </div>
+</div>

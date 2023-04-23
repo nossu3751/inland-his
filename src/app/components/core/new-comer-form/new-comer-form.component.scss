@@ -1,0 +1,54 @@
+input, textarea {
+    width: 100%;
+    border: none;
+    height: 2em;
+    border-image:none;
+    border-radius: 1em;
+    appearance: none;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: rgb(209, 181, 255);
+    padding: 0 1em 0 1em;
+    color: rgb(209, 181, 255)
+}
+
+textarea {
+    resize: none;
+    height: 10em;
+}
+
+input:focus {
+    outline-color: var(--primary-color) !important;
+    outline-width: 2.5px;
+}
+
+label {
+    font-size: large;
+    font-weight: 900;
+    margin-top: 1.5em;
+    color: rgb(137, 100, 196)
+}
+
+button {
+    height: 3em;
+    padding: 1em 1em 1em 1em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(137, 100, 196);
+    background-color: inherit;
+    border-radius: 1em;
+    color: rgb(137, 100, 196);
+    border-width: 2px;
+    border-style: solid;
+    font-weight: 900;
+    
+}
+
+button:disabled {
+    border-style: dashed;
+    border-color: rgb(209, 181, 255);
+    color: rgb(209, 181, 255);
+    font-weight: 500;
+}

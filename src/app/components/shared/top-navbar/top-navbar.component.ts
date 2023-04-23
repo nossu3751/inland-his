@@ -34,7 +34,8 @@ export class TopNavbarComponent implements OnInit{
     { route: '/offering', label:"헌금" },
     { route: '/verses', label: "말씀"},
     { route: '/new-comer', label: "새신자등록"},
-    { route: '/bulletin', label: "주보"}
+    { route: '/bulletin', label: "주보"},
+    { route: '/login', label: "Login"}
   ]
 
   navItemMap = new Map<string, string>([

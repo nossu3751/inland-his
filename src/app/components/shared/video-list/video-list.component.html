@@ -1,0 +1,33 @@
+
+<div class="video-list-container-block">
+    <div class="video-list-area-block">
+        <div  class="video-item-block" *ngFor="let video of videos; let i = index" (click)="onVideoClick(i)">
+            <div class="video-thumbnail-area-inline-block">
+                <img style="width:100%" [src]="video.thumbnail_url" [alt]="'video thumbnail' + i"/>
+            </div>
+            <div class="video-description-area-inline-block">
+                <div>{{video.title.substring(0,50) + "..."}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="test">
+    <div class="video-list-area">
+        <div  class="video-item" *ngFor="let video of videos; let i = index" (click)="onVideoClick(i)">
+            <div class="video-thumbnail-area">
+                <img style="width:100%" [src]="video.thumbnail_url" [alt]="'video thumbnail' + i"/>
+            </div>
+            <div class="video-description-area">
+                <div>{{video.title.substring(0,50) + "..."}}</div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <ul class="video-list-container">
+    <li *ngFor="let video of videos; let i = index" (click)="onVideoClick(i)">
+        <img [src]="video.thumbnail_url" [alt]="'video thumbnail' + i"/>
+        <div>{{video.title}}</div>
+    </li>
+</ul> -->

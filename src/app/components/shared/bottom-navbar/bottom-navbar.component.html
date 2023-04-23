@@ -15,17 +15,17 @@
 
         <div class="mobile-toolbar-spacer"></div>
             
-            <a mat-icon-button appPreventContextMenu
-                [routerLink]="navItem.route" 
-                [matTooltip]="navItem.tooltip">
+        <a mat-icon-button appPreventContextMenu
+            [routerLink]="navItem.route" 
+            [matTooltip]="navItem.tooltip">
             <div 
                 class="icon-wrapper" 
                 routerLinkActive="active-link"
                 [routerLinkActiveOptions]="{exact: true}">  
                 <mat-icon>{{ navItem.icon }}</mat-icon>
                 <div class="icon-label">{{ navItem.label }}</div>
-                </div>
-            </a>
+            </div>
+        </a>
         <div class="mobile-toolbar-spacer"></div>
     </ng-container>
 </mat-toolbar>

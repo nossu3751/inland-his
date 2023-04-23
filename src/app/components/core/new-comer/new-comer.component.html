@@ -1,1 +1,15 @@
-<p>new-comer works!</p>
+<app-block fxHide.gt-sm class="modal-view" > 
+    <app-close-button (click)="closeAndGoBack()"></app-close-button>
+    <app-flex-container alignItems="center" justifyContent="center" class="title">
+        새신자 등록
+    </app-flex-container>
+    <app-flex-container justifyContent="center" style="padding-top:5em;">
+        
+        <app-new-comer-form></app-new-comer-form>
+    </app-flex-container>
+</app-block>
+<app-block>
+    <app-flex-container justifyContent="center">
+        <app-new-comer-form></app-new-comer-form>
+    </app-flex-container>
+</app-block>

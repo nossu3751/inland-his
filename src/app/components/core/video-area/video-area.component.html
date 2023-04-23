@@ -1,0 +1,22 @@
+
+<app-flex-container 
+    fxHide.lt-md 
+    alignItems="stretch" 
+    justifyContent="flex-start">
+    <app-flex-item flex="0 0 60%">
+        <app-block paddingBottom="1em" paddingLeft="1em" paddingRight="1em">
+           <app-video-player *ngIf="selectedVideoIndex != null" [videoId]="liveStreams[selectedVideoIndex].video_id"></app-video-player>
+        </app-block>
+    </app-flex-item>
+    <app-flex-item flex="0 0 40%">
+        <app-block paddingRight="1em" paddingBottom="1em" width="100%">
+                <app-video-list 
+                    [videos]="liveStreams"
+                    (videoSelected)="onVideoSelected($event)">
+                </app-video-list>
+        </app-block>
+    </app-flex-item>
+</app-flex-container>
+<div fxHide.gt-sm>
+
+</div>

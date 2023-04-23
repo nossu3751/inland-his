@@ -1,11 +1,13 @@
 import { Component, OnInit, HostListener, Renderer2, ElementRef } from '@angular/core';
 import { ScreenSizeService } from './services/view/screen-size.service'
 import { HoverService } from './services/view/hover.service';
+import { routeAnimations} from 'src/animations/route-animations'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [routeAnimations]
 })
 export class AppComponent implements OnInit{
   constructor(
@@ -22,6 +24,14 @@ export class AppComponent implements OnInit{
   ptrIndicator = '<div class="indicator"></div>';
   screenSizeClass = '';
   isHovered = false;
+
+  prepareRoute(outlet: any) {
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData['animation']
+    )
+  }
 
   ngOnInit() {
     // this.checkScreenSize();

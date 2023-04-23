@@ -47,11 +47,16 @@ $carousel-indicator-width: 3px;
 :root {
     --primary-color: #8a3dff;
     --secondary-color: #bb9cff;
+    --tertiary-color: #ede0ff;
     --other-color-1: #fff;
     --nav-item-color: #aaa;
     --nav-item-color-hover: #666;
     --nav-logo-ratio: 0.7;
     --nav-height: 56px;
+}
+
+app-root {
+  min-height: 100vh;
 }
 
 body {
@@ -128,4 +133,26 @@ img {
   -ms-user-select: none;
   pointer-events: none;
   // touch-action: manipulation;
+}
+
+.modal-view {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  height: var(--html-height);
+  width: var(--html-width);
+  z-index: 10000;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+iframe {
+  border-radius: 0.25em;
+}
+
+li {
+  list-style: none;
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-new-comer',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-comer.component.scss']
 })
 export class NewComerComponent {
-
+  constructor(private location: Location) {}
+  closeAndGoBack() {
+    this.location.back();
+  }
 }

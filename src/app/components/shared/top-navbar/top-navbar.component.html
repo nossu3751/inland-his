@@ -5,16 +5,12 @@
     (mouseenter)="updateHoverStatus(true)"
     (mouseleave)="updateHoverStatus(false)" >
 
-    <div fxLayout="row" fxLayoutAlign="start center" class="web-menu-wrapper">
-        <!-- <img fxHide.gt-sm src="assets/his-logo-white.png" alt="Logo" class="logo" fxFlex /> -->
-        <!-- <img src="assets/his-logo-white.png" alt="Logo" class="mobile-logo" fxFlex fxHide.gt-sm/> -->
-        <!-- <img src="assets/his-logo-white.png" alt="Logo" class="logo" fxFlex/> -->
-        <mat-icon class="account" appPreventContextMenu>
-            person
+    <div fxLayout="row" fxLayoutAlign="start center" class="web-menu-wrapper" >
+        
+        <mat-icon class="account" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm>
+            mood
         </mat-icon>
-        <!-- <div class="top-bar-route-name" fxHide.gt-sm>
-            {{navItemMap.get("/" + currentRouteName)}}
-        </div> -->
+
     </div>
     <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu>
         {{navItemMap.get("/" + currentRouteName)}}
@@ -32,7 +28,7 @@
                         class="home-logo" fxFlex appPreventContextMenu/>
                 </a>
             </div>
-            <div class="web-toolbar-spacer"></div>
+        <div class="web-toolbar-spacer"></div>
         <ng-container *ngFor="let navItem of webNavItems">
             <div class="web-toolbar-spacer"></div>
             <div class="web-menu-wrapper web-nav-item"
@@ -41,15 +37,21 @@
                 [routerLinkActiveOptions]="{exact: true}"
                 fxLayout="row" fxLayoutAlign="center center">
                 <a mat-icon-button>  
-                    <div appPreventContextMenu>{{navItem.label}}</div>
+                    <div appPreventContextMenu 
+                         *ngIf="navItem.label !== 'Login'; else loginButton">{{navItem.label}}</div>
+                    <ng-template #loginButton>
+                        <div appPreventContextMenu 
+                          class="login-button">{{navItem.label}}</div>
+                    </ng-template>
                 </a>
             </div>
             <div class="web-toolbar-spacer"></div>
         </ng-container>
     </div>
-    <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" appPreventContextMenu>
-        <mat-icon class="menu">
-            apps
+    <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" appPreventContextMenu >
+        <mat-icon class="menu" style="color:var(--secondary-color)" fxHide.gt-sm>
+            notifications
+            <!-- login -->
         </mat-icon>
     </div>
-</mat-toolbar>
+</mat-toolbar> 

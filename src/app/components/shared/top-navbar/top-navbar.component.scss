@@ -44,7 +44,7 @@
 }
 
 .web-menu-wrapper.web-nav-item {
-    padding:0 3rem 0 3rem;
+    padding:0 calc(var(--html-width) / 30) 0 calc(var(--html-width) / 30);
 }
 
 .web-menu-wrapper a {
@@ -89,4 +89,16 @@
     font-size: 1.3em;
     font-weight: 700;
     color: var(--secondary-color);
+}
+
+.login-button {
+    border-style: solid;
+    border-width: 1.5px;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em 0.25em 0.5em;
+    transition: border-width 0.2s ease-in-out;
+}
+
+.web-menu-wrapper:hover .login-button {
+    border-width: 2.5px;
 }

@@ -1,0 +1,41 @@
+<app-flex-item width="100%">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <app-flex-item width="100%" flexDirection="column">
+            <div> 
+                <label for="name">이름</label>
+                <input id="name" type="text" formControlName="name">
+            </div>
+            <div>
+                <label for="email">이메일</label>
+                <input id="email" type="email" formControlName="email">
+            </div>
+            <div>
+                <label for="message">방문경로</label>
+            <textarea id="message" formControlName="message"></textarea>
+            </div>
+            <div>
+                
+                    <label>생년월일</label>
+                    <input matInput [matDatepicker]="birthdayPicker" formControlName="birthday" (click)="birthdayPicker.open()">
+                    <mat-datepicker #birthdayPicker></mat-datepicker>
+                  
+                <!-- <label for="birthday">Birthday:</label>
+                <input id="birthday" formControlName="birthday"> -->
+            </div>
+            <div>
+                <label for="dateOfVisit">방문일자</label>
+                <input matInput [matDatepicker]="visitDatePicker" formControlName="dateOfVisit" (click)="visitDatePicker.open()">
+                <mat-datepicker #visitDatePicker></mat-datepicker>
+            </div>
+        </app-flex-item>
+        <app-block style="text-align: center; margin-top: 1em;">
+            <app-flex-container justifyContent="center" alignItems="center">
+                <button type="submit" [disabled]="!form.valid">
+                    등록하기
+                </button>
+            </app-flex-container>
+        </app-block>
+        
+    </form>
+</app-flex-item>
+

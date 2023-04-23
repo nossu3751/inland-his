@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-flex-item',
@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./flex-item.component.scss']
 })
 export class FlexItemComponent {
+  @Input() 
+  @HostBinding('style.flex-direction')
+  flexDirection:string = "row";
+
+  @Input() 
+  @HostBinding('style.width')
+  width:string = "auto"
+
+  @Input()
+  @HostBinding('style.flex')
+  flex:string = "1"
+
+  @Input()
+  @HostBinding('style.align-items')
+  alignItems:string = "stretch"
 
 }

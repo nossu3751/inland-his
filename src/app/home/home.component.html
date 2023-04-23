@@ -1,58 +1,181 @@
-
 <app-block>
-    <app-carousel></app-carousel>
-</app-block>
-<app-block>
-    <app-flex-container>
-        <app-flex-item>
-            <app-card marginTop="0" marginRight="0.34em" height="75px" alignItems="center" justifyContent="center" hoveredBackgroundColor="#fff3f2" href="https://www.youtube.com/@inland_his" appPreventContextMenu>
-                <img src="assets/social-media-logos/youtube-logo.png" height="60%"/>
-            </app-card>
-        </app-flex-item>
-        <app-flex-item>
-            <app-card marginTop="0" marginRight="0.66em" marginLeft="0.66em" height="75px" alignItems="center" justifyContent="center" hoveredBackgroundColor="#fef2ff" href="https://www.instagram.com/inlandhisministry/" appPreventContextMenu>
-                <img src="assets/social-media-logos/instagram-logo.png" height="60%"/>
-            </app-card>
-        </app-flex-item>
-        <app-flex-item>
-            <app-card marginTop="0" marginLeft="0.34em" height="75px" alignItems="center" justifyContent="center" hoveredBackgroundColor="#f3f2ff" href="https://www.facebook.com/groups/161659807316928" appPreventContextMenu>
-                <img src="assets/social-media-logos/facebook-logo.png" height="60%"/>
-            </app-card>
-        </app-flex-item>
-    </app-flex-container>
-</app-block>
-<app-block fxHide.lt-md>
-    <app-flex-container>
-        <app-flex-item>
-            <app-card marginTop="0" marginRight="0.25em"></app-card>
-        </app-flex-item>
-        <app-flex-item>
-            <app-card marginTop="0" marginRight="0.5em" marginLeft="0.75em"></app-card>
-        </app-flex-item>
-        <app-flex-item>
-            <app-card marginTop="0" marginRight="0.75em" marginLeft="0.5em"></app-card>
-        </app-flex-item>
-        <app-flex-item>
-            <app-card marginTop="0" marginLeft="0.25em"></app-card>
-        </app-flex-item>
-    </app-flex-container>
+    <app-card 
+        height="3em" 
+        marginBottom="1em" 
+        marginTop="1em" 
+        alignItems="center" 
+        justifyContent="center"
+        [routerLink]="['/new-comer']">
+        
+        <div class="card-menu-text">
+            새신자 등록하기
+        </div>
+    </app-card>
 </app-block>
 <app-block fxHide.gt-sm>
-    <app-flex-container>
-        <app-flex-item>
-            <app-card marginTop="0" marginRight="0.5em"></app-card>
-        </app-flex-item>
-        <app-flex-item>
-            <app-card marginTop="0" marginLeft="0.5em"></app-card>
-        </app-flex-item>
-    </app-flex-container>
-    <app-flex-container>
-        <app-flex-item>
-            <app-card marginTop="0" marginRight="0.5em"></app-card>
-        </app-flex-item>
-        <app-flex-item>
-            <app-card marginTop="0" marginLeft="0.5em"></app-card>
-        </app-flex-item>
-    </app-flex-container>
+    <app-block> 
+        <app-carousel marginTop="0" indicatorSize="20px"></app-carousel>
+    </app-block>
+    <app-block>
+        <app-flex-container>
+            <app-flex-item>
+                <app-card marginTop="0" marginRight="0.34em" height="75px" hoveredBackgroundColor="#fff3f2" href="https://www.youtube.com/@inland_his">
+                    <img src="assets/social-media-logos/youtube-logo.png" height="60%"/>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card marginTop="0" marginRight="0.66em" marginLeft="0.66em" height="75px" hoveredBackgroundColor="#fef2ff" href="https://www.instagram.com/inlandhisministry/">
+                    <img src="assets/social-media-logos/instagram-logo.png" height="60%"/>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card marginTop="0" marginLeft="0.34em" height="75px" hoveredBackgroundColor="#f3f2ff" href="https://www.facebook.com/groups/161659807316928">
+                    <img src="assets/social-media-logos/facebook-logo.png" height="60%"/>
+                </app-card>
+            </app-flex-item>
+        </app-flex-container>
+    </app-block>
+    <app-block>
+        <app-flex-container>
+            <app-flex-item>
+                <app-card height="150px" marginTop="0" marginRight="0.5em" background="src/assets/church-icons/bible-icon.svg" >
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <app-leaflet-svg size="3em" color="var(--nav-item-color)"></app-leaflet-svg>
+                        </app-block>
+                        <app-block>
+                            이번주 주보
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card height="150px" marginTop="0" marginLeft="0.5em">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <app-note-svg size="3em" color="var(--nav-item-color)"></app-note-svg>
+                        </app-block>
+                        <app-block>
+                            이번주 셀노트
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+        </app-flex-container> 
+        <app-flex-container>
+            <app-flex-item>
+                <app-card height="150px" marginTop="0" marginRight="0.5em">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg>
+                        </app-block>
+                        <app-block>
+                            오늘의 말씀
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card height="150px" marginTop="0" marginLeft="0.5em">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <app-prayer-svg size="3em" color="var(--nav-item-color)"></app-prayer-svg>
+                        </app-block>
+                        <app-block>
+                            공동체 기도제목
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+        </app-flex-container>
+    </app-block>    
 </app-block>
+<app-block fxHide.lt-md>
+    <app-block>
+        <app-flex-container>
+            <app-flex-item width="60%" flex="1 0 auto">
+                <app-block> 
+                    <app-carousel marginTop="0" indicatorSize="20px" width="100%"></app-carousel>
+                </app-block>
+            </app-flex-item>
+            <app-flex-item flexDirection="column" width="15em" flex="0 1 auto">
+                <app-block height="100%">
+                    <app-card marginTop="0" marginRight="1em" marginLeft="0"height="calc(100% - 1em)">
+                        <div class="card-menu-text">
+                            <app-block class="church-icon">
+                                <app-leaflet-svg size="3em" color="var(--nav-item-color)"></app-leaflet-svg>
+                            </app-block>
+                            <app-block>
+                                이번주 주보
+                            </app-block>
+                        </div>
+                    </app-card>
+                </app-block>
+                <app-block height="100%">
+                    <app-card marginTop="0" marginRight="1em" marginLeft="0" height="calc(100% - 1em)">
+                        <div class="card-menu-text">
+                            <app-block class="church-icon">
+                                <app-note-svg size="3em" color="var(--nav-item-color)"></app-note-svg>
+                            </app-block>
+                            <app-block>
+                                이번주 셀노트
+                            </app-block>
+                        </div>
+                    </app-card>
+                </app-block>
+            </app-flex-item>
+            <app-flex-item flexDirection="column" width="15em" flex="0 1 auto">
+                <app-block height="100%">
+                    <app-card marginTop="0" marginLeft="0" height="calc(100% - 1em)">
+                        <div class="card-menu-text">
+                            <app-block class="church-icon">
+                                <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg>
+                            </app-block>
+                            <app-block>
+                                오늘의 말씀
+                            </app-block>
+                        </div>
+                    </app-card>
+                </app-block>
+                <app-block height="100%">
+                    <app-card marginTop="0" marginLeft="0" height="calc(100% - 1em)">
+                        <div class="card-menu-text">
+                            <app-block class="church-icon">
+                                <app-prayer-svg size="3em" color="var(--nav-item-color)"></app-prayer-svg>
+                            </app-block>
+                            <app-block>
+                                공동체 기도제목
+                            </app-block>
+                        </div>
+                    </app-card>
+                </app-block>
+            </app-flex-item>
+        </app-flex-container>
+    </app-block>
+    <app-block>
+        <app-flex-container>
+            <app-flex-item>
+                <app-card marginTop="0" marginRight="0.34em" height="75px" hoveredBackgroundColor="#fff3f2" href="https://www.youtube.com/@inland_his">
+                    <img src="assets/social-media-logos/youtube-logo.png" height="60%"/>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card marginTop="0" marginRight="0.66em" marginLeft="0.66em" height="75px" hoveredBackgroundColor="#fef2ff" href="https://www.instagram.com/inlandhisministry/">
+                    <img src="assets/social-media-logos/instagram-logo.png" height="60%"/>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card marginTop="0" marginLeft="0.34em" height="75px" hoveredBackgroundColor="#f3f2ff" href="https://www.facebook.com/groups/161659807316928">
+                    <img src="assets/social-media-logos/facebook-logo.png" height="60%"/>
+                </app-card>
+            </app-flex-item>
+        </app-flex-container>
+    </app-block>
+    <app-block>
+        <app-video-area></app-video-area>
+    </app-block>
+</app-block>
+
+
+
 

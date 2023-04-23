@@ -7,9 +7,11 @@ import { BehaviorSubject } from 'rxjs';
 export class ScreenSizeService {
   private screenSizeClassSource = new BehaviorSubject<string>('');
   private htmlHeightSource = new BehaviorSubject<number>(0);
+  private htmlWidthSource = new BehaviorSubject<number>(0);
 
   screenSizeClass$ = this.screenSizeClassSource.asObservable();
   htmlHeight$ = this.htmlHeightSource.asObservable();
+  htmlWidth$ = this.htmlWidthSource.asObservable();
 
   constructor() {
     this.checkScreenSize();
@@ -24,6 +26,10 @@ export class ScreenSizeService {
     const htmlHeight = document.documentElement.clientHeight;
     this.htmlHeightSource.next(htmlHeight);
     document.documentElement.style.setProperty('--html-height', htmlHeight + 'px');
+
+    const htmlWidth = document.documentElement.clientWidth;
+    this.htmlWidthSource.next(htmlWidth);
+    document.documentElement.style.setProperty('--html-width', htmlWidth + 'px');
 
   }
 }
