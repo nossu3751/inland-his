@@ -1,20 +1,33 @@
-import { Component, HostListener, OnInit, ChangeDetectorRef, ElementRef, ViewChild, AfterViewInit, AfterViewChecked} from '@angular/core';
+import { 
+  Component, 
+  HostListener, 
+  OnInit, 
+  ChangeDetectorRef, 
+  HostBinding, 
+  AfterViewInit, 
+  AfterViewChecked,
+  ElementRef,
+  ViewChild
+} from '@angular/core';
 import { VideoService } from 'src/app/services/data/video.service';
-import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({
   selector: 'app-video-area',
   templateUrl: './video-area.component.html',
   styleUrls: ['./video-area.component.scss']
 })
-export class VideoAreaComponent implements OnInit, AfterViewInit {
+export class VideoAreaComponent implements OnInit, AfterViewInit, AfterViewChecked {
+
+  @HostBinding('style.height')
+  height:string = "auto";
 
   shorts: any[] = [];
   liveStreams: any[] = [];
   selectedVideoIndex: any;
 
   constructor(
-    private videoService: VideoService){
+    private videoService: VideoService,
+    private changeDetectorRef: ChangeDetectorRef){
   }
 
   onVideoSelected(index: number){
@@ -29,7 +42,11 @@ export class VideoAreaComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-   
+    this.changeDetectorRef.detectChanges();
+  }
+
+  ngAfterViewChecked(): void {
+    this.changeDetectorRef.detectChanges();
   }
 
   

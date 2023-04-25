@@ -57,6 +57,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { YouTubePlayer, YouTubePlayerModule } from '@angular/youtube-player';
 import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
 import { VideoListComponent } from './components/shared/video-list/video-list.component';
+import { NavigateBackDirective } from './directives/navigate-back.directive';
+import { OnlineServiceComponent } from './components/core/online-service/online-service.component';
 // import { Mat}
 
 
@@ -101,7 +103,9 @@ import { VideoListComponent } from './components/shared/video-list/video-list.co
     CloseButtonComponent,
     VideoAreaComponent,
     VideoPlayerComponent,
-    VideoListComponent
+    VideoListComponent,
+    NavigateBackDirective,
+    OnlineServiceComponent
   ],
   imports: [
     BrowserModule,

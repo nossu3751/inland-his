@@ -29,23 +29,26 @@ export class TopNavbarComponent implements OnInit{
 
   webNavItems = [
     // { route: '/', label:"HOME"},
-    { route: '/small_group', label:"셀"},
+    { route: '/small-group', label:"셀"},
     { route: '/ministries', label:"사역"},
     { route: '/offering', label:"헌금" },
     { route: '/verses', label: "말씀"},
     { route: '/new-comer', label: "새신자등록"},
     { route: '/bulletin', label: "주보"},
+    { route: '/online-service', label: "예배"},
     { route: '/login', label: "Login"}
+    
   ]
 
   navItemMap = new Map<string, string>([
     ["/","HOME"],
-    ["/small_group","셀"],
+    ["/small-group","셀"],
     ["/ministries","사역"],
     ["/offering","헌금"],
     ["/verses","말씀"],
     ["/bulletin","주보"],
-    ["/new-comer","새신자등록"]
+    ["/new-comer","새신자등록"],
+    ["/online-service", "예배"]
   ])
 
   private updateCurrentRouteName() {

@@ -1,9 +1,9 @@
-<div class="video-player-area">
-    <div class="video-player">
+<div class="video-player-area" >
+    <div class="video-player" #videoPlayerRef>
         <div class="video-screen-area" 
             #videoPlaceholderRef 
             [ngStyle]="{
-                'height': playerHeight
+                'height': placeholderHeight
             }">
             <youtube-player 
                 *ngIf="apiLoaded && videoId"
@@ -13,7 +13,8 @@
                 [height]="videoHeight"
                 [playerVars]="{
                     color: 'white',
-                    rel: 0
+                    rel: 0,
+                    autoplay: 0,
                 }">
                 Hello
             </youtube-player>

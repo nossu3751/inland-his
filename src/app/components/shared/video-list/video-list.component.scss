@@ -1,24 +1,11 @@
 :host {
     width: 100%;
-    height: 100%;
-    
-}
-
-.video-list-container {
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    border-radius: 0.25em;
-    border-style: solid;
-    border-color: #eee;
-    background-color: white;
-    align-self:stretch;
 }
 
 .video-list-container-block {
     display:block;
     width: 100%;
-    height: 100%;
+    height: 350px;
     border-radius: 0.25em;
     border-style: solid;
     border-color: #eee;
@@ -31,7 +18,7 @@
 .video-list-area-block {
     display:block;
     width:100%;
-    height: calc(100% - 2em);
+    height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
     border-top: 1px solid #eee;
@@ -71,9 +58,8 @@
 }
 
 .video-list-area {
-    display:block;
-    width:100%;
-    // flex: 0 0 100%;
+    
+    flex: 0 0 100%;
     height: calc(100% - 2em);
     // overflow-x: hidden;
     // overflow-y: scroll;
