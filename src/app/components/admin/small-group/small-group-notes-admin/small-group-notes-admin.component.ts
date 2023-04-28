@@ -5,28 +5,22 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { stringify } from 'flatted';
 import { parse } from 'node-html-parser';
 
-function customInputButton(context: any) {
 
-    console.log($);
-    if ($ == undefined) {
-      console.log("$ is undefined");
-    }
-    console.log($.summernote);
-    const ui = $.summernote.ui;
-    if (ui == undefined) {
-      console.log("ui not defined");
-    }
-    const button = ui.button({
-      contents: 'Input',
-      tooltip: 'Insert input placeholder',
-      container: '.note-editor',
-      className: 'note-btn',
-      click: function () {
-        const inputPlaceholder = '<span class="input-placeholder" contenteditable="false">[Input] <button class="remove-input-placeholder" type="button">x</button></span>';
-        context.invoke('editor.insertText', inputPlaceholder);
-      },
-    });
-    return button.render();
+function customInputButton(context:any) {
+  const ui = $.summernote.ui;
+  const button = ui.button({
+    contents: '입력란',
+    tooltip: 'Insert input placeholder',
+    container: '.note-editor',
+    className: 'note-btn',
+    click: function () {
+      const inputPlaceholder = '<span class="input-placeholder" contenteditable="false">입력란<button class="remove-input-placeholder" type="button">X</button></span>';
+      const node = document.createElement('div');
+      node.innerHTML = inputPlaceholder;
+      context.invoke('editor.insertNode', node.firstChild);
+    },
+  });
+  return button.render();
 }
 
 @Component({
@@ -40,6 +34,7 @@ export class SmallGroupNotesAdminComponent implements AfterViewInit, OnInit {
   constructor(private notesService: SmallGroupNoteService){}
 
   config: any;
+  content: string = ""
 
   handleFileInput(event: Event){
     const files = (event.target as HTMLInputElement).files;
@@ -65,17 +60,15 @@ export class SmallGroupNotesAdminComponent implements AfterViewInit, OnInit {
       this.config = {
         placeholder: '',
         tabsize: 2,
-        height: 200,
+        height: 600,
         uploadImagePath: '/api/upload',
         
         toolbar: [
-            ['misc', ['codeview', 'undo', 'redo']],
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-            ['fontsize', ['fontname', 'fontsize', 'color']],
-            ['para', ['style', 'ul', 'ol', 'paragraph', 'height']],
-            ['insert', ['table', 'picture', 'link', 'video', 'hr','inputBtn']],
-            // ['customGroup', ['inputBtn']],
+            ['misc', ['undo', 'redo', 'clear']],
+            ['font', ['bold', 'italic', 'underline']],
+            ['fontsize', ['fontname', 'fontsize', 'forecolor', 'backcolor']],
+            ['para', ['style', 'ul', 'ol', 'paragraph']],
+            ['insert', ['picture', 'link', 'inputBtn']],
         ],
     
         buttons: {

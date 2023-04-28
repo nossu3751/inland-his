@@ -156,3 +156,31 @@ iframe {
 li {
   list-style: none;
 }
+
+.input-placeholder {
+  display: inline-block;
+  border: 1.5px dashed var(--secondary-color);
+  padding: 2px 4px;
+  margin: 0 2px;
+  border-radius: 0.25em;
+  background-color: transparent;
+  color: var(--secondary-color);
+}
+
+.remove-input-placeholder {
+  border: none;
+  background: transparent;
+  // font-size: 10px;
+  cursor: pointer;
+  outline: none;
+  border-radius:50%;
+  color: var(--secondary-color)
+}
+
+.note-btn.dropdown-toggle:after {
+  content: none;
+  }
+
+.note-toolbar {
+  background-color: #ffffff !important;
+}

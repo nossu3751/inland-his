@@ -8,4 +8,6 @@
 </ckeditor>
 <button (click)="submitContent()">Submit</button> -->
 
-<div *ngIf="config" [ngxSummernote]="config"></div>
+<div class="editor-area">
+    <div *ngIf="config" [ngxSummernote]="config" [ngxSummernoteView]="content"></div>
+</div>
