@@ -1,0 +1,15 @@
+.input-placeholder {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 2px 4px;
+    margin: 0 2px;
+    background-color: #f9f9f9;
+  }
+  
+  .remove-input-placeholder {
+    border: none;
+    background: transparent;
+    font-size: 10px;
+    cursor: pointer;
+  }
+  

@@ -59,6 +59,11 @@ import { VideoPlayerComponent } from './components/shared/video-player/video-pla
 import { VideoListComponent } from './components/shared/video-list/video-list.component';
 import { NavigateBackDirective } from './directives/navigate-back.directive';
 import { OnlineServiceComponent } from './components/core/online-service/online-service.component';
+import { SmallGroupNotesAdminComponent } from './components/admin/small-group/small-group-notes-admin/small-group-notes-admin.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { SmallGroupNoteComponent } from './components/core/small-group-note/small-group-note.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { NgxSummernoteModule } from 'ngx-summernote';
 // import { Mat}
 
 
@@ -105,7 +110,10 @@ import { OnlineServiceComponent } from './components/core/online-service/online-
     VideoPlayerComponent,
     VideoListComponent,
     NavigateBackDirective,
-    OnlineServiceComponent
+    OnlineServiceComponent,
+    SmallGroupNotesAdminComponent,
+    AdminHomeComponent,
+    SmallGroupNoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -133,7 +141,9 @@ import { OnlineServiceComponent } from './components/core/online-service/online-
     MatNativeDateModule,
     MatDialogModule,
     HttpClientModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    CKEditorModule,
+    NgxSummernoteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

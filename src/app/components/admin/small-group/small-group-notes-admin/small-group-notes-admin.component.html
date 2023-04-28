@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+    <input type="file" (change)="handleFileInput($event)" accept=".docx" />
+    <button type="submit">Upload</button>
+</form>
+
+<!-- my-component.component.html
+<ckeditor [(ngModel)]="editorContent" [config]="editorConfig" (ready)="onReady($event)">
+</ckeditor>
+<button (click)="submitContent()">Submit</button> -->
+
+<div *ngIf="config" [ngxSummernote]="config"></div>

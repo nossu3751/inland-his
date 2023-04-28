@@ -24,11 +24,13 @@
 }
 
 .web-toolbar.large-screen {
-    height: calc(var(--nav-height) * 1.2) !important; 
+    // height: calc(var(--nav-height) * 1.2) !important; 
+    height: var(--nav-height) !important; 
 }
 
 .web-toolbar.large-screen:hover {
-    height: calc(var(--nav-height) * 1.2 * 1.2) !important; 
+    // height: calc(var(--nav-height) * 1.2 * 1.2) !important; 
+    height: calc(var(--nav-height) * 1.2) !important; 
 }
 
 .web-toolbar-spacer {

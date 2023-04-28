@@ -13,6 +13,8 @@ import { NewComerComponent } from './components/core/new-comer/new-comer.compone
 import { LoginComponent } from './components/core/login/login.component';
 import { SigninComponent } from './components/core/signin/signin.component';
 import { OnlineServiceComponent } from './components/core/online-service/online-service.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { SmallGroupNotesAdminComponent } from './components/admin/small-group/small-group-notes-admin/small-group-notes-admin.component';
 // ...
 
 const routes: Routes = [
@@ -26,12 +28,19 @@ const routes: Routes = [
   { path: 'new-comer', component: NewComerComponent},
   { path: 'login', component: LoginComponent},
   { path: 'signin', component: SigninComponent},
-  { path: 'online-service', component: OnlineServiceComponent}
+  { path: 'online-service', component: OnlineServiceComponent},
+  { path: 'admin',
+    component: AdminHomeComponent,
+    children: [
+      {path: 'small-group-note', component: SmallGroupNotesAdminComponent}
+    ]
+  }
   
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
