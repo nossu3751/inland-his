@@ -141,8 +141,8 @@ img {
   left:0;
   right:0;
   bottom:0;
-  height: var(--html-height);
-  width: var(--html-width);
+  height: var(--html-height) !important;
+  width: var(--html-width) !important;
   z-index: 10000;
   background-color: white;
   overflow-x: hidden;

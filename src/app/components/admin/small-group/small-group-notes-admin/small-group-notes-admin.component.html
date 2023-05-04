@@ -1,3 +1,12 @@
+
+<div class="small-group-note-list">
+    <ul *ngFor="let content of contentsJson; let i = index">
+        <li (click)="replaceContent(i)">
+            {{content.title}}
+        </li>
+    </ul>
+</div>
+
 <form class="upload-form" (ngSubmit)="onSubmit()">
     <input type="file" (change)="handleFileInput($event)" accept=".docx" />
     <button type="submit">Upload</button>
@@ -9,8 +18,8 @@
 <button (click)="submitContent()">Submit</button> -->
 
 <div class="editor-area">
-    <div *ngIf="config && content" [ngxSummernote]="config" [(ngModel)]="content" #summernote></div>
+    <div *ngIf="config && content != null" [ngxSummernote]="config" [(ngModel)]="content" #summernote></div>
 </div>
 
-<button (click)="testButton()">Test</button>
-<button (click)="exportToJson()">Export to HTML</button>
+
+<button (click)="updateSmallGroupNote()">Export to HTML</button>

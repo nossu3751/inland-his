@@ -29,10 +29,16 @@ export class SmallGroupNoteService {
     }
   }
 
+  updateData(id: number, data:any){
+    return this.http.patch(`${this.smallGroupNotesUrl}/${id}`, data);
+  }
+
 
   uploadFile(file:File) {
     const formData = new FormData();
     formData.append('small_group_note_file', file)
     return this.http.post(this.uploadUrl, formData)
   }
+
+
 }

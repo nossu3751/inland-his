@@ -1,18 +1,16 @@
-<app-block>
-    <app-card 
-        height="3em" 
+
+<app-block fxHide.gt-sm>
+    <app-block>
+        <app-card height="3em" 
         marginBottom="1em" 
         marginTop="1em" 
         alignItems="center" 
-        justifyContent="center"
-        [routerLink]="['/new-comer']">
-        
-        <div class="card-menu-text">
-            새신자 등록하기
-        </div>
-    </app-card>
-</app-block>
-<app-block fxHide.gt-sm>
+        justifyContent="center" (click)="modalService.openModal(newComerFormComponent)">
+            <div class="card-menu-text">
+                새신자 등록하기
+            </div>
+        </app-card>
+    </app-block>
     <app-block> 
         <app-carousel marginTop="0" indicatorSize="20px"></app-carousel>
     </app-block>
@@ -50,7 +48,7 @@
                 </app-card>
             </app-flex-item>
             <app-flex-item>
-                <app-card height="150px" marginTop="0" marginLeft="0.5em">
+                <app-card height="150px" marginTop="0" marginLeft="0.5em" (click)="modalService.openModal(smallGroupNoteComponent)">
                     <div class="card-menu-text">
                         <app-block class="church-icon">
                             <app-note-svg size="3em" color="var(--nav-item-color)"></app-note-svg>
@@ -94,6 +92,20 @@
     </app-block>
 </app-block>
 <app-block fxHide.lt-md>
+    <app-block>
+        <app-card 
+            height="3em" 
+            marginBottom="1em" 
+            marginTop="1em" 
+            alignItems="center" 
+            justifyContent="center"
+            [routerLink]="['/new-comer']">
+            
+            <div class="card-menu-text">
+                새신자 등록하기
+            </div>
+        </app-card>
+    </app-block>
     <app-block>
         <app-flex-container>
             <app-flex-item width="60%" flex="1 0 auto">
@@ -177,9 +189,9 @@
     <app-block>
         <app-video-area></app-video-area>
     </app-block>
-    <app-block>
+    <!-- <app-block>
         <app-small-group-note></app-small-group-note>
-    </app-block>
+    </app-block> -->
 </app-block>
 
 

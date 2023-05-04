@@ -22,6 +22,7 @@ function customInputButton(context:any) {
   return button.render();
 }
 
+
 function parseNode(node: any): any {
   if (node.nodeType !== 1) {
     if (node.nodeType === 3) {
@@ -96,6 +97,8 @@ export class SmallGroupNotesAdminComponent implements AfterViewInit, OnInit {
   config: any;
   content: any;
   contentsJson: any;
+  contentIndex: number = -1;
+  status:any = "create"
 
   handleFileInput(event: Event){
     const files = (event.target as HTMLInputElement).files;
@@ -141,11 +144,7 @@ export class SmallGroupNotesAdminComponent implements AfterViewInit, OnInit {
       this.smallGroupNoteService.getData().subscribe((data) => {
         console.log(data)
         this.contentsJson = data
-        var content_tmp = this.contentsJson.length > 0 ? this.contentsJson[0]["html_template_data"]["html_string"] : ""
-        const inputPlaceholderRegex = new RegExp("\\[input\\]", 'gi');
-        content_tmp = content_tmp.replace(inputPlaceholderRegex, inputPlaceHolderHtml)
-        this.content = content_tmp
-        console.log(this.content)
+        this.replaceContent(this.contentIndex)
       })
   }
 
@@ -155,17 +154,55 @@ export class SmallGroupNotesAdminComponent implements AfterViewInit, OnInit {
     });
   }
 
-  testButton():void {
-    this.content = "Changed"
-
+  replaceContent(contentIndex:number):void {
+    if(contentIndex == -1){
+      this.content = ""
+    }else{
+      this.contentIndex = contentIndex;
+      var content_tmp = this.contentsJson.length > 0  && this.contentsJson.length > contentIndex ? this.contentsJson[contentIndex]["html_template_data"]["html_string"] : ""
+      const inputPlaceholderRegex = new RegExp("\\[input\\]", 'gi');
+      content_tmp = content_tmp.replace(inputPlaceholderRegex, inputPlaceHolderHtml);
+      this.content = content_tmp;
+      console.log(this.content);
+      // ($(this.summernoteRef?.nativeElement) as any).summernote = this.content
+    }
   }
 
-  exportToJson(): void {
+
+
+  exportToJson(): any {
+    // console.log("content: ", this.content)
     const htmlContent = ($(this.summernoteRef?.nativeElement) as any).summernote('code');
+    // console.log(htmlContent)
     const rootNode = parse(htmlContent);
-    console.log("parsed html", rootNode)
+    // console.log("parsed html", rootNode)
     const parsedContent = parseNode(rootNode);
-    console.log(parsedContent);
+    // console.log(parsedContent);
+    return parsedContent
   }
 
+  updateSmallGroupNote() {
+    const contentIndex = this.contentIndex;
+    const currentContent = this.contentsJson[contentIndex];
+    const smallGroupNoteId = currentContent.id; // Replace with the actual small group note ID
+    let data = {
+      html_template_data: {
+        html_string: this.content,
+        inputs: currentContent.html_template_data.inputs,
+        template: this.exportToJson()
+      }
+    };
+
+    console.log(data)
+  
+    this.smallGroupNoteService.updateData(smallGroupNoteId, data)
+      .subscribe({
+        next: (response) => {
+          console.log('Small group note updated successfully', response);
+        },
+        error: (error) => {
+          console.error('Error updating small group note', error);
+        }
+    });
+  }
 }

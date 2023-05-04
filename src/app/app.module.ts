@@ -64,6 +64,7 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { SmallGroupNoteComponent } from './components/core/small-group-note/small-group-note.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NgxSummernoteModule } from 'ngx-summernote';
+import { CustomModalComponent } from './components/shared/custom-modal/custom-modal.component';
 // import { Mat}
 
 
@@ -114,6 +115,7 @@ import { NgxSummernoteModule } from 'ngx-summernote';
     SmallGroupNotesAdminComponent,
     AdminHomeComponent,
     SmallGroupNoteComponent,
+    CustomModalComponent,
   ],
   imports: [
     BrowserModule,
