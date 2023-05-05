@@ -22,4 +22,8 @@ export class FlexItemComponent {
   @HostBinding('style.align-items')
   alignItems:string = "stretch"
 
+  @Input()
+  @HostBinding('style.justify-content')
+  justifyContent:string = "flex-start"
+
 }

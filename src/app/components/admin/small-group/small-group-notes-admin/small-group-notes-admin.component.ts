@@ -22,7 +22,7 @@ function customInputButton(context:any) {
   return button.render();
 }
 
-
+let inputId = 0
 function parseNode(node: any): any {
   if (node.nodeType !== 1) {
     if (node.nodeType === 3) {
@@ -32,7 +32,8 @@ function parseNode(node: any): any {
         textColor: null,
         textDecoration: null,
         fontWeight: null,
-        children: []
+        children: [],
+        inputId: null
       }
     }
     return null;
@@ -42,7 +43,7 @@ function parseNode(node: any): any {
   const className = node.getAttribute('class');
 
   // Extract style properties
-  const textColor = style ? style.match(/color:\s*([^;]+);?/i) : null;
+  const textColor = style ? style.match(/(?<!-)color:\s*([^;]+);?/i) : null;
   const textDecoration = style ? style.match(/text-decoration:\s*([^;]+);?/i) : null;
   const fontWeight = style ? style.match(/font-weight:\s*([^;]+);?/i) : null;
 
@@ -55,6 +56,7 @@ function parseNode(node: any): any {
     textDecoration: textDecoration ? textDecoration[1] : null,
     fontWeight: fontWeight ? fontWeight[1] : (tagName && tagName.toUpperCase() === 'B') ? 'bold' : null,
     children: [],
+    inputId: null
   };
 
   let hasChildNodes = false;
@@ -62,6 +64,7 @@ function parseNode(node: any): any {
   // Check if the current node is an input-placeholder
   if ((tagName === 'SPAN' || tagName === 'span') && className === 'input-placeholder') {
     result.content = 'input-placeholder';
+    result.inputId = inputId++;
   } else {
     for (const child of node.childNodes) {
       if (child.nodeType === 1) {
@@ -168,8 +171,6 @@ export class SmallGroupNotesAdminComponent implements AfterViewInit, OnInit {
     }
   }
 
-
-
   exportToJson(): any {
     // console.log("content: ", this.content)
     const htmlContent = ($(this.summernoteRef?.nativeElement) as any).summernote('code');
@@ -178,6 +179,7 @@ export class SmallGroupNotesAdminComponent implements AfterViewInit, OnInit {
     // console.log("parsed html", rootNode)
     const parsedContent = parseNode(rootNode);
     // console.log(parsedContent);
+    inputId = 0;
     return parsedContent
   }
 
@@ -185,10 +187,18 @@ export class SmallGroupNotesAdminComponent implements AfterViewInit, OnInit {
     const contentIndex = this.contentIndex;
     const currentContent = this.contentsJson[contentIndex];
     const smallGroupNoteId = currentContent.id; // Replace with the actual small group note ID
+    const numInput = this.content.split(inputPlaceHolderHtml).length - 1;
+    console.log(numInput)
+    
+    let inputMap = new Map<Number, string>()
+    for (let i = 0; i < numInput; i++) {
+      inputMap.set(i, "") 
+    }
     let data = {
       html_template_data: {
         html_string: this.content,
-        inputs: currentContent.html_template_data.inputs,
+        // inputs: currentContent.html_template_data.inputs,
+        inputs: Object.fromEntries(inputMap),
         template: this.exportToJson()
       }
     };

@@ -65,6 +65,8 @@ import { SmallGroupNoteComponent } from './components/core/small-group-note/smal
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NgxSummernoteModule } from 'ngx-summernote';
 import { CustomModalComponent } from './components/shared/custom-modal/custom-modal.component';
+import { ContentViewComponent } from './components/shared/content-view/content-view.component';
+import { SmallGroupJsonParseComponent } from './components/core/small-group-json-parse/small-group-json-parse.component';
 // import { Mat}
 
 
@@ -116,6 +118,8 @@ import { CustomModalComponent } from './components/shared/custom-modal/custom-mo
     AdminHomeComponent,
     SmallGroupNoteComponent,
     CustomModalComponent,
+    ContentViewComponent,
+    SmallGroupJsonParseComponent,
   ],
   imports: [
     BrowserModule,

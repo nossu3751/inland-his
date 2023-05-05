@@ -1,0 +1,24 @@
+<ng-container *ngIf="data">
+    
+    <ng-container *ngIf='data.content === "input-placeholder"; else contentHolder'>
+      <span><input [(ngModel)]="inputs[data.inputId]"/></span>
+    </ng-container>
+    <ng-template #contentHolder>
+      <ng-container [ngSwitch]="data.tagName?.toLowerCase()">
+        <br *ngSwitchCase="'br'">
+        <p *ngSwitchCase="'p'" [ngStyle]="getStyle()">
+          <ng-container *ngTemplateOutlet="children"></ng-container>
+        </p>
+        <span *ngSwitchDefault [ngStyle]="getStyle()">
+          <ng-container *ngTemplateOutlet="children"></ng-container>
+        </span>
+      </ng-container>
+    </ng-template>
+    <ng-template #children>
+      <span [innerHTML]="data.content"></span>
+      <ng-container *ngFor="let d of data.children">
+        <app-small-group-json-parse [data]="d" [inputs]="inputs"></app-small-group-json-parse>
+      </ng-container>
+    </ng-template>
+</ng-container>
+  
