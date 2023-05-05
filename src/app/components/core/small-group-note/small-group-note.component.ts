@@ -19,6 +19,12 @@ export class SmallGroupNoteComponent implements OnInit{
     return this.sanitizer.bypassSecurityTrustHtml(html)
   }
 
+  getFilledInput(){
+    if(this.smallGroupNote){
+      console.log(this.smallGroupNote.html_template_data.inputs)
+    }
+  }
+
   ngOnInit(): void {
     this.smallGroupNoteService.getData().subscribe((data) => {
       this.smallGroupNote = data.length > 0 ? data[0] : null;
