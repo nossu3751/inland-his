@@ -1,6 +1,6 @@
 <ng-container *ngIf="data">
     <ng-container *ngIf='data.content === "input-placeholder"; else contentHolder'>
-      <span><input [(ngModel)]="inputs[data.inputId]"/></span>
+      <span><input [(ngModel)]="inputs[data.inputId]" placeholder=" "/></span>
       <!-- <span>Test:{{inputs[data.inputId]}}</span> -->
     </ng-container>
     <ng-template #contentHolder>
@@ -22,3 +22,6 @@
     </ng-template>
 </ng-container>
   
+<!-- <app-loading-screen *ngIf="loading">
+
+</app-loading-screen> -->

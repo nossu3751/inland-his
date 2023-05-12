@@ -26,9 +26,9 @@ export class SmallGroupJsonParseComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
       // console.log(this.data)
       if(this.showSpinner){
-        console.log(this.loading)
+        console.log("loading", this.loading)
       }
-      console.log(this.inputs)
+      // console.log(this.inputs)
   }
 
   ngAfterViewInit(): void {
@@ -36,7 +36,7 @@ export class SmallGroupJsonParseComponent implements OnInit, AfterViewInit {
       // Set loading to false when the view has been fully initialized
       setTimeout(() => {
         this.loading = false;
-        console.log(this.loading)
+        console.log("loading", this.loading)
       });
     } else {
       this.loading = false;

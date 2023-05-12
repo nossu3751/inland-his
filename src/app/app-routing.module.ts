@@ -15,6 +15,7 @@ import { SigninComponent } from './components/core/signin/signin.component';
 import { OnlineServiceComponent } from './components/core/online-service/online-service.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { SmallGroupNotesAdminComponent } from './components/admin/small-group/small-group-notes-admin/small-group-notes-admin.component';
+import { BulletinPaperAdminComponent } from './components/admin/bulletin/bulletin-paper/bulletin-paper-admin.component';
 // ...
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'admin',
     component: AdminHomeComponent,
     children: [
-      {path: 'small-group-note', component: SmallGroupNotesAdminComponent}
+      {path: 'small-group-note', component: SmallGroupNotesAdminComponent},
+      {path: 'bulletin', component: BulletinPaperAdminComponent}
     ]
   }
   

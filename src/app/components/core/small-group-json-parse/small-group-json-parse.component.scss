@@ -1,0 +1,26 @@
+input {
+    border-radius: 0.25em;
+    border-style: dashed;
+    border-color: var(--secondary-color);
+    height: 1.5em;
+    width: 6em;
+    text-align: center;
+
+}
+
+input:not(:placeholder-shown) {
+    border-style: solid; /* Change the border color when there is a value */
+    border-color: var(--primary-color); /* Change the border color when there is a value */
+}
+
+input:focus {
+    outline: var(--primary-color);
+}
+
+input:focus-visible {
+    outline: var(--primary-color);
+}
+
+:host {
+    line-height: 2em;
+}

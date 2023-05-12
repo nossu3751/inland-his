@@ -1,0 +1,128 @@
+<app-flex-container justifyContent="center" width="100%">
+    
+        <form [formGroup]="form">
+            <div class="field">
+                <div class="labels">
+                    <label for="sermonTitle">설교 제목</label>
+                </div>
+                <div class="inputs">
+                    <input id="sermonTitle" [formControl]="castToFormControl(form.get('sermonTitle'))" placeholder="설교 제목" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="labels">
+                    <label for="sermonSubtitle">설교 부제</label>
+                </div>
+                <div class="inputs">
+                    <input id="sermonSubtitle" [formControl]="castToFormControl(form.get('sermonSubtitle'))" placeholder="설교 부제" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="labels">
+                    <label for="sermonContent">본문 구절</label>
+                </div>
+                <div class="inputs">
+                    <textarea id="sermonContent" [formControl]="castToFormControl(form.get('sermonContent'))" placeholder="본문 구절"></textarea>
+                </div>
+            </div>
+           
+            <div class = "labels">
+                찬양
+            </div>
+            <div formArrayName="hymns" class="field">
+              <div *ngFor="let hymnControl of hymns.controls; let i = index">
+                <div>
+                    <!-- <div class="sub-labels">
+                        <label for="hymn-{{ i }}">찬양 {{i+1}}</label>
+                    </div> -->
+                    <div class="inputs">
+                        <input id="hymn-{{ i }}" [formControl]="castToFormControl(hymnControl)" placeholder="찬양 {{i+1}}" />                    
+                        <mat-icon (click)="removeHymn(i)" class="remove-button">close</mat-icon>
+                    </div>
+                </div>
+              </div>
+              <div class="add-button" (click)="addHymn()">
+                <mat-icon class="add-icon">add_circle</mat-icon>
+              </div>
+            </div>
+        
+            
+          
+            <div class="field">
+                <div class="labels">
+                    <label for="representativePrayer">대표기도자</label>
+                </div>
+                <div class="inputs">
+                    <input id="representativePrayer" [formControl]="castToFormControl(form.get('representativePrayer'))" placeholder="대표기도자" />
+                </div>
+            </div>
+            
+            <div class="field"> 
+                <div class="labels">
+                    <label for="communityNews">공동체소식</label>
+                </div>
+                <div class="inputs">
+                    <input id="communityNews" [formControl]="castToFormControl(form.get('communityNews'))" placeholder="공동체소식" />
+                </div>
+            </div>
+        
+            <div class="field">
+                <div class="labels">
+                    <label for="message">말씀인도자</label>
+                </div>
+                <div class="inputs">
+                    <input id="message" [formControl]="castToFormControl(form.get('message'))" placeholder="말씀인도자" />
+                </div>
+            </div>
+        
+            <div class="field">
+                <div class="labels">
+                    <label for="postMessageHymn">말씀 후 찬양</label>
+                </div>
+                <div class="inputs">
+                    <input id="postMessageHymn" [formControl]="castToFormControl(form.get('postMessageHymn'))" placeholder="말씀 후 찬양" />
+                </div>
+            </div>
+        
+            <div class="field">
+                <div class="labels">
+                    <label for="blessing">축도</label>
+                </div>
+                <div class="inputs">
+                    <input id="blessing" [formControl]="castToFormControl(form.get('blessing'))" placeholder="축도" />
+                </div>
+            </div>
+            
+            <div class = "labels">
+                새소식 
+            </div>
+            <div formArrayName="news" class="field">
+              <div *ngFor="let newsControl of news.controls; let i = index" [formGroupName]="i">
+                <div class="inputs">
+                  <!-- <label class="sub-labels" for="newsTitle-{{ i }}">새소식 제목 {{i+1}}</label> -->
+                  <input id="newsTitle-{{ i }}" [formControl]="castToFormControl(newsControl.get('title'))" placeholder="새소식 제목 {{i+1}}" />
+                  <mat-icon (click)="removeNews(i)" class="remove-button">close</mat-icon>
+                </div>
+                <div class="inputs">
+                  <!-- <label class="sub-labels" for="newsDescription-{{ i }}">새소식 내용 {{i+1}}</label> -->
+                  <textarea id="newsDescription-{{ i }}" [formControl]="castToFormControl(newsControl.get('description'))" placeholder="새소식 내용 {{i+1}}"></textarea>
+                </div>
+              </div>
+              <div class="add-button" (click)="addNews()">
+                <mat-icon class="add-icon">add_circle</mat-icon>
+            </div>
+            </div>
+            <div class="submit-button" (click)="postBulletin()">
+                주보 등록하기
+            </div>
+        </form>
+        
+</app-flex-container>
+
+      
+
+  
+    
+      
+
+  

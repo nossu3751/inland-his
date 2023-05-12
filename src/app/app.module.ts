@@ -67,6 +67,8 @@ import { NgxSummernoteModule } from 'ngx-summernote';
 import { CustomModalComponent } from './components/shared/custom-modal/custom-modal.component';
 import { ContentViewComponent } from './components/shared/content-view/content-view.component';
 import { SmallGroupJsonParseComponent } from './components/core/small-group-json-parse/small-group-json-parse.component';
+import { BulletinPaperAdminComponent } from './components/admin/bulletin/bulletin-paper/bulletin-paper-admin.component';
+import { LoadingScreenComponent } from './components/shared/loading-screen/loading-screen.component';
 // import { Mat}
 
 
@@ -120,6 +122,8 @@ import { SmallGroupJsonParseComponent } from './components/core/small-group-json
     CustomModalComponent,
     ContentViewComponent,
     SmallGroupJsonParseComponent,
+    BulletinPaperAdminComponent,
+    LoadingScreenComponent,
   ],
   imports: [
     BrowserModule,
