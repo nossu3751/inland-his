@@ -8,7 +8,7 @@ import { Component, Input, OnInit, AfterViewInit} from '@angular/core';
 export class SmallGroupJsonParseComponent implements OnInit, AfterViewInit {
   @Input() data: any;
   @Input() inputs: any;
-  @Input() showSpinner = true; //isRoot?
+  @Input() isRoot = true; //isRoot?
   loading = true;
 
   getStyle(): any {
@@ -25,15 +25,14 @@ export class SmallGroupJsonParseComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
       // console.log(this.data)
-      if(this.showSpinner){
+      if(this.isRoot){
         console.log("loading", this.loading)
       }
       // console.log(this.inputs)
   }
 
   ngAfterViewInit(): void {
-    if (this.showSpinner) {
-      // Set loading to false when the view has been fully initialized
+    if (this.isRoot) {
       setTimeout(() => {
         this.loading = false;
         console.log("loading", this.loading)

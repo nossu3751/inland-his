@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SmallGroupNoteService } from 'src/app/services/data/small-group-note.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-small-group-note',
   templateUrl: './small-group-note.component.html',

@@ -1,55 +1,14 @@
-
-<div 
-    *ngIf="modalService.isModalOpen | async" 
-    class="modal-overlay"
-    [ngClass]="{
-        'fade-in': (modalService.isModalOpen | async)
-    }">
+<div *ngIf="modalService.isModalOpen | async" class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
     <div class="top-area">
-        <mat-icon class="close-button" (click)="modalService.closeModal()"> close </mat-icon>
-        <div class="title-container">
-            <div class="title">{{modalService.title | async}}</div>
-        </div>
+      <mat-icon class="close-button" (click)="modalService.closeModal()"> close </mat-icon>
+      <div class="title-container">
+        <div class="title">{{modalService.title | async}}</div>
+      </div>
     </div>
-    
     <div class="modal-container">
-        <div class="modal-content">
-            <ng-container *ngComponentOutlet="modalService.component | async"></ng-container>
-        </div>
+      <div class="modal-content" *ngIf="modalService.component | async as component">
+        <ng-container *ngComponentOutlet="component"></ng-container>
+      </div>
     </div>
-  </div>
-
-  <!-- <ng-template #loadingTemplate>
-    <div *ngIf="modalService.isLoading | async" class="loading-spinner-container">
-        
-    </div>
-  </ng-template> -->
-  
-
-<!-- <div 
-    *ngIf="modalService.isModalOpen | async" 
-    class="modal-overlay"
-    [ngClass]="{
-        'fade-in': (modalService.isModalOpen | async)
-    }">
-    <div class="top-area">
-        <mat-icon class="close-button" (click)="modalService.closeModal()"> close </mat-icon>
-        <div class="title-container">
-            <div class="title">{{modalService.title | async}}</div>
-        </div>
-    </div>
-    
-    <div class="modal-container">
-        <div class="modal-content">
-            <ng-container *ngIf="!(modalService.isLoading | async); else loadingTemplate">
-              <ng-container *ngComponentOutlet="modalService.component | async"></ng-container>
-            </ng-container>
-            <ng-template #loadingTemplate>
-              <div class="loading-spinner-container">
-
-              </div>
-            </ng-template>
-        </div>
-    </div>
-</div> -->
+</div>
 

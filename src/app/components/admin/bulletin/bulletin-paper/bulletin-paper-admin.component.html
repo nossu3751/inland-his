@@ -36,7 +36,7 @@
                         <label for="hymn-{{ i }}">찬양 {{i+1}}</label>
                     </div> -->
                     <div class="inputs">
-                        <input id="hymn-{{ i }}" [formControl]="castToFormControl(hymnControl)" placeholder="찬양 {{i+1}}" />                    
+                        <input id="hymn-{{ i }}" [formControl]="castToFormControl(hymnControl.get('title'))" placeholder="찬양 {{i+1}}" />                    
                         <mat-icon (click)="removeHymn(i)" class="remove-button">close</mat-icon>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <label for="communityNews">공동체소식</label>
                 </div>
                 <div class="inputs">
-                    <input id="communityNews" [formControl]="castToFormControl(form.get('communityNews'))" placeholder="공동체소식" />
+                    <input id="communityNews" [formControl]="castToFormControl(form.get('communityNews'))" placeholder="ex. 정 산 목사님" />
                 </div>
             </div>
         
@@ -71,7 +71,7 @@
                     <label for="message">말씀인도자</label>
                 </div>
                 <div class="inputs">
-                    <input id="message" [formControl]="castToFormControl(form.get('message'))" placeholder="말씀인도자" />
+                    <input id="message" [formControl]="castToFormControl(form.get('message'))" placeholder="ex. 정 산 목사님" />
                 </div>
             </div>
         
@@ -89,7 +89,7 @@
                     <label for="blessing">축도</label>
                 </div>
                 <div class="inputs">
-                    <input id="blessing" [formControl]="castToFormControl(form.get('blessing'))" placeholder="축도" />
+                    <input id="blessing" [formControl]="castToFormControl(form.get('blessing'))" placeholder="ex. 정 산 목사님" />
                 </div>
             </div>
             
@@ -112,9 +112,9 @@
                 <mat-icon class="add-icon">add_circle</mat-icon>
             </div>
             </div>
-            <div class="submit-button" (click)="postBulletin()">
+            <button class="submit-button" (click)="postBulletin()" [disabled]="!form.valid">
                 주보 등록하기
-            </div>
+            </button>
         </form>
         
 </app-flex-container>

@@ -69,6 +69,7 @@ import { ContentViewComponent } from './components/shared/content-view/content-v
 import { SmallGroupJsonParseComponent } from './components/core/small-group-json-parse/small-group-json-parse.component';
 import { BulletinPaperAdminComponent } from './components/admin/bulletin/bulletin-paper/bulletin-paper-admin.component';
 import { LoadingScreenComponent } from './components/shared/loading-screen/loading-screen.component';
+import { BulletinPaperComponent } from './components/core/bulletin-paper/bulletin-paper.component';
 // import { Mat}
 
 
@@ -124,6 +125,7 @@ import { LoadingScreenComponent } from './components/shared/loading-screen/loadi
     SmallGroupJsonParseComponent,
     BulletinPaperAdminComponent,
     LoadingScreenComponent,
+    BulletinPaperComponent,
   ],
   imports: [
     BrowserModule,

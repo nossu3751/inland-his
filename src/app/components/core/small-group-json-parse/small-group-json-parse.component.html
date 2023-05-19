@@ -17,11 +17,7 @@
     <ng-template #children>
       <span [innerHTML]="data.content"></span>
       <ng-container *ngFor="let d of data.children">
-        <app-small-group-json-parse [data]="d" [inputs]="inputs" [showSpinner]="false"></app-small-group-json-parse>
+        <app-small-group-json-parse [data]="d" [inputs]="inputs" [isRoot]="false"></app-small-group-json-parse>
       </ng-container>
     </ng-template>
 </ng-container>
-  
-<!-- <app-loading-screen *ngIf="loading">
-
-</app-loading-screen> -->

@@ -5,15 +5,15 @@
         marginBottom="1em" 
         marginTop="1em" 
         alignItems="center" 
-        justifyContent="center" (click)="modalService.openModal(newComerFormComponent)">
+        justifyContent="center" (click)="modalService.openModal(newComerFormComponent, '새신자 등록하기')">
             <div class="card-menu-text">
                 새신자 등록하기 
             </div>
         </app-card>
     </app-block>
-    <app-block> 
+    <!-- <app-block> 
         <app-carousel marginTop="0" indicatorSize="20px"></app-carousel>
-    </app-block>
+    </app-block> -->
     <app-block>
         <app-flex-container>
             <app-flex-item>
@@ -36,7 +36,7 @@
     <app-block>
         <app-flex-container>
             <app-flex-item>
-                <app-card height="150px" marginTop="0" marginRight="0.5em" background="src/assets/church-icons/bible-icon.svg" >
+                <app-card height="150px" marginTop="0" marginRight="0.5em" background="src/assets/church-icons/bible-icon.svg" (click)="modalService.openModal(bulletinPaperComponent,'이번주 주보')">
                     <div class="card-menu-text">
                         <app-block class="church-icon">
                             <app-leaflet-svg size="3em" color="var(--nav-item-color)"></app-leaflet-svg>
@@ -115,10 +115,10 @@
             </app-flex-item>
             <app-flex-item flexDirection="column" width="15em" flex="0 1 auto">
                 <app-block height="100%">
-                    <app-card marginTop="0" marginRight="1em" marginLeft="0"height="calc(100% - 1em)">
+                    <app-card marginTop="0" marginRight="1em" marginLeft="0"height="calc(100% - 1em)" (click)="modalService.openModal(bulletinPaperComponent,'이번주 주보')">
                         <div class="card-menu-text">
                             <app-block class="church-icon">
-                                <app-leaflet-svg size="3em" color="var(--nav-item-color)"></app-leaflet-svg>
+                                <app-leaflet-svg size="3.5em" color="var(--nav-item-color)"></app-leaflet-svg>
                             </app-block>
                             <app-block>
                                 이번주 주보
@@ -130,7 +130,7 @@
                     <app-card marginTop="0" marginRight="1em" marginLeft="0" height="calc(100% - 1em)" (click)="modalService.openModal(smallGroupNoteComponent,'이번주 셀노트')">
                         <div class="card-menu-text">
                             <app-block class="church-icon">
-                                <app-note-svg size="3em" color="var(--nav-item-color)"></app-note-svg>
+                                <app-note-svg size="3.5em" color="var(--nav-item-color)"></app-note-svg>
                             </app-block>
                             <app-block>
                                 이번주 셀노트
@@ -144,7 +144,7 @@
                     <app-card marginTop="0" marginLeft="0" height="calc(100% - 1em)">
                         <div class="card-menu-text">
                             <app-block class="church-icon">
-                                <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg>
+                                <app-bible-svg size="3.5em" color="var(--nav-item-color)"></app-bible-svg>
                             </app-block>
                             <app-block>
                                 오늘의 말씀
@@ -156,7 +156,7 @@
                     <app-card marginTop="0" marginLeft="0" height="calc(100% - 1em)">
                         <div class="card-menu-text">
                             <app-block class="church-icon">
-                                <app-prayer-svg size="3em" color="var(--nav-item-color)"></app-prayer-svg>
+                                <app-prayer-svg size="3.5em" color="var(--nav-item-color)"></app-prayer-svg>
                             </app-block>
                             <app-block>
                                 공동체 기도제목

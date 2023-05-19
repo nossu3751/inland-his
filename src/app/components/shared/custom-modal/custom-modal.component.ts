@@ -6,8 +6,6 @@ import { ModalService } from 'src/app/services/view/modal.service';
   styleUrls: ['./custom-modal.component.scss']
 })
 export class CustomModalComponent {
-  @Output() closeModalEvent = new EventEmitter<void>();
-
   constructor(public modalService: ModalService) {}
 
   

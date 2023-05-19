@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
-
+import { BulletinService } from 'src/app/services/data/bulletin.service';
 @Component({
   selector: 'app-bulletin-paper-admin',
   templateUrl: './bulletin-paper-admin.component.html',
@@ -9,7 +9,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, FormArray, AbstractCon
 export class BulletinPaperAdminComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private bulletinService: BulletinService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -20,7 +20,7 @@ export class BulletinPaperAdminComponent implements OnInit {
       sermonSubtitle: [''],
       sermonContent: ['', Validators.required],
       hymns: this.fb.array([
-        ''
+        this.createHymnFormGroup()
       ]),
       representativePrayer: ['', Validators.required],
       communityNews: ['', Validators.required],
@@ -64,7 +64,7 @@ export class BulletinPaperAdminComponent implements OnInit {
 
   addHymn(): void {
     const hymnsArray = this.form.get('hymns') as FormArray;
-    hymnsArray.push(this.fb.control('', Validators.required));
+    hymnsArray.push(this.createHymnFormGroup());
   }
 
   get hymns(): FormArray {
@@ -75,8 +75,35 @@ export class BulletinPaperAdminComponent implements OnInit {
     return control as FormControl || new FormControl();
   }
 
+  private formatBulletinData(bulletinData: any): any {
+    return {
+      news: bulletinData.news,
+      sermon_title: bulletinData.sermonTitle,
+      sermon_subtitle: bulletinData.sermonSubtitle,
+      sermon_content: bulletinData.sermonContent,
+      hymns: bulletinData.hymns,
+      representative_prayer: bulletinData.representativePrayer,
+      community_news: bulletinData.communityNews,
+      message: bulletinData.message,
+      post_message_hymn: bulletinData.postMessageHymn,
+      blessing: bulletinData.blessing
+    };
+  }
+
   postBulletin(){
-    console.log(this.form.value)
+    const bulletinData = this.form.value;
+    const formattedData = this.formatBulletinData(bulletinData);
+    this.bulletinService.postBulletin(formattedData).subscribe({
+      next: response => {
+        console.log(response);
+        // handle success
+      },
+      error: error => {
+        console.log(error.error.id);
+        
+        // handle error
+      },
+    })
   }
   
 }

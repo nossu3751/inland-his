@@ -61,9 +61,11 @@
     padding-bottom: 2em;
     overflow-y: scroll;
     overflow-x: hidden;
-    // justify-content: center;
-    // align-items: center;
+    justify-content: center;
+}
 
+.modal-content {
+    max-width: 600px;
 }
 
 .loading-spinner-container {
