@@ -17,4 +17,20 @@ export class FlexContainerComponent {
   @HostBinding('style.height')
   @Input()
   height:string = "auto";
+
+  @HostBinding('style.margin-top')
+  @Input() 
+  marginTop: string = "0"; //flex-start
+
+  @HostBinding('style.margin-bottom')
+  @Input()
+  marginBottom:string = "0";
+
+  @HostBinding('style.margin-left')
+  @Input() 
+  marginLeft: string = "0"; //flex-start
+
+  @HostBinding('style.margin-right')
+  @Input()
+  marginRight:string = "0";
 }

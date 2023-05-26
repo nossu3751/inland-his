@@ -70,6 +70,7 @@ import { SmallGroupJsonParseComponent } from './components/core/small-group-json
 import { BulletinPaperAdminComponent } from './components/admin/bulletin/bulletin-paper/bulletin-paper-admin.component';
 import { LoadingScreenComponent } from './components/shared/loading-screen/loading-screen.component';
 import { BulletinPaperComponent } from './components/core/bulletin-paper/bulletin-paper.component';
+import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
 // import { Mat}
 
 
@@ -126,6 +127,7 @@ import { BulletinPaperComponent } from './components/core/bulletin-paper/bulleti
     BulletinPaperAdminComponent,
     LoadingScreenComponent,
     BulletinPaperComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,

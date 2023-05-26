@@ -18,7 +18,7 @@ export class CardComponent implements OnInit, AfterViewInit{
   @Input() marginRight: string = "1em";
   @Input() marginTop: string = "1em";
   @Input() marginBottom: string = "1em";
-  @Input() boxShadow: string = "0 2px 10px rgba(0,0,0,.1)";
+  @Input() boxShadow: string = "0 0 0 rgba(0,0,0,.1)";
   @Input() borderColor: string = "#eee";
   @Input() backgroundColor: string = "white";
   @Input() alignItems: string = "center"; //stretch

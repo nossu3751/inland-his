@@ -43,7 +43,8 @@ function parseNode(node: any): any {
   const className = node.getAttribute('class');
 
   // Extract style properties
-  const textColor = style ? style.match(/(?<!-)color:\s*([^;]+);?/i) : null;
+  // const textColor = style ? style.match(/(?<!-)color:\s*([^;]+);?/i) : null;
+  const textColor = null;
   const textDecoration = style ? style.match(/text-decoration:\s*([^;]+);?/i) : null;
   const fontWeight = style ? style.match(/font-weight:\s*([^;]+);?/i) : null;
 

@@ -12,9 +12,12 @@
         </mat-icon>
 
     </div>
-    <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu>
-        {{navItemMap.get("/" + currentRouteName)}}
+    <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu *ngIf="navItemMap.get('/' + currentRouteName) != 'HOME'; else searchBar">
+        {{navItemMap.get('/' + currentRouteName)}}
     </div>
+    <ng-template #searchBar >
+        <app-search-bar fxHide.gt-sm></app-search-bar>
+    </ng-template>
     <div fxLayout="row" fxLayoutAlign="space-between center" fxHide.lt-md >
         <div class="web-toolbar-spacer"></div>
             <div class="web-menu-wrapper web-nav-item"

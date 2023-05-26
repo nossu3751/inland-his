@@ -80,6 +80,9 @@
             },
             "development": {
               "browserTarget": "inland-his:build:development"
+            },
+            "options": {
+              "disableHostCheck": true
             }
           },
           "defaultConfiguration": "development"

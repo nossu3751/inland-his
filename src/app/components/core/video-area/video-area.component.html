@@ -20,7 +20,7 @@
     
 
 <app-block fxHide.gt-sm>
-    <app-block paddingBottom="1em" paddingLeft="1em" paddingRight="1em">
+    <app-block>
         <app-video-player 
             *ngIf="selectedVideoIndex != null" 
             [videoId]="liveStreams[selectedVideoIndex].video_id">  

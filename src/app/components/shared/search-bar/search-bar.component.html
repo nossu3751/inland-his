@@ -1,0 +1,4 @@
+<div class="search-bar">
+    <mat-icon *ngIf="!searchTerm">search</mat-icon>
+    <input [(ngModel)]="searchTerm" (input)="onInput()" />
+</div>

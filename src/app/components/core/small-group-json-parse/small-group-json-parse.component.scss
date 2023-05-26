@@ -4,8 +4,11 @@ input {
     border-color: var(--secondary-color);
     height: 1.5em;
     width: 6em;
+    border-width: 2px;
     text-align: center;
-
+    -webkit-appearance: none;  /* Remove styles in Chrome, Safari and Opera */
+    -moz-appearance: none;  /* Remove styles in Firefox */
+    appearance: none;  /* Remove styles in modern browsers */
 }
 
 input:not(:placeholder-shown) {
