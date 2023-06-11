@@ -59,6 +59,7 @@ export class SearchService {
       return [];
     }
 
-    return fuseInstance.search(query).map(result => result.item);
+    // return fuseInstance.search(query).map(result => result.item);
+    return fuseInstance.search(query)
   }
 }

@@ -28,7 +28,9 @@ export class SmallGroupNoteComponent implements OnInit{
 
   ngOnInit(): void {
     this.smallGroupNoteService.getData().subscribe((data) => {
+      
       this.smallGroupNote = data.length > 0 ? data[0] : null;
+      console.log("small group note" , this.smallGroupNote)
     })
   }
 }

@@ -4,6 +4,7 @@ import { ModalService } from '../services/view/modal.service';
 import { SmallGroupNoteComponent } from '../components/core/small-group-note/small-group-note.component';
 import { NewComerFormComponent } from '../components/core/new-comer-form/new-comer-form.component';
 import { BulletinPaperComponent } from '../components/core/bulletin-paper/bulletin-paper.component';
+import { VideoService } from '../services/data/video.service';
 
 @Component({
   selector: 'app-home',
@@ -18,13 +19,21 @@ export class HomeComponent implements OnInit{
   
   constructor(
     private screenSizeService: ScreenSizeService,
-    public modalService: ModalService
+    public modalService: ModalService,
+    private videoService: VideoService
   ) {}
   screenSizeClass = '';
+  video: any;
 
   ngOnInit() {
     this.screenSizeService.screenSizeClass$.subscribe((screenSizeClass) => {
       this.screenSizeClass = screenSizeClass;
     });
+    this.videoService.getLiveStreams().subscribe(data => {
+      if (data.length > 0) {
+        this.video = data[0]
+        console.log("homepage video", this.video)
+      }
+    })
   }
 }

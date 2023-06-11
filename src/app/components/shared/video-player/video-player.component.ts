@@ -20,6 +20,7 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit{
   placeholderHeight:string = "auto";
   videoWidth:number = 0;
   videoHeight:number = 0;
+  ready = false;
 
   @HostListener('window:resize')
   @HostListener('window:orientationchange')
@@ -42,6 +43,7 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit{
   }
 
   ngOnInit() {
+    
     if (!this.apiLoaded) {
       let tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
@@ -63,6 +65,7 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit{
   ngAfterViewInit() {
     this.updateScreenWidth();
     this.updateVideoWidth();
+    this.ready = true;
     this.changeDetectorRef.detectChanges();
   }
 }

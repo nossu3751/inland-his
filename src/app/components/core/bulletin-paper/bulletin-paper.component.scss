@@ -1,9 +1,88 @@
 .bulletin{
     width: 100%;
     display: flex;
+    
+}
+
+.bulletin-row {
+    display:flex;
+    margin-bottom: 1.5em;
+}
+
+.horizontal-label {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    font-weight: 700;
+    flex: 0 0 50%;
+    justify-content: center;
+    align-items:flex-start;
+    display: flex;
+}
+
+.horizontal-content {
+    flex:0 0 50%;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.sunday-date {
+    text-align: right !important;
+    font-size: 0.75em;
+    padding: 0.25em 0.5em 0 0.5em
+}
+
+.bulletin-paper {
+    margin-top: 1em;
+    text-align: center;
+    margin-bottom: 5em;
+    // border-radius: 0.25em;
+    // border-style: solid;
+    // border-width: 1px;
+    // border-color: #ddd;
 }
 
 .sermon-title {
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight: 700;
+    padding: 0.5em 0.5em 0 0.5em;
+    color: var(--secondary-color)
+
+}
+
+.sermon-subtitle {
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 0.5em 0 0 0;
+    margin-bottom: 3em;
+    // border-bottom: 1px solid #ddd;
+}
+
+.hymns {
+    display:flex;
+}
+
+.hymn-list {
+    display:block;
+}
+
+.hymn-item {
+    display: block;
+}
+
+.news-list {
+    display:block;
+}
+
+.news-item {
+    margin-bottom: 1em;;
+}
+
+.news-title {
+    display:block;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.news-description {
+    display:block;
 }

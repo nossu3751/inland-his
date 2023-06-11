@@ -39,7 +39,8 @@ export class SearchBarComponent implements OnInit {
     this.videoService.getLiveStreams().subscribe((data)=>{
       console.log("video", data)
       const videoOptions = {
-        keys: ['title']
+        keys: ['title'],
+        includeMatches: true
       };
       this.searchService.createIndex('video', data, videoOptions);
     })
@@ -49,14 +50,16 @@ export class SearchBarComponent implements OnInit {
         keys: [
           'sermon_title','sermon_subtitle','sermon_content','representative_prayer',
           'community_news','message','hymns.title','news.title','news.description','blessing','post_message_hymn'
-        ]
+        ],
+        includeMatches: true
       };
       this.searchService.createIndex('bulletin', data, bulletinOptions);
     })
     this.smallGroupNoteService.getData().subscribe((data)=>{
       console.log("smallgroup", data)
       const smallGroupNoteOptions = {
-        keys: ['title', 'html_template_data.html_string']
+        keys: ['title', 'html_template_data.plain_string'],
+        includeMatches: true
       }
       this.searchService.createIndex('smallGroupNote', data, smallGroupNoteOptions);
     })

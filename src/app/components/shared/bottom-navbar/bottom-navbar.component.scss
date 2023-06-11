@@ -17,7 +17,7 @@
     padding-right: env(safe-area-inset-right) !important;
     padding-bottom: env(safe-area-inset-bottom) !important;
     height: calc(var(--nav-height) + env(safe-area-inset-bottom)) !important;
-    border-top: 0.5px solid #ddd;
+    border-top: 1px solid #eee;
     background-color: white;
 }
 
@@ -32,11 +32,11 @@
 }
 
 .icon-wrapper.active-link {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .icon-wrapper:active-link,.icon-wrapper:hover {
-    color: var(--primary-color)
+    color: var(--secondary-color)
 }
 
 .icon-label {
@@ -45,6 +45,13 @@
     font-weight: bold;
 }
 
+// .material-symbols-outlined {
+//   font-variation-settings:
+//   'FILL' 0,
+//   'wght' 400,
+//   'GRAD' 0,
+//   'opsz' 48
+// }
 
 // .home-logo {
 //     opacity: 0.5;

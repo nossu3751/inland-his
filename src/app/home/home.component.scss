@@ -1,11 +1,9 @@
-// .test-div {
-//     height: 2000px;
-//     background-color: yellow;
-// }
-// .test-div2 {
-//     height: 2000px;
-//     background-color: red;
-// }
+
+.search-bar {
+    max-width: 1200px;
+    margin: 5em 0 5em 0;
+    position: relative;
+}
 
 .card {
     width: 100%;
@@ -16,6 +14,7 @@
     color: var(--nav-item-color);
     font-weight: 700;
     font-size: medium;
+    text-align: center;
     // background: url(../../assets/church-icons/bible-icon.svg);
     // background-repeat: no-repeat;
     // background-position: center;
@@ -44,3 +43,4 @@
     color: #fff;
     font-size: 24px;
 }
+

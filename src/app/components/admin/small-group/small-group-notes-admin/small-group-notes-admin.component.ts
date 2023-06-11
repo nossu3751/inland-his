@@ -22,6 +22,67 @@ function customInputButton(context:any) {
   return button.render();
 }
 
+// let inputId = 0
+// function parseNode(node: any): any {
+//   if (node.nodeType !== 1) {
+//     if (node.nodeType === 3) {
+//       return {
+//         tagName: null,
+//         content: node.rawText,
+//         textColor: null,
+//         textDecoration: null,
+//         fontWeight: null,
+//         children: [],
+//         inputId: null
+//       }
+//     }
+//     return null;
+//   }
+//   const style = node.getAttribute('style');
+//   const tagName = node.tagName;
+//   const className = node.getAttribute('class');
+
+//   // Extract style properties
+//   const textColor = style ? style.match(/(?<!-)color:\s*([^;]+);?/i) : null;
+//   // const textColor = null;
+//   const textDecoration = style ? style.match(/text-decoration:\s*([^;]+);?/i) : null;
+//   const fontWeight = style ? style.match(/font-weight:\s*([^;]+);?/i) : null;
+
+//   const fontColor = tagName && tagName.toUpperCase() === 'FONT' ? node.getAttribute('color') : null;
+
+//   const result: any = {
+//     tagName,
+//     content: null,
+//     textColor: textColor ? textColor[1] : fontColor,
+//     textDecoration: textDecoration ? textDecoration[1] : null,
+//     fontWeight: fontWeight ? fontWeight[1] : (tagName && tagName.toUpperCase() === 'B') ? 'bold' : null,
+//     children: [],
+//     inputId: null
+//   };
+
+//   let hasChildNodes = false;
+
+//   // Check if the current node is an input-placeholder
+//   if ((tagName === 'SPAN' || tagName === 'span') && className === 'input-placeholder') {
+//     result.content = 'input-placeholder';
+//     result.inputId = inputId++;
+//   } else {
+//     for (const child of node.childNodes) {
+//       if (child.nodeType === 1) {
+//         hasChildNodes = true;
+//         result.children.push(parseNode(child));
+//       }
+//     }
+//   }
+
+//   // Set content only for leaf nodes
+//   if (!hasChildNodes && result.content === null) {
+//     result.content = node.rawText;
+//   }
+
+//   return result;
+// }
+
 let inputId = 0
 function parseNode(node: any): any {
   if (node.nodeType !== 1) {
@@ -43,8 +104,8 @@ function parseNode(node: any): any {
   const className = node.getAttribute('class');
 
   // Extract style properties
-  // const textColor = style ? style.match(/(?<!-)color:\s*([^;]+);?/i) : null;
-  const textColor = null;
+  let match = style ? style.match(/-?color:\s*([^;]+);?/i) : null;
+  const textColor = match && match[0][0] !== '-' ? match[1] : null;
   const textDecoration = style ? style.match(/text-decoration:\s*([^;]+);?/i) : null;
   const fontWeight = style ? style.match(/font-weight:\s*([^;]+);?/i) : null;
 
@@ -53,7 +114,7 @@ function parseNode(node: any): any {
   const result: any = {
     tagName,
     content: null,
-    textColor: textColor ? textColor[1] : fontColor,
+    textColor: textColor ? textColor : fontColor,
     textDecoration: textDecoration ? textDecoration[1] : null,
     fontWeight: fontWeight ? fontWeight[1] : (tagName && tagName.toUpperCase() === 'B') ? 'bold' : null,
     children: [],

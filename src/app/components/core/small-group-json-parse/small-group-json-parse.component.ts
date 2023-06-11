@@ -28,6 +28,7 @@ export class SmallGroupJsonParseComponent implements OnInit, AfterViewInit {
       if(this.isRoot){
         console.log("loading", this.loading)
       }
+      console.log("json parse data", this.data)
       // console.log(this.inputs)
   }
 

@@ -25,4 +25,8 @@ export class BlockComponent {
   @Input() 
   @HostBinding('style.padding-right')
   paddingRight:string = "0"
+
+  @Input()
+  @HostBinding('style.max-width')
+  maxWidth:string = "100%";
 }

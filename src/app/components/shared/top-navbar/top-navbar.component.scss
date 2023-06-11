@@ -17,20 +17,24 @@
     // height: calc(56px + env(safe-area-inset-bottom)) !important;
     height: var(--nav-height) !important;
     // background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    background-color: var(--primary-color);
+    background-color: white;
     justify-content: space-between;
     transition: height 0.2s ease-in-out;
     width: 100%;
+    // border-bottom: 1px solid #eee;
 }
 
 .web-toolbar.large-screen {
     // height: calc(var(--nav-height) * 1.2) !important; 
     height: var(--nav-height) !important; 
+    background-color: var(--primary-color);
+    border-bottom: none;
 }
 
 .web-toolbar.large-screen:hover {
     // height: calc(var(--nav-height) * 1.2 * 1.2) !important; 
     height: calc(var(--nav-height) * 1.2) !important; 
+
 }
 
 .web-toolbar-spacer {

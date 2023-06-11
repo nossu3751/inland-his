@@ -1,15 +1,87 @@
 <div class="bulletin-paper">
+    <div class="sunday-date">
+        {{bulletin?.sunday_date}} 예배
+    </div>
     <div class="sermon-title">
-        "{{bulletin?.sermon_title}}"
+        {{bulletin?.sermon_title}}
     </div>
     <div class="sermon-subtitle">
         {{bulletin?.sermon_subtitle}}
     </div>
-    <div class="sunday-date">
-        {{bulletin?.sunday_date}}
+    
+    <div class="bulletin-row">
+        <div class="horizontal-label">
+            찬양
+        </div>
+        <div class="horizontal-content">
+            <div class="hymn-list">
+                <div *ngFor="let hymn of bulletin?.hymns; let i = index" class="hymn-item">
+                    <span>{{i+1}}. </span>
+                    <span>{{hymn.title}}</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="sunday-date">
-        {{bulletin?.sunday_date}}
+    <div class="bulletin-row">
+        <div class="horizontal-label">
+            대표기도자
+        </div>
+        <div class="horizontal-content">
+            {{bulletin?.representative_prayer}}
+        </div>
+    </div>
+    <div class="bulletin-row">
+        <div class="horizontal-label">
+            공동체소식
+        </div>
+        <div class="horizontal-content">
+            {{bulletin?.community_news}}
+        </div>
+    </div>
+    <div class="bulletin-row" style="border-radius: 0.25em; border: 1px dashed var(--secondary-color); padding: 0.5em;">
+        <div class="news-list">
+            <div *ngFor="let news of bulletin?.news; let i = index" class="news-item">
+                <div class="news-title">
+                    <span>{{i+1}}. </span>
+                    <span>{{news.title}}</span>
+                </div>
+                <div class="news-description">
+                    <span>{{news.description}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bulletin-row">
+        <div class="horizontal-label">
+            본문 말씀
+        </div>
+        <div class="horizontal-content">
+            {{bulletin?.sermon_content}}
+        </div>
+    </div>
+    <div class="bulletin-row">
+        <div class="horizontal-label">
+            설교
+        </div>
+        <div class="horizontal-content">
+            {{bulletin?.message}}
+        </div>
+    </div>
+    <div class="bulletin-row">
+        <div class="horizontal-label">
+            말씀 후 찬양
+        </div>
+        <div class="horizontal-content">
+            {{bulletin?.post_message_hymn}}
+        </div>
+    </div>
+    <div class="bulletin-row">
+        <div class="horizontal-label">
+            축도
+        </div>
+        <div class="horizontal-content">
+            {{bulletin?.blessing}}
+        </div>
     </div>
 </div>
 

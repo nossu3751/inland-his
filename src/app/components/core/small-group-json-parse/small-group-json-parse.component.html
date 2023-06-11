@@ -1,4 +1,4 @@
-<ng-container *ngIf="data">
+<ng-container *ngIf="data; else notLoaded">
     <ng-container *ngIf='data.content === "input-placeholder"; else contentHolder'>
       <span><input [(ngModel)]="inputs[data.inputId]" placeholder=" "/></span>
       <!-- <span>Test:{{inputs[data.inputId]}}</span> -->
@@ -21,3 +21,6 @@
       </ng-container>
     </ng-template>
 </ng-container>
+<ng-template #notLoaded>
+  Data not loaded
+</ng-template>
