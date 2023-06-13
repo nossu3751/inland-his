@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ModalService } from 'src/app/services/view/modal.service';
 @Component({
   selector: 'app-custom-modal',
@@ -6,7 +6,8 @@ import { ModalService } from 'src/app/services/view/modal.service';
   styleUrls: ['./custom-modal.component.scss']
 })
 export class CustomModalComponent {
+  
   constructor(public modalService: ModalService) {}
-
+  
   
 }

@@ -88,14 +88,14 @@
         </app-flex-container>
         <app-flex-container>
             <app-flex-item>
-                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="1em">
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="1em" (click)="modalService.openAlertModal(offeringRedirectionComponent, '온라인 헌금 페이지 이동')">
                     <div class="card-menu-text">
                         <app-block class="church-icon">
                             <!-- <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg> -->
                             <img src="assets/church-icons/offering.svg" height="75px;">
                         </app-block>
                         <app-block>
-                            헌금 안내
+                            온라인 헌금
                         </app-block>
                     </div>
                 </app-card>
@@ -105,10 +105,9 @@
                     <div class="card-menu-text">
                         <app-block class="church-icon">
                             
-                            <!-- <img src="assets/church-icons/welcome.svg" height="50px;"> -->
                         </app-block>
                         <app-block>
-                            <!-- 새신자 등록하기 -->
+                       
                         </app-block>
                     </div>
                 </app-card>
@@ -117,11 +116,7 @@
     </app-block>    
 </app-block>
 
-<!-- <div style="display:block; width: 100%; padding: 1em 1em 1em 1em;">
-    <div style="display: block; width: 100%; max-width: 1200px; margin: auto;">
-        hello
-    </div>
-</div> -->
+
 
 <app-block fxHide.lt-md style="text-align:center;" paddingTop="1em" paddingBottom="1em" paddingLeft="1em" paddingRight="1em">
     <app-block maxWidth="640px" style="margin: auto;">

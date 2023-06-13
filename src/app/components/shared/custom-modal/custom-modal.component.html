@@ -1,10 +1,12 @@
 <div *ngIf="modalService.isModalOpen | async" class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
+    <!-- <div class="top-area" *ngIf="fullSize"> -->
     <div class="top-area">
       <mat-icon class="close-button" (click)="modalService.closeModal()"> close </mat-icon>
       <div class="title-container">
         <div class="title">{{modalService.title | async}}</div>
       </div>
     </div>
+    <!-- <div class="modal-container" [ngStyle]="{'height':fullSize ? 'calc(var(--html-height)) - 3em':'var(--html-height)'}"> -->
     <div class="modal-container">
       <div class="modal-content" *ngIf="modalService.component | async as component">
         <ng-container *ngComponentOutlet="component"></ng-container>

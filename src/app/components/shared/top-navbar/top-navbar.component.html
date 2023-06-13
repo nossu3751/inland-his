@@ -1,23 +1,21 @@
 <mat-toolbar 
-
     class="web-toolbar" 
     [ngClass]="screenSizeClass"
     (mouseenter)="updateHoverStatus(true)"
     (mouseleave)="updateHoverStatus(false)" >
-
     <div fxLayout="row" fxLayoutAlign="start center" class="web-menu-wrapper" >
-        
         <mat-icon class="account" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm>
-            mood
+            menu
         </mat-icon>
-
     </div>
+
     <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu *ngIf="navItemMap.get('/' + currentRouteName) != 'HOME'; else searchBar">
         {{navItemMap.get('/' + currentRouteName)}}
     </div>
-    <ng-template #searchBar >
+    <ng-template #searchBar>
         <app-search-bar fxHide.gt-sm></app-search-bar>
     </ng-template>
+
     <div fxLayout="row" fxLayoutAlign="space-between center" fxHide.lt-md >
         <div class="web-toolbar-spacer"></div>
             <div class="web-menu-wrapper web-nav-item"

@@ -71,6 +71,8 @@ import { BulletinPaperAdminComponent } from './components/admin/bulletin/bulleti
 import { LoadingScreenComponent } from './components/shared/loading-screen/loading-screen.component';
 import { BulletinPaperComponent } from './components/core/bulletin-paper/bulletin-paper.component';
 import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
+import { AlertModalComponent } from './components/shared/alert-modal/alert-modal.component';
+import { OfferingRedirectionComponent } from './components/alerts/offering-redirection/offering-redirection.component';
 // import { Mat}
 
 
@@ -128,6 +130,8 @@ import { SearchBarComponent } from './components/shared/search-bar/search-bar.co
     LoadingScreenComponent,
     BulletinPaperComponent,
     SearchBarComponent,
+    AlertModalComponent,
+    OfferingRedirectionComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,8 @@ import { SmallGroupNoteComponent } from '../components/core/small-group-note/sma
 import { NewComerFormComponent } from '../components/core/new-comer-form/new-comer-form.component';
 import { BulletinPaperComponent } from '../components/core/bulletin-paper/bulletin-paper.component';
 import { VideoService } from '../services/data/video.service';
+import { OfferingComponent } from '../components/core/offering/offering.component';
+import { OfferingRedirectionComponent } from '../components/alerts/offering-redirection/offering-redirection.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,9 @@ export class HomeComponent implements OnInit{
   smallGroupNoteComponent = SmallGroupNoteComponent
   newComerFormComponent = NewComerFormComponent
   bulletinPaperComponent = BulletinPaperComponent
-  
+  offeringComponent = OfferingComponent
+  offeringRedirectionComponent = OfferingRedirectionComponent
+
   constructor(
     private screenSizeService: ScreenSizeService,
     public modalService: ModalService,

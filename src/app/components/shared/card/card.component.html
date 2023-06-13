@@ -33,18 +33,19 @@
         'width':width,
         'box-shadow':boxShadow,
         'border-radius':borderRadius,
+        'border-width':borderWidth,
         'margin-left':marginLeft,
         'margin-right':marginRight,
         'margin-top':marginTop,
         'margin-bottom':marginBottom,
         'border-color': borderColor,
         'border-style': 'solid',
-        'border-width': '1px',
         'background-color': screenSizeClass === 'large-screen'  && !disableHoverEffect ? isHovered ? hoveredBackgroundColor : backgroundColor : backgroundColor,
         'align-items':alignItems,
         'justify-content':justifyContent,
         'display':display,
-        'padding':padding}">
+        'padding':padding,
+        'color':textColor}">
     <ng-content></ng-content>
 </div>
 </a> 

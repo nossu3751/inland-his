@@ -32,6 +32,7 @@ export class CardComponent implements OnInit, AfterViewInit{
   @Input() padding:string = "0 0 0 0";
   @Input() textColor:string | null = null;
   @Input() hoveredTextColor: string | null = null;
+  @Input() borderWidth: string = "1px";
   
   isHovered:boolean;
   screenSizeClass:string;

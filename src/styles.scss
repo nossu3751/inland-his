@@ -40,6 +40,7 @@ $inland-his-theme: mat.define-light-theme((
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
 $carousel-indicator-width: 3px;
 /* Add your global styles here */
@@ -186,3 +187,49 @@ li {
 }
 
 
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+// .material-icons-outlined,
+// .material-icons.material-icons--outlined,
+// .material-icons-two-tone,
+// .material-icons.material-icons--two-tone,
+// .material-icons-round,
+// .material-icons.material-icons--round,
+// .material-icons-sharp,
+// .material-icons.material-icons--sharp {
+//   font-weight: normal;
+//   font-style: normal;
+//   font-size: 24px;
+//   line-height: 1;
+//   letter-spacing: normal;
+//   text-transform: none;
+//   display: inline-block;
+//   white-space: nowrap;
+//   word-wrap: normal;
+//   direction: ltr;
+//   -webkit-font-feature-settings: 'liga';
+//   -webkit-font-smoothing: antialiased;
+// }
+
+// .material-icons-outlined,
+// .material-icons.material-icons--outlined {
+//   font-family: 'Material Icons Outlined';
+// }
+
+// .material-icons-two-tone,
+// .material-icons.material-icons--two-tone {
+//   font-family: 'Material Icons Two Tone';
+// }
+
+// .material-icons-round,
+// .material-icons.material-icons--round {
+//   font-family: 'Material Icons Round';
+// }
+
+// .material-icons-sharp,
+// .material-icons.material-icons--sharp {
+//   font-family: 'Material Icons Sharp';
+// }

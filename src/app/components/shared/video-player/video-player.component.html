@@ -6,7 +6,7 @@
                 'height': placeholderHeight
             }">
             <youtube-player 
-                *ngIf="apiLoaded && videoId"
+                *ngIf="apiLoaded && videoId && ready"
                 [disableCookies]="true"
                 [videoId]="videoId"
                 [width]="videoWidth"
@@ -18,6 +18,11 @@
                 }">
                 
             </youtube-player>
+            <!-- <ng-template #placeholder>
+                <div class="placeholder">
+                    로딩중...
+                </div>
+            </ng-template> -->
         </div>
     </div>
 </div>

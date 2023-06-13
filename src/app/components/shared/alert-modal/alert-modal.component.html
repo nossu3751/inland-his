@@ -1,0 +1,14 @@
+<div *ngIf="modalService.isAlertModalOpen | async" (click)="modalService.closeAlertModal()" class="modal-overlay" [ngClass]="{'fade-in': (modalService.isAlertModalOpen | async)}">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+        <div class="top-area">
+            <mat-icon class="close-button" (click)="modalService.closeAlertModal()"> close </mat-icon>
+            <div class="title-container">
+              <div class="title">{{modalService.alertTitle | async}}</div>
+            </div>
+            <div class="placeholder"></div>
+        </div>
+      <div class="modal-content"  *ngIf="modalService.alertComponent | async as component">
+        <ng-container *ngComponentOutlet="component"></ng-container>
+      </div>
+    </div>
+</div>
