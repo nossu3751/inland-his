@@ -1,0 +1,126 @@
+.search-page{
+    padding-bottom: 3em;
+    max-width: 600px;
+    margin: auto;
+}
+
+
+.section-title {
+    font-size: x-large;
+    font-weight: 900;
+    margin-top: 1.5em;
+    color: var(--secondary-color);
+    // margin: 2em 1em 2em 1em;
+    margin: auto;
+    padding: 0 0.5em 0 0.5em;
+    margin: 2em 0 2em 0;
+    
+}
+
+.video-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-item:focus {
+    outline: none;
+}
+
+
+.img-container {
+    width: 95%;
+    height: 0;
+    padding-bottom: 53%;
+    position:relative;
+    overflow:hidden;
+    border-radius: 0.5em;
+    margin-top: 1em;
+    display: flex;
+    // border: 2px solid var(--secondary-color);
+}
+
+.img-container img {
+    position: absolute;
+    top: -17%;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.list-area {
+    max-width: 600px;
+    margin: auto;
+}
+
+.bulletin-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.bulletin-item {
+    width: 100%;
+    display:flex;
+    padding: 0 1em 0 1em;
+    border: 2px solid var(--secondary-color);
+    border-radius: 0.5em;
+    background-color: white;
+    height: 6em;
+
+}
+
+.date-area {
+    display: flex;
+    flex: 0 0 25%;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--secondary-color);
+    .date {
+        text-align: center;
+    }
+}
+
+.date {
+    display: flex
+}
+
+.title-area {
+    display: flex;
+    flex: 0 0 55%;
+    font-size: 1.1em;
+    font-weight: 700;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+.title {
+    display: flex;
+}
+
+.photo-area {
+    display: flex;
+    flex: 0 0 20%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.photo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+}
+
+.bulletin-item:focus {
+    outline: none;
+}
+
+
+// .list-area {
+//     overflow:auto;
+//     -webkit-overflow-scrolling:touch;
+//     height: var(--html-height);
+// }

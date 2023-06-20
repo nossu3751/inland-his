@@ -1,9 +1,12 @@
 <div class="video-player-area" >
-    <div class="video-player" #videoPlayerRef>
+    <div class="video-player" #videoPlayerRef [ngStyle]="{
+        'border-color': borderColor,
+        'border-width': borderWidth
+    }">
         <div class="video-screen-area" 
             #videoPlaceholderRef 
             [ngStyle]="{
-                'height': placeholderHeight
+                'height': placeholderHeight,
             }">
             <youtube-player 
                 *ngIf="apiLoaded && videoId && ready"
@@ -18,11 +21,11 @@
                 }">
                 
             </youtube-player>
-            <!-- <ng-template #placeholder>
-                <div class="placeholder">
-                    로딩중...
-                </div>
-            </ng-template> -->
+            
+            <!-- <div class="placeholder" *ngIf="!ready">
+                로딩중...
+            </div> -->
+            
         </div>
     </div>
 </div>

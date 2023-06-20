@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HoverService } from 'src/app/services/view/hover.service';
 import { ScreenSizeService } from 'src/app/services/view/screen-size.service';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-
+import { MatSidenav } from '@angular/material/sidenav';
+import { ModalService } from 'src/app/services/view/modal.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-top-navbar',
   templateUrl: './top-navbar.component.html',
@@ -14,7 +17,9 @@ export class TopNavbarComponent implements OnInit{
     private screenSizeService: ScreenSizeService,
     private hoverService: HoverService,
     private router:Router,
-    private activatedRoute:ActivatedRoute 
+    private activatedRoute:ActivatedRoute,
+    public modalService:ModalService,
+    private location:Location
   ) {
     this.updateCurrentRouteName();
     this.router.events.subscribe((event) => {
@@ -23,9 +28,12 @@ export class TopNavbarComponent implements OnInit{
       }
     });
   }
-
+  
+  @Output() menuClick = new EventEmitter();
   screenSizeClass = '';
   currentRouteName = '';
+  hasParam:boolean = false;
+  sidebarComponent = SidebarComponent;
 
   webNavItems = [
     // { route: '/', label:"HOME"},
@@ -35,7 +43,7 @@ export class TopNavbarComponent implements OnInit{
     { route: '/verses', label: "말씀"},
     { route: '/new-comer', label: "새신자등록"},
     { route: '/bulletin', label: "주보"},
-    { route: '/online-service', label: "예배"},
+    { route: '/videos', label: "예배"},
     { route: '/login', label: "Login"}
     
   ]
@@ -48,7 +56,7 @@ export class TopNavbarComponent implements OnInit{
     ["/verses","말씀"],
     ["/bulletin","주보"],
     ["/new-comer","새신자등록"],
-    ["/online-service", "예배"]
+    ["/videos", "예배"]
   ])
 
   private updateCurrentRouteName() {
@@ -58,13 +66,39 @@ export class TopNavbarComponent implements OnInit{
     } else {
       this.currentRouteName = '';
     }
+    if(this.currentRouteName.includes(":")){
+      this.hasParam = true;
+    }else{
+      this.hasParam = false;
+    }
+    console.log("Current route name", this.currentRouteName)
   }
 
   updateHoverStatus(status: boolean): void {
     this.hoverService.updateHoverStatus(status)
   }
 
+  onMenuClick() {
+    this.menuClick.emit();
+  }
+
+  goBack() {
+    // if(this.hasParam){
+    //   let urlSegments = this.router.url.split('/');
+    //   urlSegments.pop();
+    //   let url = urlSegments.join('/');
+    //   this.router.navigateByUrl(url)
+    // }
+    this.location.back()
+    
+  }
+
+
+
+
+
   ngOnInit(): void {
+    
     this.screenSizeService.screenSizeClass$.subscribe((screenSizeClass) => {
       this.screenSizeClass = screenSizeClass;
     });

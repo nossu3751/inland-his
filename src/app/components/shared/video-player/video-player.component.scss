@@ -12,8 +12,8 @@
 .video-player {
     width: 100%;
     background-color: white;
-    border-radius: 0.25em;
-    border-color: #eee;
+    border-radius: 0.5em;
+    // border-color: #eee;
     border-style: solid;
     padding: 0.75em 0.75em 0.75em 0.75em;
     box-shadow: 0 0 0 rgb(0,0,0,0.1);
@@ -23,11 +23,12 @@
 .video-screen-area {
     width: 100%;
     background-color: white;
-    border-radius: 0.25em;
+    border-radius: 0.5em;
 }
 
 .placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: black
 }

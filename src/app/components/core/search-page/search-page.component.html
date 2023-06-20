@@ -1,0 +1,47 @@
+<div class="search-page">
+    <div class="section-title">
+        주보 검색결과
+    </div>
+    <div class="list-area">
+        <div *ngFor="let bulletin of searchResults.bulletin" class="bulletin-item-container">
+            <div class="bulletin-item" [routerLink]="['/bulletin',bulletin.item.sunday_date]">
+                <div class="photo-area">
+                    <div class="photo-container">
+                        <img [src]="pastorPhotoMap.get(getPastorName(bulletin.item.message))" class="photo"/>
+                    </div>
+                </div>
+                <div class="title-area">
+                    <div class="title">
+                        {{bulletin.item.sermon_title}}
+                    </div>
+                </div>
+                <div class="date-area">
+                    <div class="date">
+                        {{bulletin.item.sunday_date}}
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="section-title">
+        예배 검색결과
+    </div>
+    <div class="list-area" >
+        
+        <div *ngFor="let video of searchResults.video" 
+            class="video-item"
+            [routerLink]="['/videos', video.item.video_id]">
+            <div class="img-container">
+                <img [src]="video.item.thumbnail_url"/>
+            </div>
+        </div>
+        
+    </div>
+    <div class="small-group-note-search-result">
+        
+    </div>
+    
+</div>
+
+

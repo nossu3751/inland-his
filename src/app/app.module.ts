@@ -13,8 +13,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { SmallGroupComponent } from './small-group/small-group.component';
-import { OfferingComponent } from './offering/offering.component';
+import { SmallGroupComponent } from './components/core/small-group/small-group.component';
+import { OfferingComponent } from './components/core/offering/offering.component';
 import { MinistriesComponent } from './ministries/ministries.component';
 import { VersesComponent } from './verses/verses.component';
 import { PullToRefreshComponent } from './pull-to-refresh/pull-to-refresh.component';
@@ -58,7 +58,7 @@ import { YouTubePlayer, YouTubePlayerModule } from '@angular/youtube-player';
 import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
 import { VideoListComponent } from './components/shared/video-list/video-list.component';
 import { NavigateBackDirective } from './directives/navigate-back.directive';
-import { OnlineServiceComponent } from './components/core/online-service/online-service.component';
+import { VideosComponent } from './components/core/videos/videos.component';
 import { SmallGroupNotesAdminComponent } from './components/admin/small-group/small-group-notes-admin/small-group-notes-admin.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { SmallGroupNoteComponent } from './components/core/small-group-note/small-group-note.component';
@@ -73,6 +73,15 @@ import { BulletinPaperComponent } from './components/core/bulletin-paper/bulleti
 import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
 import { AlertModalComponent } from './components/shared/alert-modal/alert-modal.component';
 import { OfferingRedirectionComponent } from './components/alerts/offering-redirection/offering-redirection.component';
+import { VideoComponent } from './components/core/video/video.component';
+import { ClipboardModule } from '@angular/cdk/clipboard'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
+import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
+import { SearchPageComponent } from './components/core/search-page/search-page.component'
+import { RouteReuseStrategy } from '@angular/router';
+import { CustomReuseStrategy } from 'src/strategies/route-reuse-strategy';
 // import { Mat}
 
 
@@ -119,7 +128,7 @@ import { OfferingRedirectionComponent } from './components/alerts/offering-redir
     VideoPlayerComponent,
     VideoListComponent,
     NavigateBackDirective,
-    OnlineServiceComponent,
+    VideosComponent,
     SmallGroupNotesAdminComponent,
     AdminHomeComponent,
     SmallGroupNoteComponent,
@@ -132,6 +141,10 @@ import { OfferingRedirectionComponent } from './components/alerts/offering-redir
     SearchBarComponent,
     AlertModalComponent,
     OfferingRedirectionComponent,
+    VideoComponent,
+    SidebarComponent,
+    PageNotFoundComponent,
+    SearchPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -154,6 +167,7 @@ import { OfferingRedirectionComponent } from './components/alerts/offering-redir
     NgbModule,
     ReactiveFormsModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
@@ -161,9 +175,14 @@ import { OfferingRedirectionComponent } from './components/alerts/offering-redir
     HttpClientModule,
     YouTubePlayerModule,
     CKEditorModule,
-    NgxSummernoteModule
+    NgxSummernoteModule,
+    ClipboardModule,
+    MatSnackBarModule,
+    MatSidenavModule
   ],
-  providers: [],
+  providers: [
+    // {provide: RouteReuseStrategy, useClass: CustomReuseStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

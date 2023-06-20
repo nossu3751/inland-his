@@ -1,15 +1,15 @@
 // bulletin.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { switchMap, tap} from 'rxjs/operators';
+import { Observable, BehaviorSubject, catchError, of, switchMap, tap } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BulletinService {
 
-  private bulletinUrl = 'http://localhost:5000/api/v1/bulletins/';
+  private bulletinUrl = 'http://localhost:5000/api/v1/bulletins';
   private data = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) { }
@@ -18,6 +18,23 @@ export class BulletinService {
     return this.data.getValue() !== null;
   }
 
+  getFirstBulletin(): Observable<any> {
+    return this.http.get(`${this.bulletinUrl}?index=0`).pipe(
+      catchError(error => {
+        console.error('There was an error!', error);
+        return of(undefined);
+      })
+    )
+  }
+
+  getBulletinOfSunday(sunday:string): Observable<any> {
+    return this.http.get(`${this.bulletinUrl}?sunday=${sunday}`).pipe(
+      catchError(error => {
+        console.error('There was an error!', error);
+        return of(undefined);
+      })
+    )
+  }
 
   getData(): Observable<any> {
     if (this.dataIsAlreadyFetched()) {
@@ -37,6 +54,6 @@ export class BulletinService {
   }
 
   postBulletin(bulletin: any): Observable<any> {
-    return this.http.post(this.bulletinUrl, bulletin);
+    return this.http.post(`${this.bulletinUrl}/`, bulletin);
   }
 }

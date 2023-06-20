@@ -11,6 +11,7 @@
     예, 알겠습니다.
 </app-card>
 <app-card 
+    (click)="modalService.closeAlertModal(); modalService.openModal(offeringComponent, '헌금 안내')"
     height="3em"
     borderColor="var(--secondary-color)"
     borderWidth="2px"

@@ -1,1 +1,24 @@
-<p>bulletin works!</p>
+<div *ngIf="bulletins" class="list-area">
+    <div *ngFor="let bulletin of bulletins" class="bulletin-item-container">
+        <div class="bulletin-item" [routerLink]="bulletin.sunday_date">
+            <div class="photo-area">
+                <div class="photo-container">
+                    <img [src]="pastorPhotoMap.get(getPastorName(bulletin.message))" class="photo"/>
+                </div>
+            </div>
+            <div class="title-area">
+                <div class="title">
+                    {{bulletin.sermon_title}}
+                </div>
+            </div>
+            <div class="date-area">
+                <div class="date">
+                    {{bulletin.sunday_date}}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+

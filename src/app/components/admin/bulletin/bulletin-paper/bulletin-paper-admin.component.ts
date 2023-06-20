@@ -99,8 +99,8 @@ export class BulletinPaperAdminComponent implements OnInit {
         // handle success
       },
       error: error => {
-        console.log(error.error.id);
-        
+        console.log("error? why?",error.error.id);
+        console.log("error", error)
         // handle error
       },
     })

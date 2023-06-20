@@ -1,5 +1,5 @@
-<div *ngIf="modalService.isModalOpen | async" class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
-    <!-- <div class="top-area" *ngIf="fullSize"> -->
+<ng-template #modalArea>
+  <!-- <div class="top-area" *ngIf="fullSize"> -->
     <div class="top-area">
       <mat-icon class="close-button" (click)="modalService.closeModal()"> close </mat-icon>
       <div class="title-container">
@@ -12,5 +12,13 @@
         <ng-container *ngComponentOutlet="component"></ng-container>
       </div>
     </div>
+</ng-template>
+
+<div  *ngIf="(modalService.isModalOpen | async) && (modalService.title | async) === '메뉴'" [@sideMenuSlideInOut] class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
+   <ng-container *ngTemplateOutlet="modalArea"></ng-container>
+</div>
+
+<div  *ngIf="(modalService.isModalOpen | async) && (modalService.title | async) !== '메뉴'" [@itemSlideInOut] class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
+  <ng-container *ngTemplateOutlet="modalArea"></ng-container>
 </div>
 

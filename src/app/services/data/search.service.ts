@@ -5,14 +5,14 @@ import  Fuse  from 'fuse.js'
   providedIn: 'root'
 })
 export class SearchService {
-  private fuse!: Fuse<any>;
 
   private bulletinFuse!: Fuse<any>;
   private videoFuse!: Fuse<any>;
   private smallGroupNoteFuse!: Fuse<any>;
 
   private searchTerm$ = new BehaviorSubject<string>('');
-
+  private searchResults$ = new BehaviorSubject<{bulletin: any[], video: any[], smallGroupNote: any[]}>({bulletin: [], video: [], smallGroupNote: []});
+  
   constructor() { }
 
   setSearchTerm(term: string) {
@@ -22,6 +22,15 @@ export class SearchService {
   getSearchTerm(): Observable<string> {
     return this.searchTerm$.asObservable();
   }
+
+  setSearchResults(results: {bulletin: any[], video: any[], smallGroupNote: any[]}) {
+    this.searchResults$.next(results);
+  }
+
+  getSearchResults(): Observable<{bulletin: any[], video: any[], smallGroupNote: any[]}> {
+    return this.searchResults$.asObservable();
+  }
+
 
   // createIndex(data: any[], options: Fuse.IFuseOptions<any>) {
   //   this.fuse = new Fuse(data, options);

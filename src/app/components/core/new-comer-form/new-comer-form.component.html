@@ -3,32 +3,74 @@
         <app-flex-item width="100%" flexDirection="column">
             <div> 
                 <label for="name">이름</label>
-                <input id="name" type="text" formControlName="name">
+                <input class="text-input" id="name" type="text" formControlName="name">
+            </div>
+            <div > 
+                <label>생년월일</label>
+                <input class="text-input" matInput [matDatepicker]="birthdayPicker" formControlName="birthday" (click)="birthdayPicker.open()">
+                <mat-datepicker #birthdayPicker></mat-datepicker>
+            </div>
+            <div>
+                <label for="phone">미국전화번호</label>
+                <input class="text-input" id="phone" type="tel" formControlName="phone">
             </div>
             <div>
                 <label for="email">이메일</label>
-                <input id="email" type="email" formControlName="email">
+                <input class="text-input" id="email" type="email" formControlName="email">
             </div>
+            
+            <div *ngIf="form.controls['phone'].errors?.['pattern']" class="error-msg">10자리 수 전화번호를 '-' 없이 입력해주세요 </div>
+            
             <div>
-                <label for="message">방문경로</label>
-                <textarea id="message" formControlName="message"></textarea>
+                <label for="isSearching">교회를 찾고 계신가요?</label>
+                <select formControlName="isSearching">
+                    <option *ngFor="let option of whyVisitOptions; index as i" [value]="i">{{ option }}</option>
+                </select>
             </div>
+
             <div>
-                
-                    <label>생년월일</label>
-                    <input matInput [matDatepicker]="birthdayPicker" formControlName="birthday" (click)="birthdayPicker.open()">
-                    <mat-datepicker #birthdayPicker></mat-datepicker>
-                  
-                <!-- <label for="birthday">Birthday:</label>
-                <input id="birthday" formControlName="birthday"> -->
+                <label for="howVisit">어떻게 오셨나요?</label>
+                <select formControlName="howVisit">
+                    <option *ngFor="let option of howVisitOptions; index as i" [value]="i">{{ option }}</option>
+                </select>
             </div>
+            <div> 
+                <label for="whoIntroduced">인도자(지인) 이름</label>
+                <input class="text-input" id="whoIntroduced" type="text" formControlName="whoIntroduced">
+            </div>
+
             <div>
-                <label for="dateOfVisit">방문일자</label>
-                <input matInput [matDatepicker]="visitDatePicker" formControlName="dateOfVisit" (click)="visitDatePicker.open()">
+                <label for="howLong">신앙 생활 기간</label>
+                <select formControlName="howLong">
+                    <option *ngFor="let option of howLongOptions; index as i" [value]="i">{{ option }}</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="isBaptized">세례 받음</label>
+                <select formControlName="isBaptized">
+                    <option *ngFor="let option of isBaptized; index as i" [value]="i">{{ option }}</option>
+                </select>
+            </div>
+
+            
+
+            <div>
+                <label for="dateOfVisit">등록일</label>
+                <input class="text-input" matInput [matDatepicker]="visitDatePicker" formControlName="dateOfVisit" (click)="visitDatePicker.open()">
                 <mat-datepicker #visitDatePicker></mat-datepicker>
             </div>
+            <div> 
+                <label for="cellLeader">셀 리더 또는 새가족 담당자</label>
+                <input class="text-input" id="cellLeader" type="text" formControlName="cellLeader">
+            </div>
+
+            <div>
+                <label for="message">메모</label>
+                <textarea id="message" formControlName="message"></textarea>
+            </div>
         </app-flex-item>
-        <app-block style="text-align: center; margin-top: 1em;">
+        <app-block style="text-align: center; margin-top: 1em; margin-bottom: 5em;">
             <app-flex-container justifyContent="center" alignItems="center">
                 <button type="submit" [disabled]="!form.valid">
                     등록하기

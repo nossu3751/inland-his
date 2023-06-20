@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OfferingComponent } from './offering.component';
-
+import { OfferingComponent } from '../../core/offering/offering.component';
 describe('OfferingComponent', () => {
   let component: OfferingComponent;
   let fixture: ComponentFixture<OfferingComponent>;

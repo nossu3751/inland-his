@@ -33,11 +33,15 @@ export class HomeComponent implements OnInit{
     this.screenSizeService.screenSizeClass$.subscribe((screenSizeClass) => {
       this.screenSizeClass = screenSizeClass;
     });
-    this.videoService.getLiveStreams().subscribe(data => {
-      if (data.length > 0) {
-        this.video = data[0]
-        console.log("homepage video", this.video)
-      }
+    this.videoService.getFirstLiveStream().subscribe(data => {
+      console.log(data)
+      this.video = data
     })
+    // this.videoService.getLiveStreams().subscribe(data => {
+    //   if (data.length > 0) {
+    //     this.video = data[0]
+    //     console.log("homepage video", this.video)
+    //   }
+    // })
   }
 }

@@ -1,13 +1,13 @@
 import { Component, OnInit, HostListener, Renderer2, ElementRef } from '@angular/core';
 import { ScreenSizeService } from './services/view/screen-size.service'
 import { HoverService } from './services/view/hover.service';
-import { routeAnimations} from 'src/animations/route-animations'
+import { routeAnimation} from 'src/animations/route-animations'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [routeAnimations]
+  animations: [routeAnimation]
 })
 export class AppComponent implements OnInit{
   constructor(

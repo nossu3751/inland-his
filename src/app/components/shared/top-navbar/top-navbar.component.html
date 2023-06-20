@@ -4,12 +4,17 @@
     (mouseenter)="updateHoverStatus(true)"
     (mouseleave)="updateHoverStatus(false)" >
     <div fxLayout="row" fxLayoutAlign="start center" class="web-menu-wrapper" >
-        <mat-icon class="account" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm>
+        <mat-icon (click)="modalService.openModal(sidebarComponent, '메뉴')" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm *ngIf="!hasParam; else backIcon">
             menu
         </mat-icon>
+        <ng-template #backIcon>
+            <mat-icon (click)="goBack()" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm>
+                arrow_back
+            </mat-icon>
+        </ng-template>
     </div>
 
-    <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu *ngIf="navItemMap.get('/' + currentRouteName) != 'HOME'; else searchBar">
+    <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu *ngIf="currentRouteName != ''&& currentRouteName != 'search'; else searchBar">
         {{navItemMap.get('/' + currentRouteName)}}
     </div>
     <ng-template #searchBar>

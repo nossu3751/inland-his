@@ -17,8 +17,8 @@ export class ModalService {
   
   openModal(component: Type<any>, title: string = ""): void {
     this.component.next(component);
-    this.isModalOpen.next(true);
     this.title.next(title);
+    this.isModalOpen.next(true);
     console.log("modal loading");
   }
 

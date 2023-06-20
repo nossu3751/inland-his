@@ -85,6 +85,7 @@ a {
 
 html, body { 
   height: 100%; 
+  overflow: hidden;
 }
 
 .ios-peek {
@@ -151,7 +152,7 @@ img {
 }
 
 iframe {
-  border-radius: 0.25em;
+  border-radius: 0.5em;
 }
 
 li {
@@ -192,6 +193,61 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+::ng-deep .sidebar-snackbar, ::ng-deep .custom-snackbar {
+  height: 150px;
+}
+
+.mat-mdc-snack-bar-container {
+  &.custom-snackbar {
+    --mdc-snackbar-supporting-text-color: var(--secondary-color);
+    --mat-mdc-snack-bar-button-color: var(--secondary-color);
+    --mat-mdc-button-persistent-ripple-color: white;
+
+  }
+  &.sidebar-snackbar {
+    --mdc-snackbar-supporting-text-color: var(--secondary-color);
+    --mat-mdc-snack-bar-button-color: var(--secondary-color);
+    --mat-mdc-button-persistent-ripple-color: white;
+    
+
+  }
+  
+}
+
+// .birthday mat-datepicker-content {
+//   width: 100%;
+//   max-width: 600px;
+// }
+
+.cdk-overlay-container {
+  z-index: 1000000!important;
+}
+
+/* SCCS alternative */
+.mat-calendar-body-active {
+  .mat-calendar-body-today {
+      color: white;
+      background-color: rgb(114, 83, 148) !important;
+  }
+}
+
+.mat-calendar-body-today {
+  color: rgb(114, 83, 148);
+  background-color: transparent;
+  border: 1.5px solid rgb(114, 83, 148) !important;
+  
+}
+
+.mat-calendar-body-selected {
+  color: white;
+  background-color: rgb(114, 83, 148);
+}
+
+/* CSS alternative */
+// .mat-calendar-body-active > .mat-calendar-body-today {
+//   color: white;
+//       background-color: var(--secondary-color);
+// }
 // .material-icons-outlined,
 // .material-icons.material-icons--outlined,
 // .material-icons-two-tone,

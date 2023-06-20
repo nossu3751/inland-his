@@ -12,6 +12,12 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit{
   apiLoaded = false;
 
   @Input()
+  borderColor:string|null = "#eee"
+
+  @Input()
+  borderWidth:string|null = "1px"
+  
+  @Input()
   videoId:string|null = null
   
   @ViewChild('videoPlaceholderRef', {static: false}) 

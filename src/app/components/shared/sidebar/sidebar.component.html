@@ -1,0 +1,30 @@
+<app-block>
+        <app-flex-container>
+            <app-flex-item>
+                <app-card borderColor="transparent" marginTop="0.5em" marginRight="0.17em" marginLeft="0.5em" marginBottom="0"height="75px" hoveredBackgroundColor="#fff3f2" href="https://www.youtube.com/@inland_his">
+                    <img src="assets/social-media-logos/youtube-logo.png" height="60%"/>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card borderColor="transparent" marginTop="0.5em" marginRight="0.33em" marginLeft="0.33em" marginBottom="0"height="75px" hoveredBackgroundColor="#fef2ff" href="https://www.instagram.com/inlandhisministry/">
+                    <img src="assets/social-media-logos/instagram-logo.png" height="60%"/>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card borderColor="transparent" marginTop="0.5em" marginLeft="0.17em" marginRight="0.5em" marginBottom="0"height="75px" hoveredBackgroundColor="#f3f2ff" href="https://www.facebook.com/groups/161659807316928">
+                    <img src="assets/social-media-logos/facebook-logo.png" height="60%"/>
+                </app-card>
+            </app-flex-item>
+        </app-flex-container>
+        
+        
+        
+    </app-block>
+    <div class="info-container" (click)="copyToClipboard(pastorPhone)"> 
+        <label>목사님 연락처</label>
+        <input [value]="pastorPhone" [readonly]="true" (click)="copyToClipboard(pastorPhone)" type="text">
+    </div>
+    <div class="info-container"> 
+        <label>교회 주소</label>
+        <input [value]="churchAddress" [readonly]="true" (click)="copyToClipboard(churchAddress)">
+    </div>

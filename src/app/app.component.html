@@ -1,13 +1,35 @@
 
 <app-top-navbar ></app-top-navbar>
-
-<app-content-area>
-  <router-outlet></router-outlet>
+<app-content-area [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
 </app-content-area>
-
 <app-bottom-navbar ></app-bottom-navbar>
 <app-custom-modal></app-custom-modal>
 <app-alert-modal></app-alert-modal>
+<!-- 
+  <app-top-navbar (menuClick)="sidenav.toggle()" ></app-top-navbar>
+  <mat-sidenav-container class="sidenav-container">
+  
+  <mat-sidenav #sidenav class="sidenav" mode="over">
+    
+    
+  </mat-sidenav>
+
+  
+ 
+  <mat-sidenav-content>
+    
+    <app-content-area>
+      <router-outlet></router-outlet>
+    </app-content-area>
+    
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>
+<app-bottom-navbar ></app-bottom-navbar>
+    <app-custom-modal></app-custom-modal>
+    <app-alert-modal></app-alert-modal> -->
+
 
 
 

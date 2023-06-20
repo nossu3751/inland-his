@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, tap} from 'rxjs'
+import { Observable, tap, catchError, of} from 'rxjs'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,28 @@ export class VideoService {
   }
 
   getLiveStreams(): Observable<any> {
-    return this.http.get(this.liveStreamUrl)
+    return this.http.get(this.liveStreamUrl).pipe(
+      catchError(error => {
+        return of(undefined)
+      })
+    )
+  }
+
+  getFirstLiveStream(): Observable<any> {
+    return this.http.get(`${this.liveStreamUrl}?index=0`).pipe(
+      catchError(error => {
+        console.error('There was an error!', error);
+        return of(undefined);
+      })
+    );
+  }
+
+  getLiveStreamById(id:string): Observable<any> {
+    return this.http.get(`${this.liveStreamUrl}?id=${id}`).pipe(
+      catchError(error => {
+        return of(undefined)
+      })
+    )
   }
 
 }

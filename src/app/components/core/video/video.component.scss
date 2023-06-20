@@ -1,0 +1,13 @@
+.copy-button {
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2px solid var(--secondary-color);
+    border-radius: 0.25em;
+    margin-bottom:0.5em;
+    height: 3em;
+    background-color: transparent;
+    color: var(--secondary-color);
+}

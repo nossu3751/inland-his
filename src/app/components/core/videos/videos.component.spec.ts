@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OnlineServiceComponent } from './online-service.component';
+import { VideosComponent } from './videos.component';
 
-describe('OnlineServiceComponent', () => {
-  let component: OnlineServiceComponent;
-  let fixture: ComponentFixture<OnlineServiceComponent>;
+describe('VideosComponent', () => {
+  let component: VideosComponent;
+  let fixture: ComponentFixture<VideosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OnlineServiceComponent ]
+      declarations: [ VideosComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OnlineServiceComponent);
+    fixture = TestBed.createComponent(VideosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
