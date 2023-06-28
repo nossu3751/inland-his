@@ -5,6 +5,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ModalService } from 'src/app/services/view/modal.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { RightSidebarComponent } from '../right-sidebar/right-sidebar.component';
 import { Location } from '@angular/common';
 @Component({
   selector: 'app-top-navbar',
@@ -34,6 +35,7 @@ export class TopNavbarComponent implements OnInit{
   currentRouteName = '';
   hasParam:boolean = false;
   sidebarComponent = SidebarComponent;
+  rightSidebarComponent = RightSidebarComponent
 
   webNavItems = [
     // { route: '/', label:"HOME"},

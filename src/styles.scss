@@ -223,6 +223,11 @@ body {
   z-index: 1000000!important;
 }
 
+.cdk-overlay-pane.mat-datepicker-popup {
+  left: auto !important;
+  justify-self: center;
+}
+
 /* SCCS alternative */
 .mat-calendar-body-active {
   .mat-calendar-body-today {

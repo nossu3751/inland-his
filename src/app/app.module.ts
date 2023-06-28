@@ -82,6 +82,9 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
 import { SearchPageComponent } from './components/core/search-page/search-page.component'
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from 'src/strategies/route-reuse-strategy';
+import { ExistingPersonComponent } from './components/alerts/existing-person/existing-person.component';
+import { SignupSuccessComponent } from './components/shared/signup-success/signup-success.component';
+import { RightSidebarComponent } from './components/shared/right-sidebar/right-sidebar.component';
 // import { Mat}
 
 
@@ -145,6 +148,9 @@ import { CustomReuseStrategy } from 'src/strategies/route-reuse-strategy';
     SidebarComponent,
     PageNotFoundComponent,
     SearchPageComponent,
+    ExistingPersonComponent,
+    SignupSuccessComponent,
+    RightSidebarComponent,
   ],
   imports: [
     BrowserModule,

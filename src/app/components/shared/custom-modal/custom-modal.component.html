@@ -14,11 +14,15 @@
     </div>
 </ng-template>
 
-<div  *ngIf="(modalService.isModalOpen | async) && (modalService.title | async) === '메뉴'" [@sideMenuSlideInOut] class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
+<div  *ngIf="(modalService.isModalOpen | async) && (modalService.title | async) === '교회 정보'" [@sideMenuSlideInOutLeft] class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
    <ng-container *ngTemplateOutlet="modalArea"></ng-container>
 </div>
 
-<div  *ngIf="(modalService.isModalOpen | async) && (modalService.title | async) !== '메뉴'" [@itemSlideInOut] class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
+<div  *ngIf="(modalService.isModalOpen | async) && (modalService.title | async) === '유저'" [@sideMenuSlideInOutRight] class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
+  <ng-container *ngTemplateOutlet="modalArea"></ng-container>
+</div>
+
+<div  *ngIf="(modalService.isModalOpen | async) && (modalService.title | async) !== '교회 정보' && (modalService.title | async) !== '유저'" [@itemSlideInOut] class="modal-overlay" [ngClass]="{'fade-in': (modalService.isModalOpen | async)}">
   <ng-container *ngTemplateOutlet="modalArea"></ng-container>
 </div>
 

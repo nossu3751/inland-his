@@ -24,6 +24,11 @@
     // border-bottom: 1px solid #eee;
 }
 
+// mat-icon {
+//     font-size: 30px;
+//     height:30px;
+//     width:30px;
+// }
 .web-toolbar.large-screen {
     // height: calc(var(--nav-height) * 1.2) !important; 
     height: var(--nav-height) !important; 
@@ -107,4 +112,20 @@
 
 .web-menu-wrapper:hover .login-button {
     border-width: 2.5px;
+}
+
+button {
+    height: 1em;
+    padding: 1em 1em 1em 1em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--secondary-color);
+    background-color: inherit;
+    border-radius: 1em;
+    color: var(--secondary-color);
+    border-width: 2px;
+    border-style: solid;
+    font-weight: 900;   
 }

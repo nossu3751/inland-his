@@ -9,13 +9,17 @@ import { slideInLeft, slideOutLeft, slideInDown, slideOutDown, slideInRight, sli
   templateUrl: './custom-modal.component.html',
   styleUrls: ['./custom-modal.component.scss'],
   animations: [
-    trigger('sideMenuSlideInOut', [
+    trigger('sideMenuSlideInOutLeft', [
       transition(':enter', useAnimation(slideInLeft, { params: { timing: 0.3, delay: 0, easing: 'cubic-bezier(0,0,0,.98)'  } })),
       transition(':leave', useAnimation(slideOutLeft, { params: { timing: 0.3, delay: 0, easing: 'cubic-bezier(0,0,0,.98)'  } }))
     ]),
     trigger('itemSlideInOut', [
       transition(':enter', useAnimation(slideInDown, { params: { timing: 0.3, delay: 0, easing: 'cubic-bezier(0,0,0,.98)'  } })),
       transition(':leave', useAnimation(slideOutDown, { params: { timing: 0.3, delay: 0, easing: 'cubic-bezier(0,0,0,.98)'  } }))
+    ]),
+    trigger('sideMenuSlideInOutRight', [
+      transition(':enter', useAnimation(slideInRight, { params: { timing: 0.3, delay: 0, easing: 'cubic-bezier(0,0,0,.98)'  } })),
+      transition(':leave', useAnimation(slideOutRight, { params: { timing: 0.3, delay: 0, easing: 'cubic-bezier(0,0,0,.98)'  } }))
     ])
   ],
 })

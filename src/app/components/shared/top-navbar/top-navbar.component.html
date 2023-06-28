@@ -4,8 +4,8 @@
     (mouseenter)="updateHoverStatus(true)"
     (mouseleave)="updateHoverStatus(false)" >
     <div fxLayout="row" fxLayoutAlign="start center" class="web-menu-wrapper" >
-        <mat-icon (click)="modalService.openModal(sidebarComponent, '메뉴')" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm *ngIf="!hasParam; else backIcon">
-            menu
+        <mat-icon (click)="modalService.openModal(sidebarComponent, '교회 정보')" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm *ngIf="!hasParam; else backIcon">
+            info_outline
         </mat-icon>
         <ng-template #backIcon>
             <mat-icon (click)="goBack()" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm>
@@ -55,9 +55,13 @@
         </ng-container>
     </div>
     <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" appPreventContextMenu >
-        <mat-icon class="menu" style="color:var(--secondary-color)" fxHide.gt-sm>
-            notifications
-            <!-- login -->
+        <mat-icon (click)="modalService.openModal(rightSidebarComponent, '유저')" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm *ngIf="!hasParam">
+            menu
         </mat-icon>
+        <!-- 로그인 -->
+        
+        <!-- <mat-icon class="menu" style="color:var(--secondary-color)" fxHide.gt-sm>
+            notifications
+        </mat-icon> -->
     </div>
 </mat-toolbar> 

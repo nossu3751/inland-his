@@ -19,6 +19,7 @@ import { SmallGroupNotesAdminComponent } from './components/admin/small-group/sm
 import { BulletinPaperAdminComponent } from './components/admin/bulletin/bulletin-paper/bulletin-paper-admin.component';
 import { BulletinPaperComponent } from './components/core/bulletin-paper/bulletin-paper.component';
 import { SearchPageComponent } from './components/core/search-page/search-page.component';
+import { SignupSuccessComponent } from './components/shared/signup-success/signup-success.component';
 // ...
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   // { path: 'search', component: SearchPageComponent, data: {animation: 'Search'}},
   { path: '', component: HomeComponent },
   { path: 'search', component: SearchPageComponent, data: { animation: 'Search' }},
+  { path: 'thanks', component: SignupSuccessComponent},
   { path: 'about', component: AboutComponent },
   { path: 'small-group', component: SmallGroupComponent },
   { path: 'offering', component: OfferingComponent },
