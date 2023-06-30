@@ -38,6 +38,7 @@
     "ngx-summernote": "^0.9.0",
     "node-html-parser": "^6.1.5",
     "rxjs": "~7.8.0",
+    "semver": "^7.5.3",
     "summernote": "^0.8.20",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -59,5 +60,8 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "svg-url-loader": "^8.0.0",
     "typescript": "~4.9.4"
+  },
+  "overrides": {
+    "semver": "^7.5.3"
   }
 }
