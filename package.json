@@ -27,6 +27,7 @@
     "@ckeditor/ckeditor5-build-classic": "^37.1.0",
     "@ng-bootstrap/ng-bootstrap": "^14.0.1",
     "@popperjs/core": "^2.11.6",
+    "angular-code-input": "^1.6.0",
     "bootstrap": "^5.2.3",
     "flatted": "^3.2.7",
     "fuse.js": "^6.6.2",

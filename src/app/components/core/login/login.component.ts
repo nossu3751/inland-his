@@ -10,6 +10,7 @@ export class LoginComponent {
   @ViewChildren('inputs') inputs!: QueryList<ElementRef>;
 
   onInputChange(event: Event, index: number) {
+    event.stopPropagation()
     const input = event.target as HTMLInputElement;
     this.code[index] = input.value;
 
