@@ -1,3 +1,12 @@
 <app-flex-container justifyContent="center" alignItems="center">
-    
+    <input
+      *ngFor="let digit of code; let i = index"
+      [value]="code[i]"
+      (input)="onInputChange($event, i)"
+      maxlength="1"
+      #inputs
+    />
 </app-flex-container>
+
+<!-- (input)="onInputChange($event, i)"
+      (keydown)="onKeydown($event, i)" -->
