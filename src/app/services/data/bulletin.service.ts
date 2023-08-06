@@ -27,7 +27,7 @@ export class BulletinService {
   }
 
   getFirstBulletin(): Observable<any> {
-    return this.http.get(`${this.bulletinUrl}?index=0`).pipe(
+    return this.http.get(`${this.bulletinUrl}/?index=0`).pipe(
       catchError(error => {
         console.error('There was an error!', error);
         return of(undefined);
@@ -36,7 +36,7 @@ export class BulletinService {
   }
 
   getBulletinOfSunday(sunday:string): Observable<any> {
-    return this.http.get(`${this.bulletinUrl}?date=${sunday}`)
+    return this.http.get(`${this.bulletinUrl}/?date=${sunday}`)
   }
 
   getBulletinssBySearchStr(search:string):Observable<any> {
