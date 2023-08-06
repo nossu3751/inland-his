@@ -1,0 +1,201 @@
+
+.poll-container {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    max-width: 600px;
+    margin: auto;
+    flex-direction: column;
+}
+
+.create-poll {
+    margin-bottom: 5em;
+}
+
+.remove-button {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 20px;
+    // ... any other styles
+}
+
+.add-button {
+    background-color: white;
+    border-color: var(--secondary-color);
+    border-style: solid;
+    border-width: 2.5px;
+    border-radius: 1em;
+    // width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    outline: none;
+    cursor: pointer;
+    mat-icon {
+        color: var(--secondary-color)
+    }
+}
+
+.inputs {
+    position: relative;
+    display:flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.5em;
+}
+
+.text-input, textarea, select {
+    width: 100%;
+    // border: none;
+    height: 3em;
+    border-image:none;
+    border-radius: 1em;
+    appearance: none;
+    // outline-style: solid;
+    // outline-width: 2px;
+    // outline-color: rgb(209, 181, 255);
+    border-style: solid;
+    border-width: 2.5px;
+    border-color: var(--secondary-color);
+    padding: 0 1em 0 1em;
+    color: var(--secondary-color);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.input-row {
+    width: 100%;
+    padding: 0 0.5em 0 0.5em;
+}
+// select {
+//     position: absolute;
+// }
+
+.select-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .select-container select {
+    width: 100%;
+   
+    // border: none;
+    background-color: transparent;
+    height: 2em;
+    border-image:none;
+    border-radius: 1em;
+    appearance: none;
+    // outline-style: solid;
+    // outline-width: 2px;
+    // outline-color: rgb(209, 181, 255);
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--secondary-color);
+    padding: 0 25px 0 1em;
+    color: var(--secondary-color);
+    z-index:2;
+    // padding-right: 25px; /* make room for the icon */
+  }
+  
+  .arrow-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    z-index: 1;
+  }
+
+
+input[type="radio"] {
+    width: auto;
+    height: 3em;
+    display: inline-flex;
+    border-radius: 50%;
+    
+    border-color: var(--secondary-color);
+
+    
+}
+
+textarea {
+    resize: none;
+    height: 10em;
+}
+
+.text-input:focus, textarea:focus {
+    outline-color: rgb(114, 83, 148) !important;
+    outline-width: 2.5px;
+    
+}
+
+// .text-input {
+//     width: 100%;
+//     // border: none;
+//     height: 2em;
+//     border-image:none;
+//     border-radius: 1em;
+//     appearance: none;
+//     // outline-style: solid;
+//     // outline-width: 2px;
+//     // outline-color: rgb(209, 181, 255);
+//     border-style: solid;
+//     border-width: 2px;
+//     border-color: var(--secondary-color);
+//     padding: 0 1em 0 1em;
+//     color: var(--secondary-color);
+// }
+
+label {
+    font-size: large;
+    font-weight: 900;
+    margin-top: 1.5em;
+    color: var(--secondary-color);
+    margin-bottom: 0.5em;
+}
+
+.error-msg {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    color: rgb(207, 131, 144);
+    font-weight: 500;
+    height: 50px;
+    padding-left: 0.5em;
+}
+
+.required {
+    color: rgb(207, 131, 144);
+}
+
+.important-button {
+    margin-top: 3em;
+    height: 4em;
+    padding: 1em 1em 1em 1em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--secondary-color);
+    background-color: inherit;
+    border-radius: 1em;
+    color: var(--secondary-color);
+    border-width: 2.5px;
+    border-style: solid;
+    font-weight: 900;
+    
+}
+
+button:disabled {
+    border-style: dashed;
+    border-color: var(--tertiary-color);
+    color: var(--tertiary-color);
+    font-weight: 500;
+}

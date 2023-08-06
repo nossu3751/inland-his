@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, catchError, of, switchMap, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,13 +10,20 @@ import { Observable, BehaviorSubject, catchError, of, switchMap, tap } from 'rxj
 })
 export class BulletinService {
 
-  private bulletinUrl = 'http://localhost:5000/api/v1/bulletins';
+  private bulletinUrl = `${environment.apiUrl}/api/v1/bulletins`;
   private data = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) { }
 
   dataIsAlreadyFetched(): boolean {
     return this.data.getValue() !== null;
+  }
+
+  pruneTitle(title:string):string {
+    if (title.length > 11) {
+      title = `${title.substring(0,12)}...`
+    }
+    return title
   }
 
   getFirstBulletin(): Observable<any> {
@@ -28,12 +36,17 @@ export class BulletinService {
   }
 
   getBulletinOfSunday(sunday:string): Observable<any> {
-    return this.http.get(`${this.bulletinUrl}?sunday=${sunday}`).pipe(
-      catchError(error => {
-        console.error('There was an error!', error);
-        return of(undefined);
-      })
+    return this.http.get(`${this.bulletinUrl}?date=${sunday}`)
+  }
+
+  getBulletinssBySearchStr(search:string):Observable<any> {
+    return this.http.get(`${this.bulletinUrl}/?search=${search}`).pipe(
+      catchError(error => of({error: error, data: []}))
     )
+  }
+
+  getBulletins(): Observable<any> {
+    return this.http.get(this.bulletinUrl)
   }
 
   getData(): Observable<any> {
@@ -50,10 +63,14 @@ export class BulletinService {
   }
 
   updateData(id: number, data:any){
-    return this.http.patch(`${this.bulletinUrl}/${id}`, data);
+    return this.http.put(`${this.bulletinUrl}/${id}`, data);
   }
 
   postBulletin(bulletin: any): Observable<any> {
     return this.http.post(`${this.bulletinUrl}/`, bulletin);
+  }
+
+  deleteBulletin(id:number){
+    return this.http.delete(`${this.bulletinUrl}/${id}`)
   }
 }

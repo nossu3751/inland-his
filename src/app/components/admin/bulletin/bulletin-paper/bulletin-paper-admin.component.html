@@ -1,4 +1,9 @@
-<app-flex-container justifyContent="center" width="100%">
+
+<app-admin-top-navbar [title]="date ? date : ''">
+    <span routerLink="/admin/bulletins"><mat-icon>arrow_back</mat-icon></span>
+</app-admin-top-navbar>
+<app-admin-content-area>
+    <app-flex-container justifyContent="center" width="100%" *ngIf="!loading && form">
     
         <form [formGroup]="form">
             <div class="field">
@@ -112,12 +117,26 @@
                 <mat-icon class="add-icon">add_circle</mat-icon>
             </div>
             </div>
-            <button class="submit-button" (click)="postBulletin()" [disabled]="!form.valid">
-                주보 등록하기
-            </button>
-        </form>
-        
-</app-flex-container>
+            <ng-container *ngIf="!loading && date === 'create'">
+                <button class="submit-button" (click)="postBulletin()" [disabled]="!form.valid">
+                    주보 등록하기
+                </button>
+            </ng-container>
+            <ng-container *ngIf="!loading && date !== 'create'">
+                <div class="button-container">
+                    <button class="half-button" (click)="updateBulletin()">
+                        주보 수정하기
+                    </button>
+                    <button class="half-button" (click)="deleteBulletin()">
+                        주보 삭제하기
+                    </button>
+                </div>
+            </ng-container>
+            
+        </form> 
+    </app-flex-container>
+</app-admin-content-area>
+    
 
       
 

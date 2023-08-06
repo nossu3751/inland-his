@@ -1,0 +1,122 @@
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    margin: 0.5em 0.5em 0.5em 0.5em;
+
+}
+
+.small-group-info-page {
+    width: 100%;
+    height: calc(var(--html-height) - var(--nav-height));
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-small-group-area {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 0 1em 0;
+}
+
+.my-leader-area {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 0 1em 0;
+}
+
+.other-small-group {
+    font-weight: 500;
+    font-size: 0.8em;
+    color: var(--secondary-color)
+}
+
+
+.my-small-group-box-header {
+    width: 100%;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border: 2px solid var(--secondary-color);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+.my-small-group-name{
+    font-size: 1.3em;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.my-small-group-room {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.my-small-group-box {
+    border-left: 2px solid var(--secondary-color);
+    border-right: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+    overflow: scroll;
+    position: relative;
+}
+
+
+.my-small-group-member {
+    // border-left: 2px solid var(--secondary-color);
+    // border-right: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em 0 1em;
+}
+
+.my-small-group-member:last-child {
+    border-bottom: 0 solid transparent;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+.my-small-group-member.last-item {
+    border-bottom: 0 solid transparent;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.my-small-group-member-name {
+    display: flex;
+}
+
+.my-small-group-member-photo{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-photo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+    display: flex;
+}
+
+.leader-photos{
+    display:flex;
+    flex-direction: row;
+}
+
+.leader-photo-container {
+    display: flex;
+    margin: 0 0 0 0.5em;
+}

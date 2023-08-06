@@ -1,0 +1,33 @@
+<app-admin-top-navbar title="셀 멤버 연락처">
+    <span routerLink="/admin" (click)="routingService.showLoadingScreenForTime(1)"><mat-icon>arrow_back</mat-icon></span>
+</app-admin-top-navbar>
+<app-admin-content-area>
+    <div class="small-group-container">
+        <div *ngIf="smallGroups !== null" class="small-group-info-page">
+            <div class="my-small-group-area" *ngFor="let smallGroup of smallGroups">
+                <div class="my-small-group-box-header">
+                    <div class="my-small-group-name">
+                        {{smallGroup.name}} | <span class="my-small-group-room">{{smallGroup.room ? smallGroup.room : ""}}</span>
+                    </div>
+                </div>
+                <div class="my-small-group-box">
+                    <div class="my-small-group-member" *ngFor="let member of smallGroup.members; let last = last" [ngClass]="{'last-item':last}">
+                        <div class="left">
+                            <div class="my-small-group-member-photo" >
+                                <img [src]="smallGroupService.getProfilePhoto(member.id, smallGroupProfiles)" class="profile-photo"/>
+                            </div>
+                            <div class="my-small-group-member-name">
+                                {{member.name}}
+                            </div>
+                        </div>
+                        <div class="right">
+                            <a [href]="'tel:' + getMemberContact(member)">{{getMemberContact(member)}}</a>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</app-admin-content-area>

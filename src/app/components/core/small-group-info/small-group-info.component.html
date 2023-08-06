@@ -1,0 +1,58 @@
+<div *ngIf="mySmallGroup !== null" class="small-group-info-page">
+    <div class="my-small-group-area">
+        <div class="my-small-group-box-header" *ngIf="!showAllSmallGroups">
+            <div class="my-small-group-name">
+                {{mySmallGroup.name}} | <span class="my-small-group-room">{{mySmallGroup.room ? mySmallGroup.room : ""}}</span>
+            </div>
+            <div class="other-small-group" (click)="toggleView()">
+                <span *ngIf="!showAllSmallGroups">다른 셀 보기</span>
+            </div>
+        </div>
+        <div class="my-small-group-box-header" (click)="switchCurrGroup(mySmallGroup.id)" *ngIf="showAllSmallGroups">
+            <div class="my-small-group-name">
+                {{mySmallGroup.name}} | <span class="my-small-group-room">{{mySmallGroup.room ? mySmallGroup.room : ""}}</span>
+            </div>
+        </div>
+        <div class="my-small-group-box" *ngIf="showAllSmallGroups && allSmallGroups">
+            <ng-container *ngFor="let group of allSmallGroups; let last = last">
+                <div [ngClass]="{'last-item':last}" class="my-small-group-member"   *ngIf="group.id !== mySmallGroup.id" (click)="switchCurrGroup(group.id)">
+                    <div class="my-small-group-name" >
+                        {{group.name}} | <span class="my-small-group-room">{{group.room ?group.room : ""}}</span>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div class="my-small-group-box" *ngIf="!showAllSmallGroups">
+            <div class="my-small-group-member" *ngFor="let member of mySmallGroup.members; let last = last" [ngClass]="{'last-item':last}">
+                <div class="my-small-group-member-name">
+                    {{member.name}}
+                </div>
+                <div class="my-small-group-member-photo" >
+                    <img [src]="smallGroupService.getProfilePhoto(member.id, smallGroupProfiles)" class="profile-photo"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-leader-area" *ngIf="!showAllSmallGroups">
+        <div class="my-small-group-box-header">
+            <div class="my-small-group-name">
+                리더 정보
+            </div>
+            <div class="leader-photos">
+                <div *ngFor="let member of myLeaders | keyvalue" class="leader-photo-container">
+                    <img [src]="smallGroupService.getProfilePhoto(member.key,  smallGroupProfiles)" class="profile-photo"/>
+                </div>
+            </div>
+        </div>
+        <div class="my-small-group-box">
+            <div class="my-small-group-member" *ngFor="let member of myLeaders | keyvalue; let last = last" [ngClass]="{'last-item':last}">
+                <div class="my-small-group-member-name">
+                    {{getMemberNameWithId(member.key)}}
+                </div>
+                <div class="my-small-group-member-photo" >
+                    <a [href]="'tel:'+member.value">{{member.value}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

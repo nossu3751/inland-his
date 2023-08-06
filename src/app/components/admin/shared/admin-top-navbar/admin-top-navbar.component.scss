@@ -1,0 +1,25 @@
+:host {
+    width: 100%;
+    display: flex;
+    height: var(--nav-height);
+    background-color: white;
+    color: var(--primary-color);
+    align-items: center;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.profile-image {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color)
+}

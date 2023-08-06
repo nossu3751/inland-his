@@ -1,3 +1,10 @@
-<div class="loading-screen">
-    
+<div class="loading-screen" [@fade]="fadeState">
+    <div class="wrapper">
+        <img class="spinner" src="assets/his-spinner.gif" [ngStyle]="{
+            'margin-bottom': message !== null ? '2em':'none' 
+        }"/>
+        <span class="message" *ngIf="message !== null">
+            {{message}}
+        </span>
+    </div>
 </div>

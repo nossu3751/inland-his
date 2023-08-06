@@ -1,0 +1,11 @@
+.admin-content-area {
+    width: 100%;
+    display: block;
+    background-color: white;
+    width: 100%;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(var(--html-height) - var(--nav-height) - env(safe-area-inset-top));
+}
+

@@ -3,12 +3,12 @@
         <div class="bulletin-item" [routerLink]="bulletin.sunday_date">
             <div class="photo-area">
                 <div class="photo-container">
-                    <img [src]="pastorPhotoMap.get(getPastorName(bulletin.message))" class="photo"/>
+                    <img [src]="getPastorPhoto(bulletin.message)" class="photo"/>
                 </div>
             </div>
             <div class="title-area">
                 <div class="title">
-                    {{bulletin.sermon_title}}
+                    {{ bulletinService.pruneTitle(bulletin.sermon_title)}}
                 </div>
             </div>
             <div class="date-area">

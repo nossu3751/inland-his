@@ -12,11 +12,11 @@ export class BottomNavbarComponent {
   mobileNavItems = [
     // { route: '/', icon: 'home', tooltip: 'Home', label:"HOME"},
     // { route: '/about', icon: 'info', tooltip: 'About', label:"소개" },
-    { route: '/small-group', icon: 'group', tooltip: 'Small Group', label:"셀"},
+    { route: '/calendar', icon: 'calendar_month', tooltip: 'Small Group', label:"달력"},
     // { route: '/ministries', icon: 'favorite', tooltip: 'Ministries', label:"사역"},
     { route: '/bulletin', icon: 'map_outline', tooltip: 'Bulletin', label:"주보"},
     { route: '/videos', icon: 'live_tv', tooltip: 'Offering', label:"예배" },
-    { route: '/verses', icon: 'menu_book', tooltip: 'Verses', label: "말씀"}
+    { route: '/widgets', icon: 'widgets', tooltip: 'Verses', label: "위젯"}
   ];
 
 }

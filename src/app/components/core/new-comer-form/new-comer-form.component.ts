@@ -31,19 +31,19 @@ export class NewComerFormComponent implements OnInit{
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       birthday: ['', Validators.required],
-      dateOfVisit: ['', Validators.required],
-      isSearching: [0, Validators.required],
-      howVisit: [0, Validators.required],
+      dateOfVisit: [''],
+      isSearching: [0],
+      howVisit: [0],
       whoIntroduced: [''],
-      howLong: [0, Validators.required],
-      isBaptized: [0, Validators.required],
+      howLong: [0],
+      isBaptized: [0],
       cellLeader: [''],
       memo: ['']
     });
     this.form.get("phone")?.valueChanges.subscribe(value => {
       // remove all non-digit characters
       let numbers = value.replace(/\D/g, '');
-      
+      numbers = numbers.slice(0, 10);
       // only update the value if it has changed
       if (numbers !== value) {
         this.form.get("phone")?.setValue(numbers, { emitEvent: false });
@@ -70,7 +70,7 @@ export class NewComerFormComponent implements OnInit{
 
   ngOnInit(): void {
       this.personService.getPersons().subscribe((data)=>{
-        this.persons = data;
+        this.persons = data.persons;
         console.log(this.persons)
       })
   }
@@ -85,6 +85,7 @@ export class NewComerFormComponent implements OnInit{
       formValue.howLong = this.howLongOptions[Number(formValue.howLong)];
       formValue.isSearching = this.whyVisitOptions[Number(formValue.isSearching)];
       formValue.isBaptized = this.isBaptizedOptions[Number(formValue.isBaptized)];
+      formValue.dateOfVisit = new Date()
 
       this.personService.addPerson(formValue).subscribe({
         next:(data)=>{

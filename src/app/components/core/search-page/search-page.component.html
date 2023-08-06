@@ -1,47 +1,111 @@
-<div class="search-page">
-    <div class="section-title">
-        주보 검색결과
-    </div>
-    <div class="list-area">
-        <div *ngFor="let bulletin of searchResults.bulletin" class="bulletin-item-container">
-            <div class="bulletin-item" [routerLink]="['/bulletin',bulletin.item.sunday_date]">
-                <div class="photo-area">
-                    <div class="photo-container">
-                        <img [src]="pastorPhotoMap.get(getPastorName(bulletin.item.message))" class="photo"/>
+<ng-container *ngIf="(searchService.searchLength$ | async) as length ; else noSearch">
+    <div class="search-page" *ngIf="length > 0">
+        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.members as members">
+            <div class="section-title" *ngIf="members.members.length > 0">
+                멤버 검색결과
+            </div>
+            <div class="list-area">
+                <div *ngFor="let member of members.members" class="member-item-container">
+                    <div class="member-item" *ngIf="smallGroupService.getMemberSmallGroupAndRoom(member.small_group_id, members.small_groups) as info">
+                        <div class="left">
+                            <div class="photo-area">
+                                <div class="member-photo-container">
+                                    <img [src]="smallGroupService.getProfilePhoto(member.id, members.profile_images)" class="photo"/>
+                                </div>
+                            </div>
+                            <div class="member-name-area">
+                                <div class="member-name">
+                                    {{member.name}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="member-room-area">
+                                <div class="member-room">
+                                    {{info.smallGroupName}} | {{info.smallGroupRoom}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="title-area">
-                    <div class="title">
-                        {{bulletin.item.sermon_title}}
+            </div>
+        </div>
+        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.events as events">
+            <div class="section-title" *ngIf="events.length > 0">
+                이벤트
+            </div>
+            <div class="list-area">
+                <div *ngFor="let event of events" class="event-item-container">
+                    <div class="event-item">
+                        <div class="event-title-area">
+                            <div class="event-title">
+                                {{event.title}}
+                            </div>
+                        </div>
+                        <div class="event-date-area">
+                            <div class="event-date">
+                                {{eventService.getSimpleDateStr(event.start)}}
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-                <div class="date-area">
-                    <div class="date">
-                        {{bulletin.item.sunday_date}}
+            </div>
+        </div>
+        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.bulletins as bulletins">
+            <div class="section-title" *ngIf="bulletins.length > 0">
+                주보 검색결과
+            </div>
+            <div class="list-area">
+                <div *ngFor="let bulletin of bulletins" class="bulletin-item-container">
+                    <div class="bulletin-item" [routerLink]="['/bulletin',bulletin.sunday_date]">
+                        <div class="left">
+                            <div class="photo-area">
+                                <div class="photo-container">
+                                    <img [src]="pastorPhotoMap.get(getPastorName(bulletin.message))" class="photo"/>
+                                </div>
+                            </div>
+                            <div class="title-area">
+                                <div class="title">
+                                    {{bulletinService.pruneTitle(bulletin.sermon_title)}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="date-area">
+                                <div class="date">
+                                    {{bulletin.sunday_date}}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
                     </div>
                 </div>
-                
+            </div>
+        </div>
+        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.videos as videos">
+            <div class="section-title" *ngIf="videos.length > 0">
+                예배 검색결과
+            </div>
+            <div class="list-area" >
+                <div *ngFor="let video of videos" 
+                    class="video-item"
+                    [routerLink]="['/videos', video.video_id]">
+                    <div class="img-container">
+                        <img [src]="video.thumbnail_url"/>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="section-title">
-        예배 검색결과
+</ng-container>
+
+<ng-template #noSearch>
+    <div class="no-search" *ngIf="!searchService.searching">
+        <img src="assets/church-icons/no-search.png" class="no-search-img">
     </div>
-    <div class="list-area" >
-        
-        <div *ngFor="let video of searchResults.video" 
-            class="video-item"
-            [routerLink]="['/videos', video.item.video_id]">
-            <div class="img-container">
-                <img [src]="video.item.thumbnail_url"/>
-            </div>
-        </div>
-        
-    </div>
-    <div class="small-group-note-search-result">
-        
-    </div>
-    
-</div>
+</ng-template>
+
 
 

@@ -20,15 +20,15 @@ trigger('routeAnimations', [
         right: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ right: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ right: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ right: '0%'}))
       ])
@@ -44,15 +44,15 @@ trigger('routeAnimations', [
         left: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ left: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ left: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ left: '0%'}))
       ])
@@ -68,15 +68,15 @@ trigger('routeAnimations', [
         right: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ right: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ right: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ right: '0%'}))
       ])
@@ -92,15 +92,63 @@ trigger('routeAnimations', [
         left: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ left: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ left: '100%'}))
-      ]),
+      ], { optional: true }),
+      query(':enter', [
+        animate('300ms ease-out', style({ left: '0%'}))
+      ])
+    ]),
+    query(':enter', animateChild()),
+  ]),
+  transition('MonthlyCalendar => TodayCalendar', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        width: '100%'
+      })
+    ], { optional: true }),
+    query(':enter', [
+      style({ right: '-100%'})
+    ]),
+    query(':leave', animateChild(), { optional: true }),
+    group([
+      query(':leave', [
+        animate('300ms ease-out', style({ right: '100%'}))
+      ], { optional: true }),
+      query(':enter', [
+        animate('300ms ease-out', style({ right: '0%'}))
+      ])
+    ]),
+    query(':enter', animateChild()),
+  ]),
+  transition('TodayCalendar => MonthlyCalendar', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
+      })
+    ], { optional: true }),
+    query(':enter', [
+      style({ left: '-100%'})
+    ]),
+    query(':leave', animateChild(), { optional: true }),
+    group([
+      query(':leave', [
+        animate('300ms ease-out', style({ left: '100%'}))
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ left: '0%'}))
       ])
@@ -116,15 +164,15 @@ trigger('routeAnimations', [
         right: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ right: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ right: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ right: '0%'}))
       ])
@@ -140,15 +188,15 @@ trigger('routeAnimations', [
         left: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ left: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(),{ optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ left: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ left: '0%'}))
       ])
@@ -164,15 +212,15 @@ trigger('routeAnimations', [
         right: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ right: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ right: '100%'}))
-      ]),
+      ],{ optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ right: '0%'}))
       ])
@@ -188,15 +236,15 @@ trigger('routeAnimations', [
         left: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ left: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ left: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ left: '0%'}))
       ])
@@ -212,15 +260,15 @@ trigger('routeAnimations', [
         right: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ right: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ right: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ right: '0%'}))
       ])
@@ -236,15 +284,15 @@ trigger('routeAnimations', [
         left: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ left: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ left: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ left: '0%'}))
       ])
@@ -260,15 +308,15 @@ trigger('routeAnimations', [
         right: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ right: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ right: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ right: '0%'}))
       ])
@@ -284,17 +332,89 @@ trigger('routeAnimations', [
         left: 0,
         width: '100%'
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       style({ left: '-100%'})
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [
         animate('300ms ease-out', style({ left: '100%'}))
-      ]),
+      ], { optional: true }),
       query(':enter', [
         animate('300ms ease-out', style({ left: '0%'}))
+      ])
+    ]),
+    query(':enter', animateChild()),
+  ]),
+  transition('Login => *', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
+      })
+    ],{ optional: true }),
+    query(':enter', [
+      style({ left: '-100%'})
+    ]),
+    query(':leave', animateChild(),{ optional: true }),
+    group([
+      query(':leave', [
+        animate('300ms ease-out', style({ left: '100%'}))
+      ],{ optional: true }),
+      query(':enter', [
+        animate('300ms ease-out', style({ left: '0%'}))
+      ])
+    ]),
+    query(':enter', animateChild()),
+  ]),
+  transition('User => *', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
+      })
+    ],{ optional: true }),
+    query(':enter', [
+      style({ left: '-100%'})
+    ]),
+    query(':leave', animateChild(),{ optional: true }),
+    group([
+      query(':leave', [
+        animate('300ms ease-out', style({ left: '100%'}))
+      ],{ optional: true }),
+      query(':enter', [
+        animate('300ms ease-out', style({ left: '0%'}))
+      ])
+    ]),
+    query(':enter', animateChild()),
+  ]),
+  transition('* => User', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        width: '100%'
+      })
+    ],{ optional: true }),
+    query(':enter', [
+      style({ right: '-100%'})
+    ]),
+    query(':leave', animateChild(),{ optional: true }),
+    group([
+      query(':leave', [
+        animate('300ms ease-out', style({ right: '100%'}))
+      ],{ optional: true }),
+      query(':enter', [
+        animate('300ms ease-out', style({ right: '0%'}))
       ])
     ]),
     query(':enter', animateChild()),
@@ -313,7 +433,7 @@ export const routeAnimations = trigger('routeAnimations', [
         height: '100%',
       }),
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(),{ optional: true }),
     group([
       query(':enter', [animate('300ms ease-out', style({ top: '0%' }))]),
     ]),
@@ -330,10 +450,11 @@ export const routeAnimations = trigger('routeAnimations', [
         height: '100%',
       }),
     ]),
-    query(':leave', animateChild()),
+    query(':leave', animateChild(),{ optional: true }),
     group([
       query(':leave', [animate('300ms ease-out', style({ top: '100%' }))]),
     ]),
-    query(':enter', animateChild()),
+    query(':enter', animateChild(),{ optional: true }),
   ]),
+  
 ]);

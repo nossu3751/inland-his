@@ -1,0 +1,36 @@
+.bulletins-container {
+    width: 100%;
+    padding: 1em;    
+}
+
+.bulletin-item-container {
+    width: 100%;
+    margin-bottom: 0.5em;
+    height: 3.5em;
+    color: var(--primary-color);
+    border-radius: 0.5em;
+    border: 2.5px solid var(--primary-color);
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 0 1em 0 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.create-button {
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2.5px solid var(--primary-color) !important;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--primary-color);
+    border-radius: 0.5em;
+    margin-bottom:1em;
+    height: 3em !important;
+    background-color: transparent;
+    color: var(--primary-color);
+}

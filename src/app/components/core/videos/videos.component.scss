@@ -35,6 +35,27 @@
     margin: auto;
 }
 
+button {
+    height: 4.5em;
+    padding: 1em 1em 1em 1em;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: var(--secondary-color);
+    background-color: inherit;
+    border-radius: 1em;
+    color: var(--secondary-color);
+    border-width: 2.5px;
+    border-style: solid;
+    font-weight: 900;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    max-width: 480;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 // .list-area {
 //     overflow:auto;
 //     -webkit-overflow-scrolling:touch;

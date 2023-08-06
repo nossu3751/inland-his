@@ -2,11 +2,39 @@
     position:fixed;
     left:0;
     top:0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display:flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
-    z-index: 10002;
+    background-color: white;
+    z-index: 1000002;
+
+    opacity: 1;
+    // animation-name: fadeOut;
+    // animation-timing-function: ease-out;
+    // animation-duration: 0.5s;
+    // animation-delay: 1.5s; 
+    // animation-fill-mode: forwards; 
+}
+  
+//   @keyframes fadeOut {
+//     to {
+//       opacity: 0;
+//     }
+//   }
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.spinner {
+    width: 75px;
+    height: 75px;
+}
+
+.message {
+    font-weight: 700;
+    font-size: 1em;
 }

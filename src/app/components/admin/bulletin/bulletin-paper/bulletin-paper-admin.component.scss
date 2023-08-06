@@ -11,7 +11,7 @@ form {
 
 .add-button {
     background-color: white;
-    outline-color: var(--secondary-color);
+    outline-color: var(--primary-color);
     outline-style: solid;
     outline-width: 2px;
     border-radius: 0.25em;
@@ -22,7 +22,7 @@ form {
     height: 3em;
     cursor: pointer;
     mat-icon {
-        color: var(--secondary-color)
+        color: var(--primary-color)
     }
 }
 
@@ -37,7 +37,7 @@ form {
 input, textarea {
     width: 100%;
     outline-width: 2px;
-    outline-color: var(--secondary-color);
+    outline-color: var(--primary-color);
     outline-style: dashed;
     border-radius: 0.25em;
     border: none;
@@ -45,7 +45,7 @@ input, textarea {
 }
 
 input::placeholder, textarea::placeholder {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     opacity: 0.7;
     
 }
@@ -55,7 +55,7 @@ input:not(:placeholder-shown), textarea:not(:placeholder-shown) {
 }
 
 input {
-    height: 2em;
+    height: 3em;
 }
 
 textarea {
@@ -86,7 +86,7 @@ textarea::-webkit-resizer {
     justify-content: flex-start;
     font-size: 1.5em;
     font-weight: bolder;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     margin-bottom: 0.3em;
 }
 
@@ -99,7 +99,7 @@ textarea::-webkit-resizer {
     right: 0;
     background-color: transparent;
     border: none;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-size: 20px;
     // ... any other styles
 }
@@ -118,15 +118,36 @@ mat-icon {
     font-weight: bold;
     outline-style: solid;
     outline-width: 2px;
-    outline-color: var(--secondary-color);
+    outline-color: var(--primary-color);
     border-radius: 0.25em;
     margin-top:1em;
     height: 3em;
     background-color: transparent;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     border: none;
 }
 
+.button-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.half-button {
+    display:flex;
+    flex: 0 0 49%;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.25em;
+    margin-top:1em;
+    height: 3em;
+    background-color: transparent;
+    color: var(--primary-color);
+
+}
 
 .submit-button:disabled {
     outline-style: dashed;

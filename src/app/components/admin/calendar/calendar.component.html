@@ -1,0 +1,101 @@
+<app-admin-top-navbar title="캘린더 수정">
+    <span routerLink="/admin" (click)="routingService.showLoadingScreenForTime(1)"><mat-icon>arrow_back</mat-icon></span>
+</app-admin-top-navbar>
+<app-admin-content-area>
+    <div class="calendar-container">
+        <div class="calendar-area">
+            <full-calendar [options]="calendarOptions" [events]="calendarEvents"></full-calendar>
+        </div>
+        <!-- <div *ngIf="calendarEvents">
+            <div *ngFor="let event of calendarEvents">
+                {{event.title}} {{event.start}} {{event.end}}
+            </div>
+        </div> -->
+        <div class="add-button" (click)="createForm()" *ngIf="form === null">
+            새 이벤트
+        </div>
+        <div class="form" *ngIf="form !== null">
+            <div class="input-row" > 
+                <label>하루 종일 </label>
+                <!-- <input [(ngModel)]="allDay" type="checkbox"/> -->
+                <button (click)="toggleAllDay()">
+                    {{allDay ? "시간정하기":"하루종일"}}
+                </button>
+            </div>
+            <div class="input-row" *ngIf="allDay"> 
+                <label>날짜</label>
+                <input [(ngModel)]="allDayDate" class="text-input" matInput [matDatepicker]="datePicker" (focus)="datePicker.open()" (click)="datePicker.open()">
+                <mat-datepicker #datePicker [touchUi]="true"></mat-datepicker>
+            </div>
+            <div class="input-row" *ngIf="!allDay"> 
+                <label>시작 시간</label>
+                <input matInput [(ngModel)]="form.start" [ngxMatDatetimePicker]="startDateTimePicker" (focus)="startDateTimePicker.open()" (click)="startDateTimePicker.open()"/>
+                <ngx-mat-datetime-picker #startDateTimePicker [touchUi]="true" ></ngx-mat-datetime-picker>
+            </div>
+            <div class="input-row" *ngIf="!allDay"> 
+                <label>종료 시간</label>
+                <input matInput [(ngModel)]="form.end" [ngxMatDatetimePicker]="endDateTimePicker" (focus)="endDateTimePicker.open()" (click)="endDateTimePicker.open()"/>
+                <ngx-mat-datetime-picker #endDateTimePicker [touchUi]="true" ></ngx-mat-datetime-picker>
+            </div>
+            <div class="input-row" *ngIf="isWithinDay()"> 
+                <label>반복</label>
+                <input [(ngModel)]="repeat" type="checkbox"/>
+            </div>
+            <div class="input-row" *ngIf="isWithinDay() && repeat">       
+                <select [(ngModel)]="form.repeatOption">
+                    <option *ngFor="let option of repeatMethods; index as i" [value]="i">{{ option }}</option>
+                </select>
+            </div>
+            <div class="input-row" *ngIf="isWithinDay() && repeat"> 
+                <label>반복 종료일 </label>
+                <input [(ngModel)]="form.repeatEndDate" class="text-input" matInput [matDatepicker]="repeatEndPicker" (focus)="repeatEndPicker.open()" (click)="repeatEndPicker.open()">
+                <mat-datepicker #repeatEndPicker [touchUi]="true"></mat-datepicker>
+            </div>
+            <div class="input-row"> 
+                <label>제목 </label>
+                <input [(ngModel)]="this.form.title"/>
+            </div>
+            <div class="input-row" > 
+                <label>멤버 지정하기 </label>
+                <!-- <input class="text-input" [(ngModel)]="form.start" matInput [matDatepicker]="startDayPicker" (focus)="startDayPicker.open()" (click)="startDayPicker.open()">
+                <mat-datepicker #startDayPicker [touchUi]="true"></mat-datepicker> -->
+                <!-- <input [(ngModel)]="selectMembers" type="checkbox"/> -->
+                <button (click)="toggleSelectMembers()">
+                    {{selectMembers ? "전체 이벤트":"멤버 지정하기"}}
+                </button>
+            </div>
+            <div class="input-row" *ngIf="selectMembers"> 
+                <label>멤버</label>
+                <div *ngIf="groupsCopy">
+                    <label>직분별</label>
+                    <button *ngFor="let group of groupsCopy; let i = index" (click)="addRoles(i)">
+                        {{groupNameMap[group.name]}}
+                    </button>
+                    <button *ngIf="!leadersAdded" (click)="addMinistryLeader()">
+                        사역팀장
+                    </button>
+                </div>
+                <div *ngIf="smallGroupsCopy">
+                    <label>셀 별</label>
+                    <button *ngFor="let group of smallGroupsCopy; let i = index" (click)="addSmallGroups(i)">
+                        {{group.name}}
+                    </button>
+                </div>
+            </div>
+            <div>
+                <button *ngFor="let group of selectedMembers.roles; let i = index" (click)="removeRoles(i)">
+                    {{groupNameMap[group.name]}}
+                </button>
+                <button *ngIf="leadersAdded" (click)="removeMinistryLeader()">
+                    사역팀장
+                </button>
+                <button *ngFor="let group of selectedMembers.smallGroups; let i = index" (click)="removeSmallGroups(i)">
+                    {{group.name}}
+                </button>
+            </div>
+            <button (click)="this.submitForm()">
+                등록하기
+            </button>
+        </div>  
+    </div> 
+</app-admin-content-area>

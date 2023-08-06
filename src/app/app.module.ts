@@ -12,12 +12,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { SmallGroupComponent } from './components/core/small-group/small-group.component';
 import { OfferingComponent } from './components/core/offering/offering.component';
-import { MinistriesComponent } from './ministries/ministries.component';
-import { VersesComponent } from './verses/verses.component';
-import { PullToRefreshComponent } from './pull-to-refresh/pull-to-refresh.component';
 import { NgxPullToRefreshModule } from 'ngx-pull-to-refresh';
 import { ScrollHideDirective } from './directives/scroll-hide.directive';
 import { BibleVersesComponent } from './components/core/bible-verses/bible-verses.component';
@@ -45,6 +41,8 @@ import { LoginComponent } from './components/core/login/login.component';
 import { SigninComponent } from './components/core/signin/signin.component';
 import { NewComerFormComponent } from './components/core/new-comer-form/new-comer-form.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NGX_MAT_DATE_FORMATS, NgxMatDateFormats, NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -54,7 +52,7 @@ import { RouteModalOpenLogicDirective } from './directives/route-modal-open-logi
 import { CloseButtonComponent } from './components/shared/close-button/close-button.component';
 import { VideoAreaComponent } from './components/core/video-area/video-area.component'
 import { HttpClientModule } from '@angular/common/http';
-import { YouTubePlayer, YouTubePlayerModule } from '@angular/youtube-player';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
 import { VideoListComponent } from './components/shared/video-list/video-list.component';
 import { NavigateBackDirective } from './directives/navigate-back.directive';
@@ -80,25 +78,60 @@ import { MatSidenavModule} from '@angular/material/sidenav';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 import { SearchPageComponent } from './components/core/search-page/search-page.component'
-import { RouteReuseStrategy } from '@angular/router';
-import { CustomReuseStrategy } from 'src/strategies/route-reuse-strategy';
 import { ExistingPersonComponent } from './components/alerts/existing-person/existing-person.component';
 import { SignupSuccessComponent } from './components/shared/signup-success/signup-success.component';
 import { RightSidebarComponent } from './components/shared/right-sidebar/right-sidebar.component';
+import { CodeInputComponent } from './components/shared/code-input/code-input.component';
+import { UserComponent } from './components/core/user/user.component';
+import { SmallGroupInfoComponent } from './components/core/small-group-info/small-group-info.component';
+import { LogoutConfirmationComponent } from './components/alerts/logout-confirmation/logout-confirmation.component';
+import { ProfileManagerComponent } from './components/shared/profile-manager/profile-manager.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { SmallGroupMembersComponent } from './components/admin/small-group/small-group-members/small-group-members.component';
+import { AdminContentAreaComponent } from './components/admin/shared/admin-content-area/admin-content-area.component';
+import { SmallGroupMembersSearchComponent } from './components/admin/small-group/small-group-members-search/small-group-members-search.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { MonthlyCalendarComponent } from './components/core/monthly-calendar/monthly-calendar.component';
+import { TodayCalendarComponent } from './components/core/today-calendar/today-calendar.component';
+import { CalendarComponent } from './components/admin/calendar/calendar.component';
+import { BibleRedirectionComponent } from './components/alerts/bible-redirection/bible-redirection.component';
+import { AdmitNewMemberComponent } from './components/admin/member/admit-new-member/admit-new-member.component';
+import { AssignTeamMemberComponent } from './components/admin/member/assign-team-member/assign-team-member.component';
+import { BulletinsComponent } from './components/admin/bulletin/bulletins/bulletins.component';
+import { AdminTopNavbarComponent } from './components/admin/shared/admin-top-navbar/admin-top-navbar.component';
+import { MemberContactsComponent } from './components/admin/small-group/member-contacts/member-contacts.component';
+import { WidgetsComponent } from './components/core/widgets/widgets.component';
+import { PollComponent } from './components/core/poll/poll.component'
 // import { Mat}
 
+const INTL_DATE_INPUT_FORMAT = {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+  hourCycle: 'h23',
+  hour: '2-digit',
+  minute: '2-digit',
+};
+
+const MAT_DATE_FORMATS: NgxMatDateFormats = {
+  parse: {
+    dateInput: INTL_DATE_INPUT_FORMAT,
+  },
+  display: {
+    dateInput: INTL_DATE_INPUT_FORMAT,
+    monthYearLabel: { year: 'numeric', month: 'short' },
+    dateA11yLabel: { year: 'numeric', month: 'long', day: 'numeric' },
+    monthYearA11yLabel: { year: 'numeric', month: 'long' },
+  },
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    AboutComponent,
     SmallGroupComponent,
     OfferingComponent,
-    MinistriesComponent,
-    VersesComponent,
-    PullToRefreshComponent,
     ScrollHideDirective,
     BibleVersesComponent,
     BulletinComponent,
@@ -151,6 +184,25 @@ import { RightSidebarComponent } from './components/shared/right-sidebar/right-s
     ExistingPersonComponent,
     SignupSuccessComponent,
     RightSidebarComponent,
+    CodeInputComponent,
+    UserComponent,
+    SmallGroupInfoComponent,
+    LogoutConfirmationComponent,
+    ProfileManagerComponent,
+    SmallGroupMembersComponent,
+    AdminContentAreaComponent,
+    SmallGroupMembersSearchComponent,
+    MonthlyCalendarComponent,
+    TodayCalendarComponent,
+    CalendarComponent,
+    BibleRedirectionComponent,
+    AdmitNewMemberComponent,
+    AssignTeamMemberComponent,
+    BulletinsComponent,
+    AdminTopNavbarComponent,
+    MemberContactsComponent,
+    WidgetsComponent,
+    PollComponent,
   ],
   imports: [
     BrowserModule,
@@ -184,10 +236,15 @@ import { RightSidebarComponent } from './components/shared/right-sidebar/right-s
     NgxSummernoteModule,
     ClipboardModule,
     MatSnackBarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ImageCropperModule,
+    FullCalendarModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule
   ],
   providers: [
-    // {provide: RouteReuseStrategy, useClass: CustomReuseStrategy}
+    { provide: NGX_MAT_DATE_FORMATS, useValue: MAT_DATE_FORMATS }
   ],
   bootstrap: [AppComponent]
 })

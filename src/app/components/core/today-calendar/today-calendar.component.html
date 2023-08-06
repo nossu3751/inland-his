@@ -1,0 +1,55 @@
+<div *ngIf="loading === false && events && events.length > 0; else noEvents" class="event-area">
+    <!-- <div *ngFor="let event of events" class="event-item-container" [ngStyle]="{
+        height:event.detail !== null ? '300px' : '200px'
+    }"> -->
+    <div *ngFor="let event of events" class="event-item-container">
+        <div class="event-item">
+            <div class="event-title">
+                {{event.title}}
+            </div>
+            <div class="event-today-time">
+                {{eventService.getSimpleTimeStr(event.start)}} - {{eventService.getSimpleTimeStr(event.end)}}
+            </div>
+            <div class="event-time">
+                <div class="event-time-divider">
+                    <div class="event-time-wrapper">
+                        <div class="event-time-divider-label">
+                            시작일
+                        </div>
+                        <div class="event-time-divider-content">
+                            <span class="event-time-divider-date">
+                                {{eventService.getSimpleDateStr(event.eventStart)}}
+                            </span>
+                            <!-- <span class="event-time-divider-time">
+                                {{eventService.getSimpleTimeStr(event.start)}}
+                            </span>     -->
+                        </div>
+                    </div>
+                </div>
+                <div class="event-time-divider">
+                    <div class="event-time-wrapper">
+                        <div class="event-time-divider-label">
+                            종료일
+                        </div>
+                        <div class="event-time-divider-content">
+                            <span class="event-time-divider-date">
+                                {{eventService.getSimpleDateStr(event.eventEnd)}}
+                            </span>
+                            <!-- <span class="event-time-divider-time">
+                                {{eventService.getSimpleTimeStr(event.end)}}
+                            </span> -->
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <div class="event-detail" *ngIf="event.detail !== null">
+                {{event.detail}}
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noEvents>
+    <div class="no-event">
+        <img src="assets/church-icons/no-event.png" class="no-event-img">
+    </div>
+</ng-template>

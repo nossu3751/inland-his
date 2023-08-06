@@ -1,0 +1,16 @@
+<div class="message">
+    <app-block class="church-icon" style="text-align:center; margin-bottom: 2em;">
+        <!-- <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg> -->
+        <img src="assets/church-icons/bible.svg" height="75px;">
+    </app-block>
+    대한 성서 공회 온라인 성경 페이지로 이동합니다.
+</div>
+<app-card 
+    (click)="modalService.closeAlertModal()"
+    href="https://www.bskorea.or.kr/bible/korbibReadpage.php"
+    height="3em"
+    borderColor="var(--secondary-color)"
+    borderWidth="2px"
+    textColor="var(--secondary-color)">
+    예, 알겠습니다.
+</app-card>

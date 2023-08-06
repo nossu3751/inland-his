@@ -1,0 +1,49 @@
+
+<div class="login-button" *ngIf="authChecked && !authenticated">
+    <button (click)="goToLogin()">
+        로그인
+    </button>
+</div>
+<!-- <app-login *ngIf="authChecked && !authenticated "></app-login> -->
+<div class="user-area" *ngIf="authChecked && authenticated">
+    <div class="profile-area">
+        <div class="profile-container" (click)="modalService.openModal(profileManagerComponent, '프로필 사진 관리')">
+            <img appPreventContextMenu [src]="personService.profileImage | async" class="profile-image" *ngIf="personService.profileImage.value"/>
+        </div>
+        <button class="profile-button" (click)="modalService.openModal(profileManagerComponent, '프로필 사진 관리')">
+            <mat-icon>photo_camera</mat-icon>
+        </button>
+    </div>
+    <div class="name-area" *ngIf="user_name">
+        {{user_attributes.name}}
+    </div>
+    <div class="info-area" *ngIf="personService.getKoreanGroupNamesStr(user_roles) as roles; else noAdmin">
+        <div class="info-container">
+            <div class="info-container-border-styler">
+                <div class="info-wrapper">
+                    <div class="info-area-role">
+                        사역: {{roles}}
+                    </div>
+                    <div class="admin-link" *ngIf="personService.hasAdminRight(user_roles)" routerLink="/admin" (click)="routingService.showLoadingScreenForTime(2)">
+                        리더 및 사역자 페이지 이동
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #noAdmin>
+        <div class="info-empty">
+
+        </div>
+    </ng-template>
+    <div class="widget-area" *ngIf="user_attributes">
+        
+    </div>
+    <div class="button-area" >
+        <button (click)="modalService.openAlertModal(logoutConfirmationComponent, '로그아웃')">
+            로그아웃
+        </button>
+    </div>
+</div>
+
+

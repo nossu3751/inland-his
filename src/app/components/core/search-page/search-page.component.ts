@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BulletinService } from 'src/app/services/data/bulletin.service';
+import { EventService } from 'src/app/services/data/event.service';
 import { SearchService } from 'src/app/services/data/search.service';
+import { SmallGroupService } from 'src/app/services/data/small-group.service';
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
@@ -8,7 +11,11 @@ import { SearchService } from 'src/app/services/data/search.service';
 export class SearchPageComponent implements OnInit{
   @Input() searchResults: {bulletin: any[], video: any[], smallGroupNote: any[]} = {bulletin:[], video:[], smallGroupNote:[]}
 
-  constructor(private searchService: SearchService) { }
+  constructor(public searchService: SearchService,
+    public smallGroupService: SmallGroupService,
+    public eventService:EventService,
+    public bulletinService: BulletinService
+  ) { }
 
   pastorPhotoMap = new Map<string, string>([
     ["정산","assets/pastors/san.webp"],
@@ -26,9 +33,9 @@ export class SearchPageComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    this.searchService.getSearchResults().subscribe(results => {
-      this.searchResults = results;
-      console.log("search result", this.searchResults);
-    });
+    // this.searchService.getSearchResults().subscribe(results => {
+    //   this.searchResults = results;
+    //   console.log("search result", this.searchResults);
+    // });
   }
 }

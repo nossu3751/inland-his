@@ -8,6 +8,9 @@
             <img [src]="liveStream.thumbnail_url"/>
         </div>
     </div>
+    <button (click)="loadMore()" *ngIf="liveStreams.length > 0 && !loading && !lastPage">
+        더보기
+    </button>
     
 </div>
 

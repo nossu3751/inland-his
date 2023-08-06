@@ -15,67 +15,35 @@ export class SearchBarComponent implements OnInit {
   searchResults: any[] = [];
 
   constructor(
-    private searchService:SearchService,
-    private bulletinService:BulletinService,
-    private smallGroupNoteService:SmallGroupNoteService,
-    private videoService:VideoService,
-    private router:Router
+    private router:Router,
+    private searchService:SearchService
   ){}
-
-  onInput() {
-    if(this.searchTerm.trim() !== ""){
+  
+  onEnter() {
+    this.search(this.searchTerm)
+    const currUrl = this.router.url
+    if(currUrl !== "/search"){
       this.router.navigate(['/search']);
+    }
+    
+  }
+  onInput() {
+    const currUrl = this.router.url
+    if(this.searchTerm.trim() !== ""){
+      if(currUrl !== "/search"){
+        this.router.navigate(['/search']);
+      }
     }else{
       this.router.navigate(['']);
+      this.searchService.searchResults$.next({...this.searchService.defaultResult})
     }
-    this.searchService.setSearchTerm(this.searchTerm)
-    console.log("searchTerm", this.searchTerm)
-    const bulletinResults = this.searchService.search('bulletin',this.searchTerm);
-    const videoResults = this.searchService.search('video',this.searchTerm);
-    const smallGroupNoteResults = this.searchService.search('smallGroupNote',this.searchTerm);
-    console.log("bulletin", bulletinResults, "video", videoResults, "smallGroupNote", smallGroupNoteResults)
-    this.searchService.setSearchResults({bulletin: bulletinResults, video: videoResults, smallGroupNote: smallGroupNoteResults});
   }
 
-  search() {
-    // this.subscription = this.searchService.getSearchTerm().subscribe((term) => {
-    //   this.searchResults = this.searchService.search(term);
-    // });
+  search(search:string) {
+    this.searchService.search(search)
   }
+
   ngOnInit(): void {
-    console.log("hello")
-    this.videoService.getLiveStreams().subscribe((data)=>{
-      console.log("video", data)
-      const videoOptions = {
-        keys: ['title'],
-        includeMatches: true,
-        includeScore: true,
-        threshold: 0.1
-      };
-      this.searchService.createIndex('video', data, videoOptions);
-    })
-    this.bulletinService.getData().subscribe((data)=>{
-      console.log("bulletin", data)
-      const bulletinOptions = {
-        keys: [
-          'sermon_title','sermon_subtitle','sermon_content','representative_prayer',
-          'community_news','message','hymns.title','news.title','news.description','blessing','post_message_hymn'
-        ],
-        includeMatches: true,
-        includeScore: true,
-        threshold: 0.2
-      };
-      this.searchService.createIndex('bulletin', data, bulletinOptions);
-    })
-    this.smallGroupNoteService.getData().subscribe((data)=>{
-      console.log("smallgroup", data)
-      const smallGroupNoteOptions = {
-        keys: ['title', 'html_template_data.plain_string'],
-        includeMatches: true,
-        includeScore: true,
-        threshold: 0.2
-      }
-      this.searchService.createIndex('smallGroupNote', data, smallGroupNoteOptions);
-    })
+    
   }
 }

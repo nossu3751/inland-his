@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap, catchError, of} from 'rxjs'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VideoService {
-  private shortsUrl = 'http://localhost:5000/api/v1/videos/shorts'
-  private liveStreamUrl = 'http://localhost:5000/api/v1/videos/live_streams'
+  private shortsUrl = `${environment.apiUrl}/api/v1/videos/shorts`
+  private liveStreamUrl = `${environment.apiUrl}/api/v1/videos/live_streams`
   constructor(private http:HttpClient) { 
 
   }
@@ -26,6 +27,12 @@ export class VideoService {
     )
   }
 
+  getLiveStreamsBySearchStr(search:string):Observable<any> {
+    return this.http.get(`${this.liveStreamUrl}?search=${search}`).pipe(
+      catchError(error => of({error: error, data: []}))
+    )
+  }
+
   getFirstLiveStream(): Observable<any> {
     return this.http.get(`${this.liveStreamUrl}?index=0`).pipe(
       catchError(error => {
@@ -33,6 +40,10 @@ export class VideoService {
         return of(undefined);
       })
     );
+  }
+
+  getLiveStreamRange(count:number, start:number): Observable<any> {
+    return this.http.get(`${this.liveStreamUrl}/range?start=${start}&count=${count}`)
   }
 
   getLiveStreamById(id:string): Observable<any> {

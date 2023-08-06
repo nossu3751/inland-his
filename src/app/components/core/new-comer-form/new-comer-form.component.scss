@@ -1,7 +1,9 @@
+
+
 .text-input, textarea, select {
     width: 100%;
     // border: none;
-    height: 2em;
+    height: 3em;
     border-image:none;
     border-radius: 1em;
     appearance: none;
@@ -9,7 +11,7 @@
     // outline-width: 2px;
     // outline-color: rgb(209, 181, 255);
     border-style: solid;
-    border-width: 2px;
+    border-width: 2.5px;
     border-color: var(--secondary-color);
     padding: 0 1em 0 1em;
     color: var(--secondary-color);
@@ -104,7 +106,8 @@ label {
     font-size: large;
     font-weight: 900;
     margin-top: 1.5em;
-    color: rgb(114, 83, 148)
+    color: var(--secondary-color);
+    margin-bottom: 0.5em;
 }
 
 .error-msg {
@@ -125,7 +128,8 @@ label {
 }
 
 button {
-    height: 3em;
+    margin-top: 3em;
+    height: 4em;
     padding: 1em 1em 1em 1em;
     width: 100%;
     display: flex;
@@ -135,7 +139,7 @@ button {
     background-color: inherit;
     border-radius: 1em;
     color: var(--secondary-color);
-    border-width: 2px;
+    border-width: 2.5px;
     border-style: solid;
     font-weight: 900;
     
