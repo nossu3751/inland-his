@@ -46,7 +46,7 @@ export class BulletinService {
   }
 
   getBulletins(): Observable<any> {
-    return this.http.get(this.bulletinUrl)
+    return this.http.get(`${this.bulletinUrl}/`)
   }
 
   getData(): Observable<any> {

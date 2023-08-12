@@ -32,6 +32,7 @@
     "@fullcalendar/interaction": "^6.1.8",
     "@ng-bootstrap/ng-bootstrap": "^14.0.1",
     "@popperjs/core": "^2.11.6",
+    "blueimp-canvas-to-blob": "^3.29.0",
     "bootstrap": "^5.2.3",
     "flatted": "^3.2.7",
     "fuse.js": "^6.6.2",

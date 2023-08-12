@@ -64,11 +64,11 @@ export class EventService {
   }
 
   getEventsByDate(dateStr:string): Observable<any>{
-    return this.http.get(`${this.eventUrl}/?date=${dateStr}`)
+    return this.http.get(`${this.eventUrl}?date=${dateStr}`)
   }
 
   getEvents(): Observable<any> {
-    return this.http.get(this.eventUrl)
+    return this.http.get(`${this.eventUrl}/`)
   }
 
   addEvent(event_data:any): Observable<any> {

@@ -43,7 +43,7 @@ export class VideoService {
   }
 
   getLiveStreamRange(count:number, start:number): Observable<any> {
-    return this.http.get(`${this.liveStreamUrl}range?start=${start}&count=${count}`)
+    return this.http.get(`${this.liveStreamUrl}/range?start=${start}&count=${count}`)
   }
 
   getLiveStreamById(id:string): Observable<any> {

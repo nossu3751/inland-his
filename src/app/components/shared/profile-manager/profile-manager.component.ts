@@ -6,6 +6,7 @@ import { switchMap, tap } from 'rxjs';
 import { AuthenticateService } from 'src/app/services/auth/authenticate.service';
 import { PersonService } from 'src/app/services/data/person.service';
 import { ModalService } from 'src/app/services/view/modal.service';
+import 'blueimp-canvas-to-blob';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class ProfileManagerComponent implements OnInit{
   fileName:string|null = null;
   imageChangedEvent: any = '';
   croppedImage: any = null;
+  imageLoadedFlag : boolean = false;
 
   constructor(
     private snackBar:MatSnackBar,
@@ -44,7 +46,7 @@ export class ProfileManagerComponent implements OnInit{
   }
 
   onImageLoaded() {
-    // show cropper
+    this.imageLoadedFlag = true;
   }
 
   onCropperReady() {
@@ -60,6 +62,14 @@ export class ProfileManagerComponent implements OnInit{
   }
 
   uploadImage() {
+    if (!this.imageLoadedFlag) {
+      this.snackBar.open("이미지가 아직 로드되지 않았습니다. 잠시 기다려주세요.", "Close", {
+        duration: 3000,
+        panelClass: ['custom-snackbar'],
+        verticalPosition: 'bottom'
+      });
+      return;
+    }
     if(this.croppedImage == null) {
       this.snackBar.open("이미지를 선택해주세요", "Close", {
         duration: 3000,

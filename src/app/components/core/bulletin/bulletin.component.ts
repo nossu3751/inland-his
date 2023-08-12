@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BulletinService } from 'src/app/services/data/bulletin.service';
 @Component({
   selector: 'app-bulletin',
@@ -8,7 +9,7 @@ import { BulletinService } from 'src/app/services/data/bulletin.service';
 export class BulletinComponent implements OnInit {
   @Input() bulletins: any[] = []
 
-  constructor(public bulletinService: BulletinService){}
+  constructor(public bulletinService: BulletinService, private snackBar:MatSnackBar){}
 
   private pastorPhotoMap = new Map<string, string>([
     ["정산","assets/pastors/san.webp"],
@@ -36,9 +37,22 @@ export class BulletinComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.bulletinService.getData().subscribe((data) => {
-      this.bulletins = data
-      console.log(this.bulletins)
+    // this.bulletinService.getData().subscribe((data) => {
+    //   this.bulletins = data
+    //   console.log(this.bulletins)
+    // })
+    this.bulletinService.getBulletins().subscribe({
+      "next":(data)=>{
+        this.bulletins = data
+      },
+      "error":(error)=>{
+        this.snackBar.open("주보를 불러올 수 없습니다", "Close", {
+          duration: 3000,
+          panelClass: ['custom-snackbar'],
+          verticalPosition: 'bottom'
+        })
+      }
     })
+
   }
 }

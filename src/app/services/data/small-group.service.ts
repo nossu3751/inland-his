@@ -31,7 +31,7 @@ export class SmallGroupService {
   }
 
   getMembersBySearchStr(search:string):Observable<any> {
-    return this.http.get(`${this.smallGroupUrl}/members/?search=${search}`).pipe(
+    return this.http.get(`${this.smallGroupUrl}/members?search=${search}`).pipe(
       catchError(error => of({error: error, data: []}))
     )
   }
@@ -91,7 +91,7 @@ export class SmallGroupService {
   }
 
   getSmallGroups():Observable<any> {
-    return this.http.get(`${this.smallGroupUrl}`)
+    return this.http.get(`${this.smallGroupUrl}/`)
   }
 
   getSmallGroupsNoMembers():Observable<any> {

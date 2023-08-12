@@ -113,7 +113,7 @@ export class PersonService {
   }
 
   getGroups():Observable<any>{
-    return this.http.get(`${this.personUrl}/groups`)
+    return this.http.get(`${this.personUrl}/groups/`)
   }
 
   getGroup(group_id:string):Observable<any>{
@@ -121,7 +121,7 @@ export class PersonService {
   }
 
   getGroupByPath(path:string):Observable<any>{
-    return this.http.get(`${this.personUrl}/groups?path=${path}`)
+    return this.http.get(`${this.personUrl}/groups/?path=${path}`)
   }
 
   admitPerson(data:any):Observable<any>{
