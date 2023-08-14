@@ -5,6 +5,9 @@ import { routeAnimation} from 'src/animations/route-animations'
 import { Router, ActivatedRoute, NavigationEnd} from '@angular/router'
 import { filter, map } from 'rxjs';
 import { RoutingService } from './services/data/routing.service';
+import { VersionControlService } from './services/version-control.service';
+import { ModalService } from './services/view/modal.service';
+import { UpdatesComponent } from './components/shared/updates/updates.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +20,9 @@ export class AppComponent implements OnInit{
     private screenSizeService: ScreenSizeService,
     private hoverService: HoverService,
     private router:Router,
-    public routingService:RoutingService) {
+    public routingService:RoutingService,
+    private versionControlService: VersionControlService,
+    public modalService: ModalService) {
       this.hoverService.hoverStatus$.subscribe((status) => {
         this.isHovered = status;
       })
@@ -30,6 +35,7 @@ export class AppComponent implements OnInit{
   screenSizeClass = '';
   isHovered = false;
   isOnAdminRoute: boolean|null = null;
+  updatesComponent = UpdatesComponent
 
   prepareRoute(outlet: any) {
     return (
@@ -40,6 +46,12 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.versionControlService.checkVersion();
+    if (this.versionControlService.isNewVersionAvailable()){
+      this.modalService.openModal(this.updatesComponent,"업데이트 내용")
+      this.versionControlService.clearNewVersionFlag()
+      console.log("show developer note")
+    }
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => this.router.url.includes('admin')),

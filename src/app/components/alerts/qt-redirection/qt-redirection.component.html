@@ -1,0 +1,16 @@
+<div class="message">
+    <app-block class="church-icon" style="text-align:center; margin-bottom: 2em;">
+        <!-- <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg> -->
+        <img src="assets/church-icons/maeil.png" height="75px;">
+    </app-block>
+    매일성경 QT 페이지로 이동합니다.
+</div>
+<app-card 
+    (click)="modalService.closeAlertModal()"
+    href="http://qt.swim.org/user_utf/dailybible/user_print_web.php"
+    height="3em"
+    borderColor="var(--secondary-color)"
+    borderWidth="2px"
+    textColor="var(--secondary-color)">
+    예, 알겠습니다.
+</app-card>

@@ -101,7 +101,10 @@ import { BulletinsComponent } from './components/admin/bulletin/bulletins/bullet
 import { AdminTopNavbarComponent } from './components/admin/shared/admin-top-navbar/admin-top-navbar.component';
 import { MemberContactsComponent } from './components/admin/small-group/member-contacts/member-contacts.component';
 import { WidgetsComponent } from './components/core/widgets/widgets.component';
-import { PollComponent } from './components/core/poll/poll.component'
+import { PollComponent } from './components/core/poll/poll.component';
+import { QtRedirectionComponent } from './components/alerts/qt-redirection/qt-redirection.component';
+import { UpdateNoteComponent } from './components/alerts/update-note/update-note.component';
+import { UpdatesComponent } from './components/shared/updates/updates.component'
 // import { Mat}
 
 const INTL_DATE_INPUT_FORMAT = {
@@ -203,6 +206,9 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     MemberContactsComponent,
     WidgetsComponent,
     PollComponent,
+    QtRedirectionComponent,
+    UpdateNoteComponent,
+    UpdatesComponent,
   ],
   imports: [
     BrowserModule,

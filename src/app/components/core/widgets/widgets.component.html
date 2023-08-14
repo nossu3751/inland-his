@@ -1,9 +1,16 @@
 <div class="widgets-container">
-    <div class="beta-poll-link" routerLink="/widgets/poll">
+    <div class="widgets-item-wrapper" (click)="modalService.openAlertModal(qtRedirectionComponent, '온라인 큐티')">
+        <div class="widgets-item">
+            <img class="widgets-item-icon" src="assets/church-icons/maeil.png">
+            <div class="widgets-item-name">
+                매일성경 QT
+            </div>
+        </div>
+    </div>
+    <!-- <div class="beta-poll-link" routerLink="/widgets/poll">
         <div class="beta-poll-wrapper">
             <mat-icon class="poll-icon">how_to_vote</mat-icon>
             <span class="poll-label">투표 Beta</span>
         </div>
-        
-    </div>
+    </div> -->
 </div>
