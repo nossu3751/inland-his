@@ -16,6 +16,9 @@ export class BulletinComponent implements OnInit {
     ["안환","assets/pastors/hwan.webp"],
     ["김현호","assets/pastors/kim.webp"],
     ["윤성찬","assets/pastors/yoon.webp"],
+    ["신성민","assets/pastors/caleb.webp"],
+    ["션킴","assets/pastors/sean.webp"],
+    ["김성신","assets/pastors/sean.webp"]
   ])
 
   getPastorPhoto(pastor:string) {
@@ -30,7 +33,8 @@ export class BulletinComponent implements OnInit {
 
   getPastorName(pastor:string) {
     if(pastor.endsWith("목사")) {pastor = pastor.slice(0,-2)}
-    else if (pastor.endsWith("목사님")) {pastor = pastor.slice(0,-3)}
+    else if (pastor.endsWith("목사님") || pastor.endsWith("전도사")) {pastor = pastor.slice(0,-3)}
+    else if (pastor.endsWith("전도사님")) {pastor = pastor.slice(0,-4)}
     pastor = pastor.trim();  
     pastor = pastor.replace(/\s/g, ''); 
     return pastor 

@@ -9,7 +9,7 @@ import {Clipboard } from '@angular/cdk/clipboard'
 })
 export class SidebarComponent {
   churchAddress="1101 N. Glen Ave, Pomona, CA, 91768"
-  pastorPhone="san886@icloud.com"
+  pastorPhone="caleb@inlandchurch.org"
   constructor(private clipboard: Clipboard, private snackBar:MatSnackBar){}
 
   copyToClipboard(s:string) {
