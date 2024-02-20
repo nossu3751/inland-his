@@ -31,7 +31,7 @@
             </app-flex-item>
         </app-flex-container>
     </app-block> -->
-    <app-block *ngIf="authChecked">
+    <app-block *ngIf="authChecked" style="max-width: 640px; margin: auto">
         <app-flex-container>
             <app-flex-item>
                 <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="0" background="src/assets/church-icons/bible-icon.svg" (click)="modalService.openModal(bulletinPaperComponent,'이번주 주보')">
@@ -136,81 +136,123 @@
     <app-block maxWidth="640px" style="margin: auto;">
         <app-video-player *ngIf="video" [videoId]="video.video_id"></app-video-player>
     </app-block>
-    <!-- <app-block maxWidth="1100px" style="margin: auto;">
-        <app-flex-container marginTop="1em">
-            <app-flex-item flexDirection="column" width="15em" flex="0 1 auto">
-                <app-block height="100%">
-                    <app-card marginTop="0" marginRight="1em" marginLeft="0"height="calc(100% - 1em)" (click)="modalService.openModal(bulletinPaperComponent,'이번주 주보')">
-                        <div class="card-menu-text">
-                            <app-block class="church-icon">
-                                <app-leaflet-svg size="3.5em" color="var(--nav-item-color)"></app-leaflet-svg>
-                            </app-block>
-                            <app-block>
-                                이번주 주보
-                            </app-block>
-                        </div>
-                    </app-card>
-                </app-block>
-                <app-block height="100%">
-                    <app-card marginTop="0" marginRight="1em" marginLeft="0" height="calc(100% - 1em)" (click)="modalService.openModal(smallGroupNoteComponent,'이번주 셀노트')">
-                        <div class="card-menu-text">
-                            <app-block class="church-icon">
-                                <app-note-svg size="3.5em" color="var(--nav-item-color)"></app-note-svg>
-                            </app-block>
-                            <app-block>
-                                이번주 셀노트
-                            </app-block>
-                        </div>
-                    </app-card>
-                </app-block>
-            </app-flex-item>
-            <app-flex-item flexDirection="column" width="15em" flex="0 1 auto">
-                <app-block height="100%">
-                    <app-card marginTop="0" marginLeft="0" height="calc(100% - 1em)">
-                        <div class="card-menu-text">
-                            <app-block class="church-icon">
-                                <app-bible-svg size="3.5em" color="var(--nav-item-color)"></app-bible-svg>
-                            </app-block>
-                            <app-block>
-                                오늘의 말씀
-                            </app-block>
-                        </div>
-                    </app-card>
-                </app-block>
-                <app-block height="100%">
-                    <app-card marginTop="0" marginLeft="0" height="calc(100% - 1em)" [routerLink]="['/new-comer']">
-                        <div class="card-menu-text">
-                            <app-block class="church-icon">
-                                <app-prayer-svg size="3.5em" color="var(--nav-item-color)"></app-prayer-svg>
-                            </app-block>
-                            <app-block>
-                                새신자 등록하기
-                            </app-block>
-                        </div>
-                    </app-card>
-                </app-block>
-            </app-flex-item>
-        </app-flex-container>
-    </app-block> -->
     <app-block maxWidth="640px" style="margin: auto;">
-        <app-flex-container>
+        <app-flex-container style="margin: auto; background-color: rgb(116, 101, 133); border-radius: 0.5em; align-items: center;">
             <app-flex-item>
-                <app-card marginTop="0" marginRight="0.34em" height="75px" hoveredBackgroundColor="#fff3f2" href="https://www.youtube.com/@inland_his">
+                <app-card style="align-items: center;" marginTop="0" marginRight="0.34em" height="75px" hoveredBackgroundColor="transparent" href="https://www.youtube.com/@inland_his" borderColor="transparent" backgroundColor="transparent">
                     <img src="assets/social-media-logos/youtube-logo.png" height="60%"/>
                 </app-card>
             </app-flex-item>
             <app-flex-item>
-                <app-card marginTop="0" marginRight="0.66em" marginLeft="0.66em" height="75px" hoveredBackgroundColor="#fef2ff" href="https://www.instagram.com/inlandhisministry/">
+                <app-card marginTop="0" marginRight="0.66em" marginLeft="0.66em" height="75px" hoveredBackgroundColor="transparent" href="https://www.instagram.com/inlandhisministry/" borderColor="transparent" backgroundColor="transparent">
                     <img src="assets/social-media-logos/instagram-logo.png" height="60%"/>
                 </app-card>
             </app-flex-item>
             <app-flex-item>
-                <app-card marginTop="0" marginLeft="0.34em" height="75px" hoveredBackgroundColor="#f3f2ff" href="https://www.facebook.com/groups/161659807316928">
+                <app-card marginTop="0" marginLeft="0.34em" height="75px" hoveredBackgroundColor="transparent" href="https://www.facebook.com/groups/161659807316928" borderColor="transparent" backgroundColor="transparent">
                     <img src="assets/social-media-logos/facebook-logo.png" height="60%"/>
                 </app-card>
             </app-flex-item>
         </app-flex-container>
     </app-block>
+    <app-block *ngIf="authChecked" style="max-width: 640px; margin: auto">
+        <app-flex-container>
+            <app-flex-item>
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="0" background="src/assets/church-icons/bible-icon.svg" (click)="modalService.openModal(bulletinPaperComponent,'이번주 주보')">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <!-- <app-leaflet-svg size="3em" color="var(--nav-item-color)"></app-leaflet-svg> -->
+                            <img src="assets/church-icons/bulletin.svg" height="75px;">
+                        </app-block>
+                        <app-block>
+                            이번주 주보
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(todayCalendarComponent,eventService.today())">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <!-- <app-note-svg size="3em" color="var(--nav-item-color)"></app-note-svg> -->
+                            <img src="assets/church-icons/calendar.svg" height="75px;">
+                        </app-block>
+                        <app-block>
+                            오늘의 이벤트
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+        </app-flex-container> 
+        <app-flex-container>
+            <app-flex-item>
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="0" (click)="modalService.openAlertModal(bibleRedirectionComponent, '온라인 성경')">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <!-- <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg> -->
+                            <img src="assets/church-icons/bible.svg" height="75px;">
+                        </app-block>
+                        <app-block>
+                            온라인 성경
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item *ngIf="!authenticated">
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(newComerFormComponent, '새신자 등록하기')">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <!-- <app-prayer-svg size="3em" color="var(--nav-item-color)"></app-prayer-svg> -->
+                            <img src="assets/church-icons/welcome.svg" height="75px;">
+                        </app-block>
+                        <app-block>
+                            새신자 등록하기
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item *ngIf="authenticated">
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(smallGroupInfoComponent, '셀 모임 정보')">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <img src="assets/church-icons/small-group.svg" height="75px;">
+                        </app-block>
+                        <app-block>
+                            셀 모임 정보
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+        </app-flex-container>
+        <app-flex-container>
+            <app-flex-item>
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="1em" (click)="modalService.openAlertModal(offeringRedirectionComponent, '온라인 헌금 페이지 이동')">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <!-- <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg> -->
+                            <img src="assets/church-icons/offering.svg" height="75px;">
+                        </app-block>
+                        <app-block>
+                            온라인 헌금
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="1em">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            
+                        </app-block>
+                        <app-block>
+                       
+                        </app-block>
+                    </div>
+                </app-card>
+            </app-flex-item>
+        </app-flex-container>
+    </app-block>  
+    
     
 </app-block>
 

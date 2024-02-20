@@ -18,7 +18,7 @@
     *ngIf="currentRouteName != ''&& currentRouteName != 'search' && currentRouteName !== 'calendar/:date'" >
         {{navItemMap.get('/' + currentRouteName)}}
     </div>
-    <app-search-bar *ngIf="currentRouteName === 'search' || currentRouteName === ''"></app-search-bar>
+    <app-search-bar fxHide.gt-sm *ngIf="currentRouteName === 'search' || currentRouteName === ''"></app-search-bar>
     <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu 
     *ngIf="currentRouteName === 'calendar/:date'" >
         {{date | async}}

@@ -1,5 +1,5 @@
 
-<app-block fxHide.lt-md>
+<!-- <app-block fxHide.lt-md>
     <div style="display:inline-block; width:60%">
         <app-block paddingBottom="1em" paddingLeft="1em" paddingRight="1em">
             <app-video-player 
@@ -9,13 +9,22 @@
          </app-block>
     </div>
     <div style="display:inline-block; width:40%">
-        <!-- <app-block paddingRight="1em" paddingBottom="1em" width="100%">
+        <app-block paddingRight="1em" paddingBottom="1em" width="100%">
                 <app-video-list 
                     [videos]="liveStreams"
                     (videoSelected)="onVideoSelected($event)">
                 </app-video-list>
-        </app-block> -->
+        </app-block>
     </div>
+</app-block> -->
+
+<app-block fxHide.lt-md>
+    
+    <app-video-player 
+        *ngIf="selectedVideoIndex != null" 
+        [videoId]="liveStreams[selectedVideoIndex].video_id">  
+    </app-video-player>
+    
 </app-block>
     
 

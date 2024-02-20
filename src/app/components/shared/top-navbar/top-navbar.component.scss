@@ -58,16 +58,17 @@
 }
 
 .web-menu-wrapper a {
-    color: var(--secondary-color) ;
+    color: rgba(255,255,255,0.5) !important;
     font-weight: bold;
     transition: font-size 0.2s ease-in-out;
     font-size: small;
+    text-decoration: none;
 }
 
 .web-menu-wrapper:hover a{
     cursor: pointer;
     font-size: larger;
-    color: var(--secondary-color) ;
+    color: rgba(255,255,255,0.5) !important;
 }
 
 .web-menu-wrapper.active-link a{

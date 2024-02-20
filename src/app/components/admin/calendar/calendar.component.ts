@@ -64,18 +64,27 @@ export class CalendarComponent implements OnInit{
     },
  
     height: "calc((var(--html-height) / 2)",
-    
+    dateClick:(info)=>{
+      this.eventService.setSelectedDate(info.dateStr)
+      this.goToDatePage(info.dateStr)
+    }
   };
   constructor(
     private eventService:EventService, 
     private snackBar:MatSnackBar,
     private personService:PersonService,
     private smallGroupService:SmallGroupService,
-    public routingService:RoutingService
+    public routingService:RoutingService,
+    private router:Router
   ){
 
   }
- 
+
+  goToDatePage(dateStr:string){
+    this.router.navigateByUrl(`admin/calendar/${dateStr}`)
+  }
+
+
   createForm() {
     if (this.form !== null){
       this.snackBar.open("편집중인 이벤트를 먼저 등록해주세요", "Close", {
@@ -279,6 +288,7 @@ export class CalendarComponent implements OnInit{
     this.eventService.addEvent(formCopy).subscribe({
       "next":(data)=>{
         const events = data.data
+        console.log(events)
         this.calendarEvents?.concat(events)
         this.form = null
         this.allDay = false;

@@ -10,13 +10,14 @@
 <ng-container *ngIf="isOnAdminRoute !== null">
   <div *ngIf="!isOnAdminRoute; else adminPage">
     <app-top-navbar fxHide.gt-sm></app-top-navbar>
-    <app-content-area  [@routeAnimations]="prepareRoute(outlet)" fxHide.gt-sm>
+    <app-top-navbar fxHide.lt-md></app-top-navbar>
+    <app-content-area  [@routeAnimations]="prepareRoute(outlet)">
       <router-outlet #outlet="outlet"></router-outlet>
     </app-content-area>
     <app-bottom-navbar fxHide.gt-sm></app-bottom-navbar> 
     <app-custom-modal fxHide.gt-sm></app-custom-modal>
     <app-alert-modal fxHide.gt-sm></app-alert-modal>
-    <app-page-not-found fxHide.lt-md></app-page-not-found>
+    <!-- <app-page-not-found fxHide.lt-md></app-page-not-found> -->
   </div>
   
   <ng-template #adminPage>

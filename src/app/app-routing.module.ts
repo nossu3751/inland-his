@@ -30,6 +30,7 @@ import { AssignTeamMemberComponent } from './components/admin/member/assign-team
 import { MemberContactsComponent } from './components/admin/small-group/member-contacts/member-contacts.component';
 import { WidgetsComponent } from './components/core/widgets/widgets.component';
 import { PollComponent } from './components/core/poll/poll.component';
+import { DateEventComponent } from './components/admin/date-event/date-event.component';
 // ...
 
 const routes: Routes = [
@@ -95,6 +96,11 @@ const routes: Routes = [
       },
       {
         path: 'calendar', component: CalendarComponent,
+        data: { roles: ['/welcome-team', '/pastor', '/inland-his-admin', '/praise-team', '/media-team', '/campus-team']},
+        canActivate: [canActivateProtectedRoutesV2]
+      },
+      {
+        path: 'calendar/:date', component: DateEventComponent,
         data: { roles: ['/welcome-team', '/pastor', '/inland-his-admin', '/praise-team', '/media-team', '/campus-team']},
         canActivate: [canActivateProtectedRoutesV2]
       },

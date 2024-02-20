@@ -74,6 +74,10 @@ export class EventService {
   addEvent(event_data:any): Observable<any> {
     return this.http.post(`${this.eventUrl}/add`, event_data)
   }
+
+  deleteEvent(event_id:any): Observable<any> {
+    return this.http.delete(`${this.eventUrl}/delete/${event_id}/`)
+  }
   
   getEventsBySearchStr(search:string):Observable<any> {
     return this.http.get(`${this.eventUrl}/?search=${search}`).pipe(

@@ -15,7 +15,8 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit{
   borderColor:string|null = "#eee"
 
   @Input()
-  borderWidth:string|null = "1px"
+  // borderWidth:string|null = "1px"
+  borderWidth:string|null = "0px"
   
   @Input()
   videoId:string|null = null
