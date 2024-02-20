@@ -76,7 +76,7 @@ export class EventService {
   }
 
   deleteEvent(event_id:any): Observable<any> {
-    return this.http.delete(`${this.eventUrl}/delete/${event_id}`)
+    return this.http.delete(`${this.eventUrl}/${event_id}`)
   }
   
   getEventsBySearchStr(search:string):Observable<any> {
