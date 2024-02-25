@@ -1,0 +1,14 @@
+<ng-container *ngIf="verses">
+    <div class="title-area" *ngIf="book && chapter">
+        <div class="title">
+            <span style="margin-right:0.5em">{{book}}</span> 
+            {{chapter}}
+        </div>
+    </div>
+    <ng-container *ngFor="let verse of verses">
+        <div class="verses">
+            {{verse.verse}}. {{verse.content}}
+        </div>
+        <br>
+    </ng-container>
+</ng-container>

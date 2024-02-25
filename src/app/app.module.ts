@@ -105,7 +105,9 @@ import { PollComponent } from './components/core/poll/poll.component';
 import { QtRedirectionComponent } from './components/alerts/qt-redirection/qt-redirection.component';
 import { UpdateNoteComponent } from './components/alerts/update-note/update-note.component';
 import { UpdatesComponent } from './components/shared/updates/updates.component';
-import { DateEventComponent } from './components/admin/date-event/date-event.component'
+import { DateEventComponent } from './components/admin/date-event/date-event.component';
+import { BibleChallengeComponent } from './components/core/bible-challenge/bible-challenge.component';
+import { BibleChallengeVerseComponent } from './components/core/bible-challenge-verse/bible-challenge-verse.component'
 // import { Mat}
 
 const INTL_DATE_INPUT_FORMAT = {
@@ -211,6 +213,8 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     UpdateNoteComponent,
     UpdatesComponent,
     DateEventComponent,
+    BibleChallengeComponent,
+    BibleChallengeVerseComponent,
   ],
   imports: [
     BrowserModule,

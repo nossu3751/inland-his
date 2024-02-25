@@ -1,0 +1,83 @@
+.list-area {
+    margin: auto;
+}
+
+.bible-challenge-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 0 0;
+}
+
+.bible-challenge-item {
+    width: 100%;
+    display:flex;
+    padding: 0 1em 0 1em;
+    // border: 2px solid var(--primary-color);
+    border-bottom: 0.5px solid #ddd;
+    // border-radius: 0.5em;
+    background-color: white;
+    height: 7em;
+}
+
+.bible-challenge-item.last{
+    border-bottom: 0;
+}
+
+.bible-challenge-item.first{
+    border-top: 0.5px solid #ddd;
+}
+
+.date-area {
+    display: flex;
+    flex: 0 0 30%;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--secondary-color);
+    .date {
+        text-align: center;
+    }
+}
+
+.date {
+    display: flex
+}
+
+.title-area {
+    display: flex;
+    flex: 0 0 52%;
+    font-size: 1.1em;
+    font-weight: 700;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--secondary-color);
+    padding: 0 0 0 0.5em;
+}
+
+.title {
+    display: flex;
+}
+
+.day-area {
+    display: flex;
+    flex: 0 0 18%;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.bulletin-item:focus {
+    outline: none;
+}
+
+.previous-dates {
+    background-color: var(--secondary-color);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+}

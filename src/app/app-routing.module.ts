@@ -31,12 +31,14 @@ import { MemberContactsComponent } from './components/admin/small-group/member-c
 import { WidgetsComponent } from './components/core/widgets/widgets.component';
 import { PollComponent } from './components/core/poll/poll.component';
 import { DateEventComponent } from './components/admin/date-event/date-event.component';
+import { BibleChallengeComponent } from './components/core/bible-challenge/bible-challenge.component';
+import { BibleChallengeVerseComponent } from './components/core/bible-challenge-verse/bible-challenge-verse.component';
 // ...
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, data: {reuse: true, animation: 'Home'} },
   // { path: 'search', component: SearchPageComponent, data: {animation: 'Search'}},
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, data:{animation: 'Home'} },
   { path: 'search', component: SearchPageComponent, data: { animation: 'Search' }},
   { 
     path: 'thanks', component: SignupSuccessComponent,
@@ -57,6 +59,8 @@ const routes: Routes = [
   { path: 'calendar/:date', component: TodayCalendarComponent, data: { animation: 'TodayCalendar' }},
   { path: 'widgets', component: WidgetsComponent, data: { animation: 'Widgets'}},
   { path: 'widgets/poll', component: PollComponent, data: { animation: 'Poll'}},
+  { path: 'bible-challenge', component: BibleChallengeComponent, data: {animation: 'BibleChallenge'}},
+  { path: 'bible-challenge/:date', component: BibleChallengeVerseComponent, data: {animation: 'BibleChallengeVerse'}},
   { path: 'admin',
     component: AdminHomeComponent,
     data: { roles: [

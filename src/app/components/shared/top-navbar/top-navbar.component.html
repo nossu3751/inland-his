@@ -15,12 +15,12 @@
     </div>
 
     <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu 
-    *ngIf="currentRouteName != ''&& currentRouteName != 'search' && currentRouteName !== 'calendar/:date'" >
+    *ngIf="currentRouteName !== ''&& currentRouteName !== 'search' && currentRouteName !== 'calendar/:date' && currentRouteName !== 'bible-challenge/:date'" >
         {{navItemMap.get('/' + currentRouteName)}}
     </div>
     <app-search-bar fxHide.gt-sm *ngIf="currentRouteName === 'search' || currentRouteName === ''"></app-search-bar>
     <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu 
-    *ngIf="currentRouteName === 'calendar/:date'" >
+    *ngIf="currentRouteName === 'calendar/:date' || currentRouteName ==='bible-challenge/:date'" >
         {{date | async}}
     </div>
     <!-- <ng-template #searchBar >

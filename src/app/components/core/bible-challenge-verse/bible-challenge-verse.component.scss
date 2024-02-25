@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Ridi';
+    src: url('/assets/fonts/RIDIBatang.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.verses {
+    font-family: 'RIDI';
+    font-weight: 'bold';
+    margin: auto;
+    padding: 0 1em 0 1em;
+    color: #555;
+    
+}
+
+.title-area {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.title {
+    display: flex;
+    font-weight: 500;
+    font-size: 1.5em;
+    color: #555;
+}

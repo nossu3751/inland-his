@@ -45,6 +45,7 @@ export class TopNavbarComponent implements OnInit{
   currentRouteName = '';
   hasBackPage:boolean = false;
   date:BehaviorSubject<string> = new BehaviorSubject("");
+  // bibleChallengeDate:BehaviorSubject<string> = new BehaviorSubject("")
   sidebarComponent = SidebarComponent;
   rightSidebarComponent = RightSidebarComponent
 
@@ -74,7 +75,8 @@ export class TopNavbarComponent implements OnInit{
     ["/user", "유저"],
     ["/calendar", "캘린더"],
     ["/widgets", "위젯"],
-    ["/widgets/poll", "투표"]
+    ["/widgets/poll", "투표"],
+    ["/bible-challenge", "성경읽기 챌린지"]
   ])
 
   private updateCurrentRouteName() {
@@ -85,7 +87,7 @@ export class TopNavbarComponent implements OnInit{
       this.currentRouteName = '';
     }
     console.log(this.currentRouteName)
-    if(this.currentRouteName.includes(":") || this.currentRouteName == "login" || this.currentRouteName == "user"){
+    if(this.currentRouteName.includes(":") || ["login","user","bible-challenge"].includes(this.currentRouteName)){
       this.hasBackPage = true;
     }else{
       this.hasBackPage = false;
@@ -94,16 +96,11 @@ export class TopNavbarComponent implements OnInit{
       if (currentRoute && currentRoute.params && "date" in currentRoute.params) {
         this.date.next(currentRoute.params["date"])
       }
-      
-      // currentRoute?.params.subscribe((params) => {
-      //   console.log(params)
-      //       this.date.next(String(params['date']));
-      //   }
-      // )
-      this.activatedRoute.params.subscribe((param)=>{
-        
-            
-      })
+    } else if(this.currentRouteName === "bible-challenge/:date"){
+      if (currentRoute && currentRoute.params && "date" in currentRoute.params) {
+        console.log(currentRoute.params["date"])
+        this.date.next(currentRoute.params["date"])
+      }
     }
     console.log("Current route name", this.currentRouteName)
   }

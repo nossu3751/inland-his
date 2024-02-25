@@ -1,0 +1,47 @@
+<ng-container *ngIf="bibleChallenges">
+    <div class="list-area">
+        <ng-container *ngFor="let bc of bibleChallenges; let last=last; let first=first" >
+            <div (click)="goToBibleChallenge(bc.date)" class="bible-challenge-item-container">
+                <div class="bible-challenge-item" [ngClass]="{'last': last, 'first': first}">
+                    <div class="day-area">
+                        Day {{bc.dayCount}}
+                    </div>
+                    <div class="title-area">
+                        <div class="title">
+                            {{bc.title}}
+                        </div>
+                    </div>
+                    <div class="date-area">
+                        <div class="date">
+                            {{bc.date | date:'yyyy-MM-dd'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <div class="previous-dates">
+            지난 말씀들
+        </div>
+        <ng-container *ngFor="let bc of previousDates; let last=last">
+            <div (click)="goToBibleChallenge(bc.date)" class="bible-challenge-item-container">
+                <div class="bible-challenge-item" [ngClass]="{'last': last}">
+                    <div class="day-area">
+                        Day {{bc.dayCount}}
+                    </div>
+                    <div class="title-area">
+                        <div class="title">
+                            {{bc.title}}
+                        </div>
+                    </div>
+                    <div class="date-area">
+                        <div class="date">
+                            {{bc.date | date:'yyyy-MM-dd'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
+
+
