@@ -1,6 +1,6 @@
 <div *ngIf="bulletins" class="list-area">
-    <div *ngFor="let bulletin of bulletins" class="bulletin-item-container">
-        <div class="bulletin-item" [routerLink]="bulletin.sunday_date">
+    <div *ngFor="let bulletin of bulletins; let first=first; let last=last" class="bulletin-item-container">
+        <div class="bulletin-item" [routerLink]="bulletin.sunday_date" [ngClass]="{'first': first, 'last': last}">
             <div class="photo-area">
                 <div class="photo-container">
                     <img [src]="getPastorPhoto(bulletin.message)" class="photo"/>

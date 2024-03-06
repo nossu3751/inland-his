@@ -11,11 +11,19 @@
     display:flex;
     padding: 0 1em 0 1em;
     // border: 2px solid var(--primary-color);
-    border-top: 2px solid var(--secondary-color);
+    border-top: 1px solid #ddd;
     // border-radius: 0.5em;
     background-color: white;
     height: 7em;
 
+}
+
+.bulletin-item.first {
+    border-top: none;
+}
+
+.bulletin-item.last {
+    border-bottom: 1px solid #ddd;
 }
 
 .date-area {

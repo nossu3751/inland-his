@@ -16,7 +16,6 @@ export class RoutingService {
       
     }
     this.resetDefaultDateWhenNotCalendar()
-    this.getProfile()
   }
 
   showLoadingScreen:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -40,19 +39,6 @@ export class RoutingService {
     return this.router.url === "/admin";
   }
 
-  getProfile(){
-    this.personService.getProfile().subscribe({
-      "next":(data)=>{
-        const imageUrl = data.data
-        if(imageUrl !== this.personService.profileImage.value){
-          this.personService.updateProfileImage(imageUrl)
-        }
-      },
-      "error":(error)=>{
-        this.personService.profileImage.next("assets/church-icons/no-profile.png")
-      }
-    })
-  }
 
   resetDefaultDateWhenNotCalendar(){
     this.router.events.subscribe(event => {

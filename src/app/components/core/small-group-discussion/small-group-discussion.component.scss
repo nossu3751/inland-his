@@ -1,0 +1,38 @@
+.discussion-area {
+    height: calc(var(--html-height) - 2 * var(--nav-height));
+    width: 100%;
+    padding: 1em;
+}
+
+.no-data {
+    width: 100%;
+    height: calc(var(--html-height) - 2 * var(--nav-height));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        display: flex;
+        width: 40%;
+    }
+}
+
+.date {
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    padding: 1.3em 0;
+    font-size: 1.7em;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.ql-editor {
+    border-bottom: 1px solid #ddd;
+    height: auto;
+    padding-bottom: 3em;
+    margin-bottom: 5em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+/* Component specific CSS file */
+/* Component's CSS file */

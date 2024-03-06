@@ -1,0 +1,15 @@
+<ng-container *ngIf="discussion; else noData">
+    <div class="discussion-area">
+        <div class="date">
+            {{date}}
+        </div>
+        <div class="ql-editor"[innerHTML]="discussion">
+    
+        </div>
+    </div>
+</ng-container>
+<ng-template #noData>
+    <div class="no-data">
+        <img src="assets/church-icons/sorry.svg"/>
+    </div>
+</ng-template>

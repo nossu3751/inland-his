@@ -12,7 +12,6 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
-import { SmallGroupComponent } from './components/core/small-group/small-group.component';
 import { OfferingComponent } from './components/core/offering/offering.component';
 import { NgxPullToRefreshModule } from 'ngx-pull-to-refresh';
 import { ScrollHideDirective } from './directives/scroll-hide.directive';
@@ -57,15 +56,10 @@ import { VideoPlayerComponent } from './components/shared/video-player/video-pla
 import { VideoListComponent } from './components/shared/video-list/video-list.component';
 import { NavigateBackDirective } from './directives/navigate-back.directive';
 import { VideosComponent } from './components/core/videos/videos.component';
-import { SmallGroupNotesAdminComponent } from './components/admin/small-group/small-group-notes-admin/small-group-notes-admin.component';
-import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
-import { SmallGroupNoteComponent } from './components/core/small-group-note/small-group-note.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NgxSummernoteModule } from 'ngx-summernote';
 import { CustomModalComponent } from './components/shared/custom-modal/custom-modal.component';
 import { ContentViewComponent } from './components/shared/content-view/content-view.component';
-import { SmallGroupJsonParseComponent } from './components/core/small-group-json-parse/small-group-json-parse.component';
-import { BulletinPaperAdminComponent } from './components/admin/bulletin/bulletin-paper/bulletin-paper-admin.component';
 import { LoadingScreenComponent } from './components/shared/loading-screen/loading-screen.component';
 import { BulletinPaperComponent } from './components/core/bulletin-paper/bulletin-paper.component';
 import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
@@ -82,32 +76,21 @@ import { ExistingPersonComponent } from './components/alerts/existing-person/exi
 import { SignupSuccessComponent } from './components/shared/signup-success/signup-success.component';
 import { RightSidebarComponent } from './components/shared/right-sidebar/right-sidebar.component';
 import { CodeInputComponent } from './components/shared/code-input/code-input.component';
-import { UserComponent } from './components/core/user/user.component';
-import { SmallGroupInfoComponent } from './components/core/small-group-info/small-group-info.component';
 import { LogoutConfirmationComponent } from './components/alerts/logout-confirmation/logout-confirmation.component';
 import { ProfileManagerComponent } from './components/shared/profile-manager/profile-manager.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { SmallGroupMembersComponent } from './components/admin/small-group/small-group-members/small-group-members.component';
-import { AdminContentAreaComponent } from './components/admin/shared/admin-content-area/admin-content-area.component';
-import { SmallGroupMembersSearchComponent } from './components/admin/small-group/small-group-members-search/small-group-members-search.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { MonthlyCalendarComponent } from './components/core/monthly-calendar/monthly-calendar.component';
 import { TodayCalendarComponent } from './components/core/today-calendar/today-calendar.component';
-import { CalendarComponent } from './components/admin/calendar/calendar.component';
 import { BibleRedirectionComponent } from './components/alerts/bible-redirection/bible-redirection.component';
-import { AdmitNewMemberComponent } from './components/admin/member/admit-new-member/admit-new-member.component';
-import { AssignTeamMemberComponent } from './components/admin/member/assign-team-member/assign-team-member.component';
-import { BulletinsComponent } from './components/admin/bulletin/bulletins/bulletins.component';
-import { AdminTopNavbarComponent } from './components/admin/shared/admin-top-navbar/admin-top-navbar.component';
-import { MemberContactsComponent } from './components/admin/small-group/member-contacts/member-contacts.component';
 import { WidgetsComponent } from './components/core/widgets/widgets.component';
 import { PollComponent } from './components/core/poll/poll.component';
 import { QtRedirectionComponent } from './components/alerts/qt-redirection/qt-redirection.component';
 import { UpdateNoteComponent } from './components/alerts/update-note/update-note.component';
 import { UpdatesComponent } from './components/shared/updates/updates.component';
-import { DateEventComponent } from './components/admin/date-event/date-event.component';
 import { BibleChallengeComponent } from './components/core/bible-challenge/bible-challenge.component';
-import { BibleChallengeVerseComponent } from './components/core/bible-challenge-verse/bible-challenge-verse.component'
+import { BibleChallengeVerseComponent } from './components/core/bible-challenge-verse/bible-challenge-verse.component';
+import { SmallGroupDiscussionComponent } from './components/core/small-group-discussion/small-group-discussion.component'
 // import { Mat}
 
 const INTL_DATE_INPUT_FORMAT = {
@@ -136,7 +119,6 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    SmallGroupComponent,
     OfferingComponent,
     ScrollHideDirective,
     BibleVersesComponent,
@@ -171,13 +153,8 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     VideoListComponent,
     NavigateBackDirective,
     VideosComponent,
-    SmallGroupNotesAdminComponent,
-    AdminHomeComponent,
-    SmallGroupNoteComponent,
     CustomModalComponent,
     ContentViewComponent,
-    SmallGroupJsonParseComponent,
-    BulletinPaperAdminComponent,
     LoadingScreenComponent,
     BulletinPaperComponent,
     SearchBarComponent,
@@ -191,30 +168,19 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     SignupSuccessComponent,
     RightSidebarComponent,
     CodeInputComponent,
-    UserComponent,
-    SmallGroupInfoComponent,
     LogoutConfirmationComponent,
     ProfileManagerComponent,
-    SmallGroupMembersComponent,
-    AdminContentAreaComponent,
-    SmallGroupMembersSearchComponent,
     MonthlyCalendarComponent,
     TodayCalendarComponent,
-    CalendarComponent,
     BibleRedirectionComponent,
-    AdmitNewMemberComponent,
-    AssignTeamMemberComponent,
-    BulletinsComponent,
-    AdminTopNavbarComponent,
-    MemberContactsComponent,
     WidgetsComponent,
     PollComponent,
     QtRedirectionComponent,
     UpdateNoteComponent,
     UpdatesComponent,
-    DateEventComponent,
     BibleChallengeComponent,
     BibleChallengeVerseComponent,
+    SmallGroupDiscussionComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,53 +1,24 @@
+<app-loading-screen *ngIf="(searchService.searching$ | async)"></app-loading-screen>
+
 <ng-container *ngIf="(searchService.searchLength$ | async) as length ; else noSearch">
     <div class="search-page" *ngIf="length > 0">
-        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.members as members">
-            <div class="section-title" *ngIf="members.members.length > 0">
-                멤버 검색결과
-            </div>
-            <div class="list-area">
-                <div *ngFor="let member of members.members" class="member-item-container">
-                    <div class="member-item" *ngIf="smallGroupService.getMemberSmallGroupAndRoom(member.small_group_id, members.small_groups) as info">
-                        <div class="left">
-                            <div class="photo-area">
-                                <div class="member-photo-container">
-                                    <img [src]="smallGroupService.getProfilePhoto(member.id, members.profile_images)" class="photo"/>
-                                </div>
-                            </div>
-                            <div class="member-name-area">
-                                <div class="member-name">
-                                    {{member.name}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="member-room-area">
-                                <div class="member-room">
-                                    {{info.smallGroupName}} | {{info.smallGroupRoom}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.events as events">
-            <div class="section-title" *ngIf="events.length > 0">
+        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.events as data">
+            <div class="section-title" *ngIf="data.length > 0">
                 이벤트
             </div>
             <div class="list-area">
-                <div *ngFor="let event of events" class="event-item-container">
+                <div *ngFor="let d of data" class="event-item-container">
                     <div class="event-item">
                         <div class="event-title-area">
                             <div class="event-title">
-                                {{event.title}}
+                                {{d.title}}
                             </div>
                         </div>
                         <div class="event-date-area">
                             <div class="event-date">
-                                {{eventService.getSimpleDateStr(event.start)}}
+                                {{eventService.getSimpleDateStr(d.start)}}
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -57,12 +28,12 @@
                 주보 검색결과
             </div>
             <div class="list-area">
-                <div *ngFor="let bulletin of bulletins" class="bulletin-item-container">
-                    <div class="bulletin-item" [routerLink]="['/bulletin',bulletin.sunday_date]">
+                <div *ngFor="let bulletin of bulletins; let first=first; let last=last" class="bulletin-item-container">
+                    <div class="bulletin-item" [routerLink]="['/bulletin',bulletin.sunday_date]" [ngClass]="{'first':first, 'last':last}">
                         <div class="left">
                             <div class="photo-area">
                                 <div class="photo-container">
-                                    <img [src]="pastorPhotoMap.get(getPastorName(bulletin.message))" class="photo"/>
+                                    <img [src]="getPastorImageLink(bulletin.message)" class="photo"/>
                                 </div>
                             </div>
                             <div class="title-area">
@@ -100,9 +71,8 @@
         </div>
     </div>
 </ng-container>
-
 <ng-template #noSearch>
-    <div class="no-search" *ngIf="!searchService.searching">
+    <div class="no-search">
         <img src="assets/church-icons/no-search.png" class="no-search-img">
     </div>
 </ng-template>

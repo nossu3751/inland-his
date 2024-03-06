@@ -7,18 +7,18 @@
 }
 
 mat-icon {
-    color: var(--secondary-color)
+    color: #555;
 }
 
 input {
     position: absolute;
     background-color: transparent;  /* Remove background */
     border-style: solid;  /* Remove border */
-    border-color: var(--secondary-color);
-    border-width: 2px;
-    border-radius: 50px;
+    border-color: #555;
+    border-width: 1.7px;
+    border-radius: 15px;
     height:40px;
-    color: var(--secondary-color);
+    color: #555;
     font-size: 20px;
     font-weight: 700;
     outline: none;  /* Remove outline */
@@ -28,11 +28,9 @@ input {
     appearance: none;  /* Remove styles in modern browsers */
     padding-left: 0.5em;
     padding-right: 0.5em;
-    // width: 500px;
     display: inline-flex;
     
     width: calc(var(--html-width) - 112px - 56px)
-    // max-width: 700px;
 }
 
 input:hover, input:focus, input:active {

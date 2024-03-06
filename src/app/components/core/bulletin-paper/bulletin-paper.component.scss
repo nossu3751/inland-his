@@ -46,7 +46,7 @@
 }
 
 .sermon-title {
-    font-size: 2.2em;
+    font-size: 1.7em;
     // font-weight: 500;
     padding: 0.5em 0.5em 0 0.5em;
     color: var(--secondary-color);
@@ -74,6 +74,12 @@
 
 .hymn-item {
     display: block;
+}
+
+.news {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 1em;
 }
 
 .news-list {

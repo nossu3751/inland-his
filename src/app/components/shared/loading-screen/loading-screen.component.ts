@@ -41,8 +41,8 @@ export class LoadingScreenComponent implements OnInit{
         this.height = "calc(var(--html-height) - var(--nav-height)";
         this.top = "var(--nav-height)"
       }
-      setTimeout(() => {
-        this.fadeState = 'out'
-      }, (this.lastingTime-0.5) * 1000)
+      // setTimeout(() => {
+      //   this.fadeState = 'out'
+      // }, (this.lastingTime-0.5) * 1000)
   }
 }

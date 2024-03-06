@@ -1,37 +1,12 @@
 
 <app-block fxHide.gt-sm>
-    
-    
-    
-    <!-- <app-block> 
-        <app-carousel marginTop="0" indicatorSize="20px"></app-carousel>
-    </app-block> -->
     <app-block paddingRight="0.5em" paddingLeft="0.5em" paddingBottom="0">
-        <!-- <app-video-area></app-video-area> -->
         <app-video-player *ngIf="video" [videoId]="video.video_id" 
             borderColor="transparent"
-            borderWidth="2px"></app-video-player>
+            borderWidth="0">
+        </app-video-player>
     </app-block>
-    <!-- <app-block>
-        <app-flex-container>
-            <app-flex-item>
-                <app-card marginTop="0.5em" marginRight="0.17em" marginLeft="0.5em" marginBottom="0"height="75px" hoveredBackgroundColor="#fff3f2" href="https://www.youtube.com/@inland_his">
-                    <img src="assets/social-media-logos/youtube-logo.png" height="60%"/>
-                </app-card>
-            </app-flex-item>
-            <app-flex-item>
-                <app-card marginTop="0.5em" marginRight="0.33em" marginLeft="0.33em" marginBottom="0"height="75px" hoveredBackgroundColor="#fef2ff" href="https://www.instagram.com/inlandhisministry/">
-                    <img src="assets/social-media-logos/instagram-logo.png" height="60%"/>
-                </app-card>
-            </app-flex-item>
-            <app-flex-item>
-                <app-card marginTop="0.5em" marginLeft="0.17em" marginRight="0.5em" marginBottom="0"height="75px" hoveredBackgroundColor="#f3f2ff" href="https://www.facebook.com/groups/161659807316928">
-                    <img src="assets/social-media-logos/facebook-logo.png" height="60%"/>
-                </app-card>
-            </app-flex-item>
-        </app-flex-container>
-    </app-block> -->
-    <app-block *ngIf="authChecked" style="max-width: 640px; margin: auto">
+    <app-block style="max-width: 640px; margin: auto">
         <app-flex-container>
             <app-flex-item>
                 <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="0" background="src/assets/church-icons/bible-icon.svg" (click)="modalService.openModal(bulletinPaperComponent,'이번주 주보')">
@@ -87,7 +62,6 @@
                     </div>
                 </app-card>
             </app-flex-item>
-            
         </app-flex-container>
         <app-flex-container>
             <app-flex-item>
@@ -101,28 +75,16 @@
                             온라인 헌금
                         </app-block>
                     </div>
-                </app-card>
+                </app-card> 
             </app-flex-item>
-            <app-flex-item *ngIf="authenticated">
-                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(smallGroupInfoComponent, '셀 모임 정보')">
+            <app-flex-item>
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(smallGroupDiscussionComponent, '목장 나눔')">
                     <div class="card-menu-text">
                         <app-block class="church-icon">
                             <img src="assets/church-icons/small-group.svg" height="75px;">
                         </app-block>
                         <app-block>
-                            셀 모임 정보
-                        </app-block>
-                    </div>
-                </app-card>
-            </app-flex-item>
-            <app-flex-item *ngIf="!authenticated">
-                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(smallGroupInfoComponent, '셀 모임 정보')">
-                    <div class="card-menu-text">
-                        <app-block class="church-icon">
-                           
-                        </app-block>
-                        <app-block>
-                            
+                            목장 나눔
                         </app-block>
                     </div>
                 </app-card>
@@ -156,13 +118,12 @@
             </app-flex-item>
         </app-flex-container>
     </app-block>
-    <app-block *ngIf="authChecked" style="max-width: 640px; margin: auto">
+    <app-block style="max-width: 640px; margin: auto">
         <app-flex-container>
             <app-flex-item>
                 <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="0" background="src/assets/church-icons/bible-icon.svg" (click)="modalService.openModal(bulletinPaperComponent,'이번주 주보')">
                     <div class="card-menu-text">
                         <app-block class="church-icon">
-                            <!-- <app-leaflet-svg size="3em" color="var(--nav-item-color)"></app-leaflet-svg> -->
                             <img src="assets/church-icons/bulletin.svg" height="75px;">
                         </app-block>
                         <app-block>
@@ -175,7 +136,6 @@
                 <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(todayCalendarComponent,eventService.today())">
                     <div class="card-menu-text">
                         <app-block class="church-icon">
-                            <!-- <app-note-svg size="3em" color="var(--nav-item-color)"></app-note-svg> -->
                             <img src="assets/church-icons/calendar.svg" height="75px;">
                         </app-block>
                         <app-block>
@@ -199,27 +159,14 @@
                     </div>
                 </app-card>
             </app-flex-item>
-            <app-flex-item *ngIf="!authenticated">
-                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(newComerFormComponent, '새신자 등록하기')">
-                    <div class="card-menu-text">
-                        <app-block class="church-icon">
-                            <!-- <app-prayer-svg size="3em" color="var(--nav-item-color)"></app-prayer-svg> -->
-                            <img src="assets/church-icons/welcome.svg" height="75px;">
-                        </app-block>
-                        <app-block>
-                            새신자 등록하기
-                        </app-block>
-                    </div>
-                </app-card>
-            </app-flex-item>
-            <app-flex-item *ngIf="authenticated">
-                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(smallGroupInfoComponent, '셀 모임 정보')">
+            <app-flex-item>
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(smallGroupDiscussionComponent, '목장 나눔')">
                     <div class="card-menu-text">
                         <app-block class="church-icon">
                             <img src="assets/church-icons/small-group.svg" height="75px;">
                         </app-block>
                         <app-block>
-                            셀 모임 정보
+                            목장 모임
                         </app-block>
                     </div>
                 </app-card>
@@ -253,8 +200,6 @@
             </app-flex-item>
         </app-flex-container>
     </app-block>  
-    
-    
 </app-block>
 
 

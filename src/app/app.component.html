@@ -1,12 +1,5 @@
-<!-- <app-top-navbar *ngIf="!isOnAdminRoute" fxHide.gt-sm></app-top-navbar>
-<app-content-area *ngIf="!isOnAdminRoute" [@routeAnimations]="prepareRoute(outlet)" fxHide.gt-sm>
-  <router-outlet #outlet="outlet"></router-outlet>
-</app-content-area>
-<app-bottom-navbar *ngIf="!isOnAdminRoute" fxHide.gt-sm></app-bottom-navbar> 
-<app-custom-modal fxHide.gt-sm></app-custom-modal>
-<app-alert-modal fxHide.gt-sm></app-alert-modal>
-<app-page-not-found fxHide.lt-md *ngIf="!isOnAdminRoute"></app-page-not-found> -->
 <app-loading-screen *ngIf="(routingService.loadingScreenTime | async) as loadingScreenTime" [lastingTime]="loadingScreenTime"></app-loading-screen>
+
 <ng-container *ngIf="isOnAdminRoute !== null">
   <div *ngIf="!isOnAdminRoute; else adminPage">
     <app-top-navbar fxHide.gt-sm></app-top-navbar>
@@ -17,7 +10,6 @@
     <app-bottom-navbar fxHide.gt-sm></app-bottom-navbar> 
     <app-custom-modal fxHide.gt-sm></app-custom-modal>
     <app-alert-modal fxHide.gt-sm></app-alert-modal>
-    <!-- <app-page-not-found fxHide.lt-md></app-page-not-found> -->
   </div>
   
   <ng-template #adminPage>

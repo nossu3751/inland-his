@@ -1,10 +1,7 @@
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { SearchService } from 'src/app/services/data/search.service';
-import { forkJoin } from 'rxjs'
-import { BulletinService } from 'src/app/services/data/bulletin.service';
-import { SmallGroupNoteService } from 'src/app/services/data/small-group-note.service';
-import { VideoService } from 'src/app/services/data/video.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',

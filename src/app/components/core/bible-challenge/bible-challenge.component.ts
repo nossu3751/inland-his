@@ -21,12 +21,16 @@ export class BibleChallengeComponent implements OnInit{
 
   splitPreviousDates(){
     let today = new Date()
+
     today = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    // console.log("today",today)
     let i = 0
     if(this.bibleChallenges){
       while (i < this.bibleChallenges.length){
         let itemDate = new Date(this.bibleChallenges[i].date)
-        if (itemDate > today) {
+        itemDate = new Date(itemDate.getFullYear(), itemDate.getMonth(), itemDate.getDate()+1)
+        // console.log("item date", itemDate)
+        if (itemDate >= today) {
           break
         }
         i++
@@ -57,6 +61,7 @@ export class BibleChallengeComponent implements OnInit{
     this.bibleChallengeService.getBibleChallenges().subscribe({
       "next":(data)=>{
         this.bibleChallenges = data
+        // console.log(this.bibleChallenges)
         if (this.bibleChallenges != null) {
           for(let i = 0; i < this.bibleChallenges.length;i++){
             let challenge = this.bibleChallenges[i]
@@ -64,7 +69,7 @@ export class BibleChallengeComponent implements OnInit{
           }
         }
         this.splitPreviousDates()
-        console.log(this.bibleChallenges)
+        // console.log(this.bibleChallenges)
       },
       "error":()=>{
         this.snackBar.open("챌린지를 불러올 수 없습니다", "Close", {

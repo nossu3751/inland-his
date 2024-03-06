@@ -4,11 +4,11 @@
     (mouseenter)="updateHoverStatus(true)"
     (mouseleave)="updateHoverStatus(false)" >
     <div fxLayout="row" fxLayoutAlign="start center" class="web-menu-wrapper" >
-        <mat-icon (click)="modalService.openModal(sidebarComponent, '교회 정보')" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm *ngIf="!hasBackPage; else backIcon" >
+        <mat-icon (click)="modalService.openModal(sidebarComponent, '교회 정보')" appPreventContextMenu fxHide.gt-sm *ngIf="!hasBackPage; else backIcon" >
             info_outline
         </mat-icon>
         <ng-template #backIcon>
-            <mat-icon (click)="goBack()" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm>
+            <mat-icon (click)="goBack()" appPreventContextMenu style="color:#333333" fxHide.gt-sm>
                 arrow_back
             </mat-icon>
         </ng-template>
@@ -23,9 +23,7 @@
     *ngIf="currentRouteName === 'calendar/:date' || currentRouteName ==='bible-challenge/:date'" >
         {{date | async}}
     </div>
-    <!-- <ng-template #searchBar >
-        <app-search-bar fxHide.gt-sm></app-search-bar>
-    </ng-template> -->
+  
 
     <div fxLayout="row" fxLayoutAlign="space-between center" fxHide.lt-md >
         <div class="web-toolbar-spacer"></div>
@@ -61,21 +59,8 @@
         </ng-container>
     </div>
     <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" appPreventContextMenu >
-        <!-- <mat-icon (click)="modalService.openModal(rightSidebarComponent, '유저')" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm *ngIf="!hasBackPage">
-            menu
-        </mat-icon> -->
-        <mat-icon routerLink="/user" appPreventContextMenu style="color:var(--secondary-color)" fxHide.gt-sm *ngIf="!hasBackPage; else placeholder">
-            menu
+        <mat-icon class="menu" style="color:#ffffff" fxHide.gt-sm>
+            refresh
         </mat-icon>
-        <!-- 로그인 -->
-        <ng-template #placeholder>
-            <mat-icon appPreventContextMenu style="color:transparent" fxHide.gt-sm>
-                menu
-            </mat-icon>
-        </ng-template>
-        
-        <!-- <mat-icon class="menu" style="color:var(--secondary-color)" fxHide.gt-sm>
-            notifications
-        </mat-icon> -->
     </div>
 </mat-toolbar> 
