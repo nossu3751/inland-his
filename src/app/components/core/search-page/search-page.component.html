@@ -1,14 +1,33 @@
 <app-loading-screen *ngIf="(searchService.searching$ | async)"></app-loading-screen>
 
+<div class="search-input-and-button-area">
+    <div class="search-button-area">
+        <div class="dropdown" [ngClass]="{'open':dropDownOpen}">
+            <div class="dropdown-item" *ngFor="let option of searchOptions; let i = index" (click)="changeSearchOption(i)">
+                {{option.name}}
+            </div>
+        </div>
+        <div class="search-button" (click)="toggleDropdown()">
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="search-type">{{searchOptions[selectedSearchOption].name}}</div>
+        </div>
+    </div>
+    <div class="search-input-area">
+        <mat-icon (click)="search(selectedSearchOption, searchString)">search</mat-icon>
+        <input class="search-input" [(ngModel)]="searchString" (keyup.enter)="search(selectedSearchOption, searchString)"/>
+    </div>
+</div>
+<div class="line"></div>
+
 <ng-container *ngIf="(searchService.searchLength$ | async) as length ; else noSearch">
     <div class="search-page" *ngIf="length > 0">
-        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.events as data">
-            <div class="section-title" *ngIf="data.length > 0">
+        <div class="section-area" *ngIf="(searchService.eventSearchResults$ | async)?.data as events">
+            <div class="section-title" *ngIf="events.length > 0">
                 이벤트
             </div>
             <div class="list-area">
-                <div *ngFor="let d of data" class="event-item-container">
-                    <div class="event-item">
+                <div *ngFor="let d of events" class="event-item-container">
+                    <div class="event-item" [routerLink]="['/calendar',eventService.getSimpleDateStr(d.start)]">
                         <div class="event-title-area">
                             <div class="event-title">
                                 {{d.title}}
@@ -23,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.bulletins as bulletins">
+        <div class="section-area" *ngIf="(searchService.bulletinSearchResults$ | async)?.data as bulletins">
             <div class="section-title" *ngIf="bulletins.length > 0">
                 주보 검색결과
             </div>
@@ -49,13 +68,11 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
                     </div>
                 </div>
             </div>
         </div>
-        <div class="section-area" *ngIf="(searchService.searchResults$ | async)?.videos as videos">
+        <div class="section-area" *ngIf="(searchService.videoSearchResults$ | async)?.data as videos">
             <div class="section-title" *ngIf="videos.length > 0">
                 예배 검색결과
             </div>

@@ -10,8 +10,9 @@ import { SearchService } from 'src/app/services/data/search.service';
 })
 export class SearchPageComponent implements OnInit{
 
-  constructor(public searchService: SearchService,
-    public eventService:EventService,
+  constructor(
+    public searchService: SearchService,
+    public eventService: EventService,
     public bulletinService: BulletinService
   ) { }
 
@@ -23,6 +24,24 @@ export class SearchPageComponent implements OnInit{
     ["션킴","assets/pastors/sean.webp"],
     ["김성신","assets/pastors/sean.webp"]
   ])
+
+  selectedSearchOption:any = 0;
+  searchOptions = [
+    {"name":"주보", "route":"bulletin"},
+    {"name":"예배", "route":"videos"},
+    {"name":"이벤트", "route":"calendar"}
+  ]
+  dropDownOpen:boolean = false
+  searchString:string = ""
+
+  toggleDropdown(){
+    this.dropDownOpen = !this.dropDownOpen
+  }
+
+  changeSearchOption(i:number){
+    this.selectedSearchOption = i;
+    this.toggleDropdown()
+  }
 
   getPastorImageLink(pastor:string) {
     let correctedName = this.getPastorName(pastor)
@@ -40,8 +59,18 @@ export class SearchPageComponent implements OnInit{
     pastor = pastor.replace(/\s/g, ''); 
     return pastor 
   }
-  
-  ngOnInit(): void {
 
+  search(i:number, s:string) {
+    if(i==0){
+      this.searchService.searchBulletin(s)
+    }else if(i==1){
+      this.searchService.searchVideo(s)
+    }else if(i==2){
+      this.searchService.searchEvent(s)
+    }
+  }
+
+  ngOnInit(): void {
+      this.selectedSearchOption = this.searchService.prevRoute
   }
 }

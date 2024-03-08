@@ -8,6 +8,7 @@ import { RoutingService } from './services/data/routing.service';
 import { VersionControlService } from './services/version-control.service';
 import { ModalService } from './services/view/modal.service';
 import { UpdatesComponent } from './components/shared/updates/updates.component';
+import { SearchService } from './services/data/search.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit{
     private router:Router,
     public routingService:RoutingService,
     private versionControlService: VersionControlService,
-    public modalService: ModalService) {
+    public modalService: ModalService,
+    private searchService: SearchService) {
       this.hoverService.hoverStatus$.subscribe((status) => {
         this.isHovered = status;
       })
@@ -52,12 +54,26 @@ export class AppComponent implements OnInit{
       this.versionControlService.clearNewVersionFlag()
       console.log("show developer note")
     }
+
+
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
-      map(() => this.router.url.includes('admin')),
-    ).subscribe((isOnAdminRoute) => {
-      this.isOnAdminRoute = isOnAdminRoute;
-      console.log("isOnAdminRoute", this.isOnAdminRoute);
+      map(() => {
+        if(this.router.url.includes("bulletin")){
+          return 0
+        }else if(this.router.url.includes("videos")){
+          return 1
+        }else if(this.router.url.includes("calendar")){
+          return 2
+        }else {
+          return 0
+        }
+      }),
+    ).subscribe((routeType) => {
+      this.searchService.prevRoute = this.searchService.currRoute
+      this.searchService.currRoute = routeType
+      this.searchService.resetSearch()
+      console.log('prev',this.searchService.prevRoute,'curr',this.searchService.currRoute);
     });
     this.screenSizeService.screenSizeClass$.subscribe((screenSizeClass) => {
       this.screenSizeClass = screenSizeClass;

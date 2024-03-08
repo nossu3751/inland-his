@@ -23,9 +23,7 @@ export class BulletinComponent implements OnInit {
 
   getPastorPhoto(pastor:string) {
     pastor = this.getPastorName(pastor)
-    console.log(pastor)
     if(this.pastorPhotoMap.has(pastor)){
-      console.log("in")
       return this.pastorPhotoMap.get(pastor)
     }
     return "assets/church-icons/no-profile.png"

@@ -8,7 +8,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule} from '@angular/material/icon';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
@@ -117,7 +116,6 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
     OfferingComponent,
     ScrollHideDirective,

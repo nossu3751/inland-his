@@ -1,8 +1,9 @@
 <mat-toolbar 
     class="web-toolbar" 
-    [ngClass]="screenSizeClass"
+    [ngClass]="[screenSizeClass, addBottomBorderRoutes.includes(currentRouteName) ? 'list-view':'']"
     (mouseenter)="updateHoverStatus(true)"
     (mouseleave)="updateHoverStatus(false)" >
+
     <div fxLayout="row" fxLayoutAlign="start center" class="web-menu-wrapper" >
         <mat-icon (click)="modalService.openModal(sidebarComponent, '교회 정보')" appPreventContextMenu fxHide.gt-sm *ngIf="!hasBackPage; else backIcon" >
             info_outline
@@ -15,15 +16,38 @@
     </div>
 
     <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu 
-    *ngIf="currentRouteName !== ''&& currentRouteName !== 'search' && currentRouteName !== 'calendar/:date' && currentRouteName !== 'bible-challenge/:date'" >
-        {{navItemMap.get('/' + currentRouteName)}}
+        *ngIf="showDateRoutes.includes(currentRouteName);else searchBarRoute">
+            {{date | async}}
     </div>
-    <app-search-bar fxHide.gt-sm *ngIf="currentRouteName === 'search' || currentRouteName === ''"></app-search-bar>
-    <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu 
-    *ngIf="currentRouteName === 'calendar/:date' || currentRouteName ==='bible-challenge/:date'" >
-        {{date | async}}
+    <ng-template #searchBarRoute>
+        <app-search-bar fxHide.gt-sm *ngIf="currentRouteName === showSearchBarRoute; else nameRoutes"></app-search-bar>
+    </ng-template>
+    <ng-template #nameRoutes>
+        <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu 
+        *ngIf="showSearchBarRoute !== currentRouteName" >
+            {{navItemMap.get('/' + currentRouteName)}}
+        </div>
+    </ng-template>
+    
+    <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" *ngIf="currentRouteName !== showSearchBarRoute && currentRouteName !== 'search' && !hideRightIconRoutes.includes(currentRouteName); else notificationRoute" appPreventContextMenu routerLink="search">
+        <mat-icon class="menu" style="color:#555" fxHide.gt-sm >
+            search
+        </mat-icon>
     </div>
-  
+    <ng-template #notificationRoute>
+        <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" *ngIf="!hideRightIconRoutes.includes(currentRouteName); else nothingRoute" appPreventContextMenu >
+            <mat-icon class="menu" style="color:var(--secondary-color);" fxHide.gt-sm (click)="notReady()">
+                notifications_outline
+            </mat-icon>
+        </div>
+    </ng-template>
+    <ng-template #nothingRoute>
+        <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" appPreventContextMenu >
+            <mat-icon class="menu" style="color:transparent;" fxHide.gt-sm>
+                notifications_outline
+            </mat-icon>
+        </div>
+    </ng-template>
 
     <div fxLayout="row" fxLayoutAlign="space-between center" fxHide.lt-md >
         <div class="web-toolbar-spacer"></div>
@@ -57,10 +81,5 @@
             </div>
             <div class="web-toolbar-spacer"></div>
         </ng-container>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" appPreventContextMenu >
-        <mat-icon class="menu" style="color:#ffffff" fxHide.gt-sm>
-            refresh
-        </mat-icon>
     </div>
 </mat-toolbar> 

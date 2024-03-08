@@ -80,9 +80,7 @@ export class EventService {
   }
   
   getEventsBySearchStr(search:string):Observable<any> {
-    return this.http.get(`${this.eventUrl}/?search=${search}`).pipe(
-      catchError(error => of({error: error, data: []}))
-    )
+    return this.http.get(`${this.eventUrl}/?search=${search}`)
   }
 
   getEventsByYearMonth(year:number, month:number):Observable<any> {
@@ -94,7 +92,6 @@ export class EventService {
       const date = new Date(dateStr)
       const now = new Date()
       if (now > date){
-        console.log(`${date} is bigger than ${now}`)
         return true
       }
       return false
@@ -119,7 +116,7 @@ export class EventService {
             return true;
           };
         });
-        
+        console.log("from event service", filteredData)
         return filteredData;
       }),
       catchError(error => of({error: error, data: []}))
@@ -138,7 +135,7 @@ export class EventService {
           if (this.checkDateStrPastTime(item.end)) return false;
           return true;
         });
-  
+        console.log("from event service", filteredData)
         return filteredData;
       }),
       catchError(error => of({error: error, data: []}))

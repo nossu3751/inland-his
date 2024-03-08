@@ -1,14 +1,14 @@
 .loading-screen {
-    position:fixed;
+    position:absolute;
     left:0;
-    top:0;
+    top:var(--nav-height);
     width: 100%;
-    height: 100%;
+    height: calc(var(--html-height) - var(--nav-height));
     display:flex;
     justify-content: center;
     align-items: center;
     background-color: white;
-    z-index: 1000002;
+    z-index: 9998;
 
     opacity: 1;
     // animation-name: fadeOut;

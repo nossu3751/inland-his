@@ -2,6 +2,7 @@
 :host {
     width: 100%;
     display: block;
+    z-index: 9999;
 }
 
 .web-toolbar {
@@ -17,6 +18,14 @@
     justify-content: space-between;
     transition: height 0.2s ease-in-out;
     width: 100%;
+    .navbar-logo {
+        display: flex;
+        width: 30px;
+        filter: brightness(0) saturate(100%) invert(40%) sepia(4%) saturate(3177%) hue-rotate(222deg) brightness(100%) contrast(96%);
+    }
+}
+
+.web-toolbar.list-view {
     border-bottom: 1px solid #ccc;
 }
 

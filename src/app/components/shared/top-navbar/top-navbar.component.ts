@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HoverService } from 'src/app/services/view/hover.service';
 import { ScreenSizeService } from 'src/app/services/view/screen-size.service';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ModalService } from 'src/app/services/view/modal.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RightSidebarComponent } from '../right-sidebar/right-sidebar.component';
@@ -30,7 +30,8 @@ export class TopNavbarComponent implements OnInit{
     private router:Router,
     private activatedRoute:ActivatedRoute,
     public modalService:ModalService,
-    private location:Location
+    private location:Location,
+    private snackBar: MatSnackBar
   ) {
     this.updateCurrentRouteName();
     this.router.events.subscribe((event) => {
@@ -41,11 +42,15 @@ export class TopNavbarComponent implements OnInit{
   }
   
   @Output() menuClick = new EventEmitter();
+
   screenSizeClass = '';
   currentRouteName = '';
   hasBackPage:boolean = false;
   date:BehaviorSubject<string> = new BehaviorSubject("");
-  // bibleChallengeDate:BehaviorSubject<string> = new BehaviorSubject("")
+  showDateRoutes = ['calendar/:date','bible-challenge/:date']
+  showSearchBarRoute = ''
+  addBottomBorderRoutes = ['bulletin','bible-challenge','widgets']
+  hideRightIconRoutes = ['bible-challenge/:date','bulletin/:sunday','calendar/:date','bible-challenge','widgets','videos/:id']
   sidebarComponent = SidebarComponent;
   rightSidebarComponent = RightSidebarComponent
 
@@ -63,7 +68,7 @@ export class TopNavbarComponent implements OnInit{
   ]
 
   navItemMap = new Map<string, string>([
-    ["/","HOME"],
+    ["/","INLAND HIS"],
     ["/small-group","셀"],
     ["/ministries","사역"],
     ["/offering","헌금"],
@@ -76,7 +81,8 @@ export class TopNavbarComponent implements OnInit{
     ["/calendar", "캘린더"],
     ["/widgets", "위젯"],
     ["/widgets/poll", "투표"],
-    ["/bible-challenge", "성경읽기 챌린지"]
+    ["/bible-challenge", "성경읽기 챌린지"],
+    ["/search", "검색"]
   ])
 
   private updateCurrentRouteName() {
@@ -87,7 +93,7 @@ export class TopNavbarComponent implements OnInit{
       this.currentRouteName = '';
     }
     console.log(this.currentRouteName)
-    if(this.currentRouteName.includes(":") || ["login","user","bible-challenge"].includes(this.currentRouteName)){
+    if(this.currentRouteName.includes(":") || ["login","user","bible-challenge","search"].includes(this.currentRouteName)){
       this.hasBackPage = true;
     }else{
       this.hasBackPage = false;
@@ -118,24 +124,20 @@ export class TopNavbarComponent implements OnInit{
   }
 
   goBack() {
-    // if(this.hasBackPage){
-    //   let urlSegments = this.router.url.split('/');
-    //   urlSegments.pop();
-    //   let url = urlSegments.join('/');
-    //   this.router.navigateByUrl(url)
-    // }
     if (this.currentRouteName == "login"){
       this.router.navigateByUrl("/")
     }else{
       this.location.back()
     }
-    
-    
   }
 
-
-
-
+  notReady() {
+    this.snackBar.open("준비중인 기능입니다", "Close", {
+      duration: 3000,
+      panelClass: ['custom-snackbar'],
+      verticalPosition: 'bottom'
+    })
+  }
 
   ngOnInit(): void {
     

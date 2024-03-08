@@ -15,26 +15,6 @@ export class SearchBarComponent implements OnInit {
     private router:Router,
     private searchService:SearchService
   ){}
-  
-  onEnter() {
-    this.search(this.searchTerm)
-    const currUrl = this.router.url
-    if(currUrl !== "/search"){
-      this.router.navigate(['/search']);
-    }
-    
-  }
-  onInput() {
-    const currUrl = this.router.url
-    if(this.searchTerm.trim() !== ""){
-      if(currUrl !== "/search"){
-        this.router.navigate(['/search']);
-      }
-    }else{
-      this.router.navigate(['']);
-      this.searchService.searchResults$.next({...this.searchService.defaultResult})
-    }
-  }
 
   search(search:string) {
     this.searchService.search(search)

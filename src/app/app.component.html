@@ -1,9 +1,11 @@
-<app-loading-screen *ngIf="(routingService.loadingScreenTime | async) as loadingScreenTime" [lastingTime]="loadingScreenTime"></app-loading-screen>
-
-<ng-container *ngIf="isOnAdminRoute !== null">
-  <div *ngIf="!isOnAdminRoute; else adminPage">
+<div class="mobile-view-prompt" fxHide.lt-md>
+  <div class="message-area">
+    모바일환경에서 이용해주세요!
+  </div>
+</div>
+<ng-container>
+  <div>
     <app-top-navbar fxHide.gt-sm></app-top-navbar>
-    <app-top-navbar fxHide.lt-md></app-top-navbar>
     <app-content-area  [@routeAnimations]="prepareRoute(outlet)">
       <router-outlet #outlet="outlet"></router-outlet>
     </app-content-area>
@@ -11,42 +13,7 @@
     <app-custom-modal fxHide.gt-sm></app-custom-modal>
     <app-alert-modal fxHide.gt-sm></app-alert-modal>
   </div>
-  
-  <ng-template #adminPage>
-    <div  [@routeAnimations]="prepareRoute(outlet)">
-      <router-outlet #outlet="outlet"></router-outlet>
-    </div>
-    <app-alert-modal></app-alert-modal>
-  </ng-template>
 </ng-container>
-
-
-  
-
-
-<!-- 
-  <app-top-navbar (menuClick)="sidenav.toggle()" ></app-top-navbar>
-  <mat-sidenav-container class="sidenav-container">
-  
-  <mat-sidenav #sidenav class="sidenav" mode="over">
-    
-    
-  </mat-sidenav>
-
-  
- 
-  <mat-sidenav-content>
-    
-    <app-content-area>
-      <router-outlet></router-outlet>
-    </app-content-area>
-    
-  </mat-sidenav-content>
-  
-</mat-sidenav-container>
-<app-bottom-navbar ></app-bottom-navbar>
-    <app-custom-modal></app-custom-modal>
-    <app-alert-modal></app-alert-modal> -->
 
 
 
