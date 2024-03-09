@@ -33,6 +33,7 @@ export class SearchPageComponent implements OnInit{
   ]
   dropDownOpen:boolean = false
   searchString:string = ""
+  searchedOnce:boolean = false
 
   toggleDropdown(){
     this.dropDownOpen = !this.dropDownOpen
@@ -68,6 +69,9 @@ export class SearchPageComponent implements OnInit{
     }else if(i==2){
       this.searchService.searchEvent(s)
     }
+    if (!this.searchedOnce){
+      this.searchedOnce = true;
+    } 
   }
 
   ngOnInit(): void {

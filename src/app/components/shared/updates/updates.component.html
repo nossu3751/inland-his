@@ -1,7 +1,15 @@
-<div class="updates-container">
-    <ul>
-        <li> - 위젯 기능에 매일 성경 링크가 추가되었습니다</li>
-        <li> - 프로필 이미지 기능이 개선되었습니다. IOS에서 사진 업로드가 안되는 현상을 수정하였습니다.</li>
-        <li> - 앞으로는 업데이트 시 지금과 같이 업데이트 내용이 공개됩니다.</li>
-    </ul>
+<div class="updates-container" *ngIf="updateData">
+    <div class="update-description-area">
+        <div class="update-title">
+            <h2><span style="margin-right:0.5em">{{updateData.date}}</span>패치노트</h2>
+        </div>
+        <div class="ql-editor" [innerHTML]="updateData.description">
+
+        </div>
+    </div>
+    <div class="update-button-area">
+        <div class="update-button" (click)="startUpdate()">
+            히즈앱 업데이트
+        </div>
+    </div>
 </div>

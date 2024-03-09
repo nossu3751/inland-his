@@ -89,8 +89,13 @@
     </div>
 </ng-container>
 <ng-template #noSearch>
-    <div class="no-search">
+    <div class="no-search" *ngIf="searchedOnce; else notYetSearched">
         <img src="assets/church-icons/no-search.png" class="no-search-img">
+    </div>
+</ng-template>
+<ng-template #notYetSearched>
+    <div class="no-search">
+
     </div>
 </ng-template>
 

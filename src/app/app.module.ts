@@ -16,7 +16,6 @@ import { NgxPullToRefreshModule } from 'ngx-pull-to-refresh';
 import { ScrollHideDirective } from './directives/scroll-hide.directive';
 import { BibleVersesComponent } from './components/core/bible-verses/bible-verses.component';
 import { BulletinComponent } from './components/core/bulletin/bulletin.component';
-import { NewComerComponent } from './components/core/new-comer/new-comer.component';
 import { BackgroundComponent } from './components/shared/background/background.component';
 import { BlockComponent } from './components/shared/block/block.component';
 import { NavPaddedBlockComponent } from './components/shared/nav-padded-block/nav-padded-block.component';
@@ -35,9 +34,6 @@ import { BibleSvgComponent } from './components/shared/svg/bible-svg/bible-svg.c
 import { NoteSvgComponent } from './components/shared/svg/note-svg/note-svg.component';
 import { LeafletSvgComponent } from './components/shared/svg/leaflet-svg/leaflet-svg.component';
 import { PrayerSvgComponent } from './components/shared/svg/prayer-svg/prayer-svg.component';
-import { LoginComponent } from './components/core/login/login.component';
-import { SigninComponent } from './components/core/signin/signin.component';
-import { NewComerFormComponent } from './components/core/new-comer-form/new-comer-form.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NGX_MAT_DATE_FORMATS, NgxMatDateFormats, NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
@@ -71,19 +67,13 @@ import { MatSidenavModule} from '@angular/material/sidenav';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 import { SearchPageComponent } from './components/core/search-page/search-page.component'
-import { ExistingPersonComponent } from './components/alerts/existing-person/existing-person.component';
-import { SignupSuccessComponent } from './components/shared/signup-success/signup-success.component';
 import { RightSidebarComponent } from './components/shared/right-sidebar/right-sidebar.component';
 import { CodeInputComponent } from './components/shared/code-input/code-input.component';
-import { LogoutConfirmationComponent } from './components/alerts/logout-confirmation/logout-confirmation.component';
-import { ProfileManagerComponent } from './components/shared/profile-manager/profile-manager.component';
-import { ImageCropperModule } from 'ngx-image-cropper';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { MonthlyCalendarComponent } from './components/core/monthly-calendar/monthly-calendar.component';
 import { TodayCalendarComponent } from './components/core/today-calendar/today-calendar.component';
 import { BibleRedirectionComponent } from './components/alerts/bible-redirection/bible-redirection.component';
 import { WidgetsComponent } from './components/core/widgets/widgets.component';
-import { PollComponent } from './components/core/poll/poll.component';
 import { QtRedirectionComponent } from './components/alerts/qt-redirection/qt-redirection.component';
 import { UpdateNoteComponent } from './components/alerts/update-note/update-note.component';
 import { UpdatesComponent } from './components/shared/updates/updates.component';
@@ -121,7 +111,6 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     ScrollHideDirective,
     BibleVersesComponent,
     BulletinComponent,
-    NewComerComponent,
     BackgroundComponent,
     BlockComponent,
     NavPaddedBlockComponent,
@@ -140,9 +129,6 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     NoteSvgComponent,
     LeafletSvgComponent,
     PrayerSvgComponent,
-    LoginComponent,
-    SigninComponent,
-    NewComerFormComponent,
     RouteModalComponent,
     RouteModalOpenLogicDirective,
     CloseButtonComponent,
@@ -162,17 +148,12 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     SidebarComponent,
     PageNotFoundComponent,
     SearchPageComponent,
-    ExistingPersonComponent,
-    SignupSuccessComponent,
     RightSidebarComponent,
     CodeInputComponent,
-    LogoutConfirmationComponent,
-    ProfileManagerComponent,
     MonthlyCalendarComponent,
     TodayCalendarComponent,
     BibleRedirectionComponent,
     WidgetsComponent,
-    PollComponent,
     QtRedirectionComponent,
     UpdateNoteComponent,
     UpdatesComponent,
@@ -213,7 +194,6 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     ClipboardModule,
     MatSnackBarModule,
     MatSidenavModule,
-    ImageCropperModule,
     FullCalendarModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,

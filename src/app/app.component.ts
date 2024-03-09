@@ -2,13 +2,12 @@ import { Component, OnInit} from '@angular/core';
 import { ScreenSizeService } from './services/view/screen-size.service'
 import { HoverService } from './services/view/hover.service';
 import { routeAnimation} from 'src/animations/route-animations'
-import { Router, ActivatedRoute, NavigationEnd} from '@angular/router'
+import { Router, NavigationEnd} from '@angular/router'
 import { filter, map } from 'rxjs';
 import { RoutingService } from './services/data/routing.service';
-import { VersionControlService } from './services/version-control.service';
 import { ModalService } from './services/view/modal.service';
-import { UpdatesComponent } from './components/shared/updates/updates.component';
 import { SearchService } from './services/data/search.service';
+import { UpdateService } from './services/update.service';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +21,9 @@ export class AppComponent implements OnInit{
     private hoverService: HoverService,
     private router:Router,
     public routingService:RoutingService,
-    private versionControlService: VersionControlService,
     public modalService: ModalService,
-    private searchService: SearchService) {
+    private searchService: SearchService,
+    public updateService: UpdateService) {
       this.hoverService.hoverStatus$.subscribe((status) => {
         this.isHovered = status;
       })
@@ -37,7 +36,8 @@ export class AppComponent implements OnInit{
   screenSizeClass = '';
   isHovered = false;
   isOnAdminRoute: boolean|null = null;
-  updatesComponent = UpdatesComponent
+  
+
 
   prepareRoute(outlet: any) {
     return (
@@ -48,13 +48,19 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.versionControlService.checkVersion();
-    if (this.versionControlService.isNewVersionAvailable()){
-      this.modalService.openModal(this.updatesComponent,"업데이트 내용")
-      this.versionControlService.clearNewVersionFlag()
-      console.log("show developer note")
-    }
 
+    this.updateService.getRecentPatch().subscribe({
+      "next":(data)=>{
+        const updateAvailable = data.id.toString() !== localStorage.getItem("his-app-update-version")
+        if (updateAvailable) {
+          this.updateService.updateData$.next(data)
+        }
+      },
+      "error":()=>{
+
+      }
+    })
+    
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),

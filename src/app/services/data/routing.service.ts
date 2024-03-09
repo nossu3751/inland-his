@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { EventService } from './event.service';
-import { PersonService } from './person.service';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -10,8 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class RoutingService {
   constructor(
     private router:Router, 
-    private eventService:EventService,
-    private personService:PersonService){
+    private eventService:EventService){
     if(this.isAdminRoute()){
       
     }

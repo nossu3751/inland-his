@@ -1,11 +1,56 @@
 .updates-container {
-    max-width: 600px;
-    margin: 2em auto 2em auto;
+    width: 100%;
+    height: var(--html-height);
+    background-color: white;
+    z-index: 1000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    .update-description-area{
+        width: 100%;
+        height: calc(var(--html-height) - 5em);
+        display: flex;
+        flex-direction: column;
+        padding: 1em 1em 0.5em 1em;
+
+        .update-title {
+            width: 100%;
+            height: 5em;
+            display: flex;
+            align-items: center;
+        }
+
+        .ql-editor {
+            width: 100%;
+        
+            border: 2px solid #999;
+            border-radius: 0.5em;
+            padding: 0 0.5em;
+            overflow-y: auto;
+        }
+    }
+    
+    .update-button-area {
+        width: 100%;
+        height: 5em;
+        display: flex;
+        padding: 0.5em 1em 1em 1em;
+        
+        .update-button {
+            width: 100%;
+            height: 100%;
+            outline: none;
+            border: 2px solid var(--secondary-color);
+            background-color: white;
+            color: var(--secondary-color);
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            border-radius: 0.5em;
+
+        }
+    }
+    
 }
 
-li {
-    font-size: 1.1em;
-    color: var(--secondary-color);
-    margin-bottom: 1em;
-    font-weight: 500;
-}
