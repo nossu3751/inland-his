@@ -21,8 +21,9 @@
     padding-left: 0.5em;
     padding-right: 0.5em;
     display: inline-flex;
-    width: calc(var(--html-width) - 112px - 56px)
-
+    width: calc(var(--html-width) - 112px - 56px);
+    max-width: calc(640px - 56px * 2 - 23px * 2);
+    position: relative;
 }
 
 mat-icon {

@@ -31,8 +31,8 @@ export class BulletinComponent implements OnInit {
 
   getPastorName(pastor:string) {
     if(pastor.endsWith("목사")) {pastor = pastor.slice(0,-2)}
-    else if (pastor.endsWith("목사님") || pastor.endsWith("전도사")) {pastor = pastor.slice(0,-3)}
-    else if (pastor.endsWith("전도사님")) {pastor = pastor.slice(0,-4)}
+    else if (pastor.endsWith("목사님") || pastor.endsWith("전도사") || pastor.endsWith("강도사")) {pastor = pastor.slice(0,-3)}
+    else if (pastor.endsWith("전도사님") || pastor.endsWith("강도사님")) {pastor = pastor.slice(0,-4)}
     pastor = pastor.trim();  
     pastor = pastor.replace(/\s/g, ''); 
     return pastor 

@@ -1,85 +1,48 @@
 <mat-toolbar 
-    class="web-toolbar" 
-    [ngClass]="[screenSizeClass, addBottomBorderRoutes.includes(currentRouteName) ? 'list-view':'']"
-    (mouseenter)="updateHoverStatus(true)"
-    (mouseleave)="updateHoverStatus(false)" >
+    class="web-toolbar" >
 
     <div fxLayout="row" fxLayoutAlign="start center" class="web-menu-wrapper" >
-        <mat-icon (click)="modalService.openModal(sidebarComponent, '교회 정보')" appPreventContextMenu fxHide.gt-sm *ngIf="!hasBackPage; else backIcon" >
+        <mat-icon (click)="modalService.openModal(sidebarComponent, '교회 정보')" appPreventContextMenu *ngIf="!hasBackPage; else backIcon" >
             info_outline
         </mat-icon>
         <ng-template #backIcon>
-            <mat-icon (click)="goBack()" appPreventContextMenu style="color:#333333" fxHide.gt-sm>
+            <mat-icon (click)="goBack()" appPreventContextMenu style="color:#333333">
                 arrow_back
             </mat-icon>
         </ng-template>
     </div>
 
-    <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu 
+    <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" appPreventContextMenu 
         *ngIf="showDateRoutes.includes(currentRouteName);else searchBarRoute">
             {{date | async}}
     </div>
     <ng-template #searchBarRoute>
-        <app-search-bar fxHide.gt-sm *ngIf="currentRouteName === showSearchBarRoute; else nameRoutes"></app-search-bar>
+        <app-search-bar *ngIf="currentRouteName === showSearchBarRoute; else nameRoutes"></app-search-bar>
     </ng-template>
     <ng-template #nameRoutes>
-        <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" fxHide.gt-sm appPreventContextMenu 
+        <div class="top-bar-route-name" fxLayout="row" fxLayoutAlign="center center" appPreventContextMenu 
         *ngIf="showSearchBarRoute !== currentRouteName" >
             {{navItemMap.get('/' + currentRouteName)}}
         </div>
     </ng-template>
     
     <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" *ngIf="currentRouteName !== showSearchBarRoute && currentRouteName !== 'search' && !hideRightIconRoutes.includes(currentRouteName); else notificationRoute" appPreventContextMenu routerLink="search">
-        <mat-icon class="menu" style="color:#555" fxHide.gt-sm >
+        <mat-icon class="menu" style="color:#555">
             search
         </mat-icon>
     </div>
     <ng-template #notificationRoute>
         <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" *ngIf="!hideRightIconRoutes.includes(currentRouteName); else nothingRoute" appPreventContextMenu >
-            <mat-icon class="menu" style="color:var(--secondary-color);" fxHide.gt-sm (click)="notReady()">
+            <mat-icon class="menu" style="color:var(--secondary-color);" (click)="notReady()">
                 notifications_outline
             </mat-icon>
         </div>
     </ng-template>
     <ng-template #nothingRoute>
         <div fxLayout="row" fxLayoutAlign="end center" class="web-menu-wrapper" appPreventContextMenu >
-            <mat-icon class="menu" style="color:transparent;" fxHide.gt-sm>
+            <mat-icon class="menu" style="color:transparent;">
                 notifications_outline
             </mat-icon>
         </div>
     </ng-template>
-
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxHide.lt-md >
-        <div class="web-toolbar-spacer"></div>
-            <div class="web-menu-wrapper web-nav-item"
-                [routerLink]='"/"'
-                fxLayout="row" fxLayoutAlign="center center">
-                <a mat-icon-button>  
-                    <img routerLinkActive="active-link"
-                        [routerLinkActiveOptions]="{exact: true}"
-                        src="assets/his-logo-white.png" 
-                        alt="Logo" 
-                        class="home-logo" fxFlex appPreventContextMenu/>
-                </a>
-            </div>
-        <div class="web-toolbar-spacer"></div>
-        <ng-container *ngFor="let navItem of webNavItems">
-            <div class="web-toolbar-spacer"></div>
-            <div class="web-menu-wrapper web-nav-item"
-                [routerLink]="navItem.route"
-                routerLinkActive="active-link"
-                [routerLinkActiveOptions]="{exact: true}"
-                fxLayout="row" fxLayoutAlign="center center">
-                <a mat-icon-button>  
-                    <div appPreventContextMenu 
-                         *ngIf="navItem.label !== 'Login'; else loginButton">{{navItem.label}}</div>
-                    <ng-template #loginButton>
-                        <div appPreventContextMenu 
-                          class="login-button">{{navItem.label}}</div>
-                    </ng-template>
-                </a>
-            </div>
-            <div class="web-toolbar-spacer"></div>
-        </ng-container>
-    </div>
 </mat-toolbar> 

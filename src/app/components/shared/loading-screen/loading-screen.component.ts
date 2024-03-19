@@ -20,6 +20,8 @@ export class LoadingScreenComponent implements OnInit{
   @Input() message:string|null = null
   @Input() lastingTime = 2
   @Input() mode = "screen"
+  @Input() topMargin="var(--nav-height)"
+  @Input() loadingScreenHeight="calc(var(--html-height) - var(--nav-height))"
 
   @HostBinding('style.height')
   height:string = "100%";

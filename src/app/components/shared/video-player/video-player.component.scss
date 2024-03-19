@@ -1,12 +1,14 @@
 :host {
     position: relative;
     width: 100%;
-
-    
+    margin: auto;
+    max-width: 640px;
+    display: flex;
 }
 
 .video-player-area {
     width: 100%;
+    max-width: 640px;
 }
 
 .video-player {

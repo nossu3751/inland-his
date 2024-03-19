@@ -1,14 +1,13 @@
 .loading-screen {
     position:absolute;
     left:0;
-    top:var(--nav-height);
+    // top:var(--nav-height);
     width: 100%;
-    height: calc(var(--html-height) - var(--nav-height));
     display:flex;
     justify-content: center;
     align-items: center;
     background-color: white;
-    z-index: 9998;
+    z-index: 1000001;
 
     opacity: 1;
     // animation-name: fadeOut;
@@ -27,6 +26,8 @@
 .wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .spinner {

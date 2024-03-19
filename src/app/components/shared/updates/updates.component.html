@@ -1,3 +1,7 @@
+<ng-container *ngIf="(updateService.updating$ | async)">
+    <app-loading-screen message="조금만 기다려주세요" loadingScreenHeight="var(--html-height)" topMargin="0"></app-loading-screen>
+</ng-container>
+
 <div class="updates-container" *ngIf="updateData">
     <div class="update-description-area">
         <div class="update-title">
@@ -9,7 +13,7 @@
     </div>
     <div class="update-button-area">
         <div class="update-button" (click)="startUpdate()">
-            히즈앱 업데이트
+            알겠습니다
         </div>
     </div>
 </div>

@@ -1,22 +1,5 @@
 
-<!-- <ng-template #loader> -->
-
-<!-- </ng-template> -->
-<div class="video-player-area" fxHide.lt-md>
-    <youtube-player 
-        *ngIf="apiLoaded && videoId && ready"
-        [disableCookies]="true"
-        [videoId]="videoId"
-        [width]=640
-        [height]=360
-        [playerVars]="{
-            color: 'white',
-            rel: 0,
-            autoplay: 0,
-        }">
-    </youtube-player>
-</div>
-<div class="video-player-area" fxHide.gt-sm>
+<div class="video-player-area">
     <div class="video-player" #videoPlayerRef [ngStyle]="{
         'border-color': borderColor,
         'border-width': borderWidth
