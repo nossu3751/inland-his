@@ -18,7 +18,11 @@ export class BibleChallengeService {
     return this.http.get(`${this.bibleChallengeUrl}/${bookName}/${chapter}`)
   }
 
-  getBibleVersesByChallengeDate(date:any):Observable<any> {
-    return this.http.get(`${this.bibleChallengeUrl}/${date}`)
+  getBibleVersesByChallengeDate(date:any, verseStart?:any, verseEnd?:any):Observable<any> {
+    if (verseStart && verseEnd) {
+      return this.http.get(`${this.bibleChallengeUrl}/${date}?verseStart=${verseStart}&verseEnd=${verseEnd}`)
+    }else {
+      return this.http.get(`${this.bibleChallengeUrl}/${date}`)
+    }
   }
 }

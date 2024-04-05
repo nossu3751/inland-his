@@ -45,9 +45,32 @@ export class BibleChallengeComponent implements OnInit{
     return value.toString().padStart(2, '0');
   }
 
-  goToBibleChallenge(dateStr:any){
-    
-    this.router.navigateByUrl(`bible-challenge/${dateStr}`)
+  goToBibleChallenge(dateStr:any, start?:number|undefined, end?:number|undefined ){
+    if (start !== undefined && end !== undefined) {
+      this.router.navigateByUrl(`bible-challenge/${dateStr}?verseStart=${start}&verseEnd=${end}`)
+    }else{
+      this.router.navigateByUrl(`bible-challenge/${dateStr}`)
+    }
+  }
+
+  getStartEndVerse(title:string, startOrEnd:string = "start") {
+    if (title.includes(":")) {
+      let titleSplit = title.split(":")[1]
+      if (titleSplit.includes("-")) {
+        let verseSplit = titleSplit.split("-")
+        let start=verseSplit[0]
+        let end=verseSplit[1]
+        if (startOrEnd == "start") {
+          return Number(start)
+        }else{
+          return Number(end)
+        }
+      }else {
+        return Number(titleSplit)
+      }
+    }else {
+      return undefined;
+    }
   }
 
   getDayNumber(dateStr: string): number {

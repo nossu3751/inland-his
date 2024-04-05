@@ -79,7 +79,8 @@ import { UpdateNoteComponent } from './components/alerts/update-note/update-note
 import { UpdatesComponent } from './components/shared/updates/updates.component';
 import { BibleChallengeComponent } from './components/core/bible-challenge/bible-challenge.component';
 import { BibleChallengeVerseComponent } from './components/core/bible-challenge-verse/bible-challenge-verse.component';
-import { SmallGroupDiscussionComponent } from './components/core/small-group-discussion/small-group-discussion.component'
+import { SmallGroupDiscussionComponent } from './components/core/small-group-discussion/small-group-discussion.component';
+import { NewComerComponent } from './components/core/new-comer/new-comer.component'
 // import { Mat}
 
 const INTL_DATE_INPUT_FORMAT = {
@@ -160,6 +161,7 @@ const MAT_DATE_FORMATS: NgxMatDateFormats = {
     BibleChallengeComponent,
     BibleChallengeVerseComponent,
     SmallGroupDiscussionComponent,
+    NewComerComponent,
   ],
   imports: [
     BrowserModule,

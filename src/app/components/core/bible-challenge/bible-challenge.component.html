@@ -1,7 +1,7 @@
 <ng-container *ngIf="bibleChallenges">
     <div class="list-area">
         <ng-container *ngFor="let bc of bibleChallenges; let last=last; let first=first" >
-            <div (click)="goToBibleChallenge(bc.date)" class="bible-challenge-item-container">
+            <div (click)="goToBibleChallenge(bc.date, getStartEndVerse(bc.title, 'start'), getStartEndVerse(bc.title, 'end'))" class="bible-challenge-item-container">
                 <div class="bible-challenge-item" [ngClass]="{'last': last, 'first': first}">
                     <div class="day-area">
                         Day {{bc.dayCount}}

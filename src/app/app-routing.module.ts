@@ -15,6 +15,7 @@ import { TodayCalendarComponent } from './components/core/today-calendar/today-c
 import { WidgetsComponent } from './components/core/widgets/widgets.component';
 import { BibleChallengeComponent } from './components/core/bible-challenge/bible-challenge.component';
 import { BibleChallengeVerseComponent } from './components/core/bible-challenge-verse/bible-challenge-verse.component';
+import { NewComerComponent } from './components/core/new-comer/new-comer.component';
 // ...
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'search', component: SearchPageComponent, data: { animation: 'Search' }},
   { path: 'offering', component: OfferingComponent },
   { path: 'verses', component: BibleVersesComponent },
+  { path: 'new-comer', component: NewComerComponent},
   { path: 'bulletin', component: BulletinComponent, data: { animation: 'Bulletins' }},
   { path: 'bulletin/:sunday', component: BulletinPaperComponent, data: { animation: 'Bulletin' }},
   { path: 'videos', component: VideosComponent, data: { animation: 'Videos' }},

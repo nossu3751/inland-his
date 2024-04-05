@@ -20,15 +20,32 @@ export class BibleChallengeVerseComponent implements OnInit{
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       let date = params['date']
-      this.bibleChallengeService.getBibleVersesByChallengeDate(date).subscribe({
-        "next":(data)=>{
-          this.verses = data.verses
-          this.book = data.book
-          this.chapter = data.chapter
-        },
-        "error":()=>{
-          console.error("can't find the data")
-        }
+      this.activatedRoute.queryParamMap.subscribe(qp => {
+        let verseStart = qp.get('verseStart')
+        let verseEnd = qp.get('verseEnd')
+        if (verseStart && verseEnd) {
+          this.bibleChallengeService.getBibleVersesByChallengeDate(date, verseStart, verseEnd).subscribe({
+            "next":(data)=>{
+              this.verses = data.verses
+              this.book = data.book
+              this.chapter = data.chapter
+            },
+            "error":()=>{
+              console.error("can't find the data")
+            }
+          })
+        }else {
+          this.bibleChallengeService.getBibleVersesByChallengeDate(date).subscribe({
+            "next":(data)=>{
+              this.verses = data.verses
+              this.book = data.book
+              this.chapter = data.chapter
+            },
+            "error":()=>{
+              console.error("can't find the data")
+            }
+          })
+        } 
       })
     })
   }

@@ -50,7 +50,7 @@ export class TopNavbarComponent implements OnInit{
   showDateRoutes = ['calendar/:date','bible-challenge/:date']
   showSearchBarRoute = ''
   addBottomBorderRoutes = ['bulletin','bible-challenge','widgets']
-  hideRightIconRoutes = ['bible-challenge/:date','bulletin/:sunday','calendar/:date','bible-challenge','widgets','videos/:id']
+  hideRightIconRoutes = ['bible-challenge/:date','bulletin/:sunday','calendar/:date','bible-challenge','widgets','videos/:id', 'new-comer']
   sidebarComponent = SidebarComponent;
   rightSidebarComponent = RightSidebarComponent
 
@@ -93,7 +93,7 @@ export class TopNavbarComponent implements OnInit{
       this.currentRouteName = '';
     }
     console.log(this.currentRouteName)
-    if(this.currentRouteName.includes(":") || ["login","user","bible-challenge","search"].includes(this.currentRouteName)){
+    if(this.currentRouteName.includes(":") || ["login","user","bible-challenge","search","new-comer"].includes(this.currentRouteName)){
       this.hasBackPage = true;
     }else{
       this.hasBackPage = false;

@@ -65,7 +65,7 @@
         </app-flex-container>
         <app-flex-container>
             <app-flex-item>
-                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="1em" (click)="modalService.openAlertModal(offeringRedirectionComponent, '온라인 헌금 페이지 이동')">
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="0" (click)="modalService.openAlertModal(offeringRedirectionComponent, '온라인 헌금 페이지 이동')">
                     <div class="card-menu-text">
                         <app-block class="church-icon">
                             <!-- <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg> -->
@@ -78,7 +78,22 @@
                 </app-card> 
             </app-flex-item>
             <app-flex-item>
-                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="0" (click)="modalService.openModal(smallGroupDiscussionComponent, '목장 나눔')">
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.5em" marginRight="0.25em" marginBottom="0" routerLink="new-comer">
+                    <div class="card-menu-text">
+                        <app-block class="church-icon">
+                            <!-- <app-bible-svg size="3em" color="var(--nav-item-color)"></app-bible-svg> -->
+                            <img src="assets/church-icons/welcome.svg" height="75px;">
+                        </app-block>
+                        <app-block>
+                            새신자 등록
+                        </app-block>
+                    </div>
+                </app-card> 
+            </app-flex-item>
+        </app-flex-container>
+        <app-flex-container>
+            <app-flex-item>
+                <app-card borderColor="transparent;" height="150px" marginTop="0.5em" marginLeft="0.25em" marginRight="0.5em" marginBottom="1em" (click)="modalService.openModal(smallGroupDiscussionComponent, '목장 나눔')">
                     <div class="card-menu-text">
                         <app-block class="church-icon">
                             <img src="assets/church-icons/small-group.svg" height="75px;">
@@ -88,6 +103,9 @@
                         </app-block>
                     </div>
                 </app-card>
+            </app-flex-item>
+            <app-flex-item>
+                
             </app-flex-item>
         </app-flex-container>
     </app-block>    

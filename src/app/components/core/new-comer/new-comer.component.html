@@ -1,0 +1,140 @@
+<div class="progress-bar-area">
+    <div class="bars">
+        <div class="bar" [ngClass]="status === 1 || status === 2 ?'filled':''"></div>
+        <div class="bar" [ngClass]="status === 2 ?'filled':''"></div>
+    </div>
+    <div class="circles">
+        <div class="circle" [ngClass]="status === 0 || status === 1 || status === 2 ?'filled':''"></div>
+        <div class="circle" [ngClass]="status === 1 || status === 2 ?'filled':''"></div>
+        <div class="circle" [ngClass]="status === 2 ?'filled':''"></div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <div class="agreement" *ngIf="status === 0; else formArea">
+        <br>
+        <br>
+        <p>안녕하세요!</p>
+        <br>
+        <p>인랜드교회 히즈청년부에 방문해 주셔서 감사합니다. 저희 히즈는 'Re-다시 복음으로'의 비전으로 함께 모인 공동체입니다.</p>
+        <br>
+        <p>복음으로 거듭나며 (re:born) </p>
+        <p>하나님의 자녀로서 이미 세상에서 승리케 하셨고,</p>
+        <br>
+        <p>복음으로 변화되어 (re:form) </p>
+        <p>모든 일에 마음을 다하여 주께 하듯하고, </p>
+        <br>
+        <p>복음으로 회복되어 (re:store)  </p>
+        <p>더이상 죄의 종이 아닌 의의 자녀로 살아가고,</p>
+        <br>
+        <p>복음으로 일깨워져 (re:mind) </p>
+        <p>영혼에 매일 매일 예수의 행하심을 기억하는</p>
+        <br>
+        <p>히즈 청년부의 여정에 초대하고 싶습니다.</p>
+        <br>
+        <hr>
+        <br>
+        <p>방문자님과 원활히 교제하기 위해 다음과 같은 개인정보가 필요합니다:</p>
+        <br>
+        <p style="font-weight: 700">- 수집 항목:  이름, 생년월일, 전화번호, 주소, 이메일, 세례여부</p>
+        <br>
+        <p style="font-weight: 700">- 수집 목적: 교인 관리 및 돌봄 </p>
+        <br>
+        <p style="font-weight: 700">- 수집 거부 시: 교인으로 등록되지 않으며 연락 및 돌봄에 제한이 생길 수 있습니다. </p>
+        <br>
+        <hr>
+        <br>
+        <p>위 정보들의 수집 및 이용에 동의하신다면 아래 동의 버튼을 눌러주세요. 거부하신다면 뒤로가기 버튼을 눌러주시면 됩니다.   
+        <br>
+        <button class="agree" (click)="updateStatus()">
+            동의합니다.
+        </button>
+    </div>
+    <ng-template #formArea>
+        <div id="form-area" *ngIf="status === 1; else submitted">
+            <div id="top"></div>
+            <form [formGroup]="newcomerForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-field">
+                  <label for="name">이름 <span>*</span></label>
+                  <input type="text" id="name" formControlName="name" placeholder="김히즈">
+                  <div class="error" *ngIf="hasError('name','required')">
+                    이름을 입력해주세요
+                  </div>
+                </div>
+              
+                <div class="form-field">
+                  <label for="birthday">생년월일 <span>*</span></label>
+                  <input type="date" id="birthday" formControlName="birthday" [ngClass]="newcomerForm.get('birthday')?.value !== '' ? 'filled':''">
+                  <div class="error" *ngIf="hasError('birthday','required')">
+                    생년월일을 입력해주세요
+                  </div>
+                </div>
+              
+                <div class="form-field">
+                  <label for="phone">Phone <span>*</span></label>
+                  <input type="tel" id="phone" formControlName="phone" placeholder="1234567890">
+                  <div class="error" *ngIf="hasError('phone','required')">
+                    전화번호를 입력해주세요
+                  </div>
+                </div>
+              
+                <div class="form-field">
+                  <label for="p_address">주소 <span>*</span></label>
+                  <input type="text" id="p_address" formControlName="p_address" placeholder="1101 Glen Ave, Pomona CA">
+                  <div class="error" *ngIf="hasError('p_address','required')">
+                    주소지를 입력해주세요
+                  </div>
+                </div>
+              
+                <div class="form-field">
+                  <label for="m_address">우편 주소 (거주지와 다를 시)</label>
+                  <input type="text" id="m_address" formControlName="m_address" placeholder="1101 Glen Ave, Pomona CA">
+                </div>
+              
+                <div class="form-field">
+                  <label for="email">이메일 <span>*</span></label>
+                  <input type="email" id="email" formControlName="email" placeholder="his@his.com">
+                  <div class="error" *ngIf="hasError('email','required')">
+                    이메일을 입력해주세요
+                  </div>
+                  <div class="error" *ngIf="hasError('email','email')">
+                    이메일 형식을 체크해주세요
+                  </div>
+                </div>
+
+                <div class="form-field">
+                    <label>
+                        세례 받으셨나요? <span>*</span>
+                    </label>
+                    <div class="radio-area">
+                        <span>네 <input type="radio" formControlName="baptized" value="true"></span> 
+                        <span>아니오 <input type="radio" formControlName="baptized" value="false"></span>
+                    </div>
+                </div>
+                
+                <hr>
+                <div style="text-align: center">
+                    <label><span>*</span>표시는 필수 항목입니다.</label>
+                </div>
+                
+                
+                <button type="submit" [disabled]="!newcomerForm.valid">새신자 등록하기</button>
+              </form>
+              
+        </div>
+    </ng-template>
+    <ng-template #submitted>
+        <div class="submitted">
+            <h3>등록해주셔서 감사합니다!</h3>
+            <br>
+            <p>앞으로 함께할 날들이 너무 기대됩니다.</p>
+            <p>동행하는 모든 순간에 우리 공동체가 기쁨과 위안이 되기를 기도합니다.</p>
+            <p>복음으로 거듭나고, 변화되고, 회복되고, 일깨워지는 히즈공동체에 오신 것을 환영합니다!</p>
+            <br>
+            <br>
+            <button routerLink="">히즈앱 홈으로</button>
+        </div>
+    </ng-template>
+</div>
