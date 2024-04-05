@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'search', component: SearchPageComponent, data: { animation: 'Search' }},
   { path: 'offering', component: OfferingComponent },
   { path: 'verses', component: BibleVersesComponent },
-  { path: 'new-comer', component: NewComerComponent},
+  { path: 'new-comer', component: NewComerComponent, data: { animation: 'NewComer'}},
   { path: 'bulletin', component: BulletinComponent, data: { animation: 'Bulletins' }},
   { path: 'bulletin/:sunday', component: BulletinPaperComponent, data: { animation: 'Bulletin' }},
   { path: 'videos', component: VideosComponent, data: { animation: 'Videos' }},

@@ -12,7 +12,7 @@
 .close-button {
     position: absolute; /* Position the close button independently from the other elements */
     left: 0.25em; /* Set the distance from the left side of the top-area */
-    color: var(--secondary-color);
+    color: #555;
     width: 1.5em;
     height: 1.5em;
     display: flex;
@@ -30,8 +30,8 @@
     justify-content: center; /* Center the title horizontally */
     align-items: center; /* Center the title vertically */
     font-weight: 700;
-    color: var(--secondary-color);
-    font-size: 1.2em;
+    color: #555;
+    font-size: 1.2rem;
 }
 
 .modal-overlay {
@@ -56,13 +56,14 @@
     width: 100%;
     height: calc(var(--html-height) - 3em);
     display: flex;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    padding-top:0.5em;
+    // padding-left: 0.5em;
+    // padding-right: 0.5em;
+    // padding-top:0.5em;
     padding-bottom: 2em;
     overflow-y: scroll;
     overflow-x: hidden;
     justify-content: center;
+    background-color: #ffffff;
 }
 
 .modal-content {

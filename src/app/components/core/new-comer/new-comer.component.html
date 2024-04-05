@@ -1,4 +1,4 @@
-<div class="progress-bar-area">
+<div class="progress-bar-area" [ngClass]="loaded ? 'loaded':''">
     <div class="bars">
         <div class="bar" [ngClass]="status === 1 || status === 2 ?'filled':''"></div>
         <div class="bar" [ngClass]="status === 2 ?'filled':''"></div>

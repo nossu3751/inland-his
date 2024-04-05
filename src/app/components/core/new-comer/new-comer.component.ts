@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NewComerService } from 'src/app/services/data/new-comer.service';
+import { ScrollService } from 'src/app/services/view/scroll.service';
 
 @Component({
   selector: 'app-new-comer',
@@ -11,21 +12,20 @@ import { NewComerService } from 'src/app/services/data/new-comer.service';
 export class NewComerComponent {
   status:number = 0
   newcomerForm!: FormGroup;
-
+  loaded:boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
-    private newComerService:NewComerService
+    private newComerService:NewComerService,
+    private scrollService:ScrollService
   ) { }
   updateStatus(){
     this.status = (this.status + 1) % 3;
-    const container = document.querySelector(".content-area");
-    if (container) {
-      container.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });  
-    }
+    // const container = document.querySelector(".content-area");
+    // if (container) {
+    //   container.scrollTop=0;
+    // }
+    this.scrollService.smoothScrollToTop(".content-area")
   }
 
   onSubmit() {
@@ -38,25 +38,25 @@ export class NewComerComponent {
       formData.m_address = formData.m_address || null;
       
       console.log(formData)
-      this.updateStatus()
-      // this.newComerService.postNewComer(formData).subscribe({
-      //   "next":(data)=>{
-      //     console.log(data);
-      //     this.updateStatus()
-      //     this.snackBar.open("등록되었습니다. 환영합니다!", "Close", {
-      //       duration: 3000,
-      //       panelClass: ['custom-snackbar'],
-      //       verticalPosition: 'bottom'
-      //     })
-      //   },
-      //   "error":()=>{
-      //     this.snackBar.open("죄송합니다. 잠시 후 시도해주세요.", "Close", {
-      //       duration: 3000,
-      //       panelClass: ['custom-snackbar'],
-      //       verticalPosition: 'bottom'
-      //     })
-      //   }
-      // })
+    
+      this.newComerService.postNewComer(formData).subscribe({
+        "next":(data)=>{
+          console.log(data);
+          this.updateStatus()
+          this.snackBar.open("등록되었습니다. 환영합니다!", "Close", {
+            duration: 3000,
+            panelClass: ['custom-snackbar'],
+            verticalPosition: 'bottom'
+          })
+        },
+        "error":()=>{
+          this.snackBar.open("죄송합니다. 잠시 후 시도해주세요.", "Close", {
+            duration: 3000,
+            panelClass: ['custom-snackbar'],
+            verticalPosition: 'bottom'
+          })
+        }
+      })
       
       
     }
@@ -67,7 +67,12 @@ export class NewComerComponent {
     return (control?.hasError(errorName) && (control.touched || control.dirty)) ?? false;
   }
 
+
   ngOnInit() {
+    const container = document.querySelector(".content-area");
+    if (container) {
+      container.scrollTop = 0;
+    }
     this.newcomerForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       birthday: ['', Validators.required],
@@ -77,5 +82,6 @@ export class NewComerComponent {
       email: ['', [Validators.required, Validators.email]],
       baptized: ['', Validators.required] // Assuming this is a boolean field, input should be a checkbox
     });
+    
   }
 }

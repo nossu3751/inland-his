@@ -2,11 +2,9 @@
 <ng-container *ngIf="(updateService.updateData$ | async) as data">
   <app-updates [updateData]="data"></app-updates>
 </ng-container>
-<!-- <div class="mobile-view-prompt" fxHide.lt-md>
-  <div class="message-area">
-    모바일환경에서 이용해주세요!
-  </div>
-</div> -->
+
+
+
 <ng-container>
   <div>
     <app-top-navbar></app-top-navbar>
