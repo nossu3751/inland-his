@@ -60,7 +60,7 @@ export class TopNavbarComponent implements OnInit{
     { route: '/ministries', label:"사역"},
     { route: '/offering', label:"헌금" },
     { route: '/verses', label: "말씀"},
-    { route: '/new-comer', label: "새신자등록"},
+    { route: '/new-comer', label: "새가족등록"},
     { route: '/bulletin', label: "주보"},
     { route: '/videos', label: "예배"},
     { route: '/login', label: "Login"}
@@ -74,7 +74,7 @@ export class TopNavbarComponent implements OnInit{
     ["/offering","헌금"],
     ["/verses","말씀"],
     ["/bulletin","주보"],
-    ["/new-comer","새신자등록"],
+    ["/new-comer","새가족등록"],
     ["/videos", "예배"],
     ["/login", "로그인"],
     ["/user", "유저"],

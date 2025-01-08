@@ -94,13 +94,13 @@
                 </div>
               
                 <div class="form-field">
-                  <label for="email">이메일 <span>*</span></label>
-                  <input type="email" id="email" formControlName="email" placeholder="his@his.com">
+                  <label for="email">이메일 또는 카카오 ID<span>*</span></label>
+                  <input type="text" id="email" formControlName="email" placeholder="">
                   <div class="error" *ngIf="hasError('email','required')">
-                    이메일을 입력해주세요
+                    이메일 또는 카카오 ID를 입력해주세요
                   </div>
                   <div class="error" *ngIf="hasError('email','email')">
-                    이메일 형식을 체크해주세요
+                    이메일 또는 카카오 ID 형식을 체크해주세요
                   </div>
                 </div>
 
@@ -120,7 +120,7 @@
                 </div>
                 
                 
-                <button type="submit" [disabled]="!newcomerForm.valid">새신자 등록하기</button>
+                <button type="submit" [disabled]="!newcomerForm.valid">새가족 등록하기</button>
               </form>
               
         </div>

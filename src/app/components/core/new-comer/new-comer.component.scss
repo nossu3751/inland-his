@@ -108,6 +108,7 @@ p {
 }
 
 #form-area {
+    
     #top {
         position: absolute;
         top: 0;
@@ -117,12 +118,26 @@ p {
     padding-bottom: 120px;
     input:not([type="file" i], [type="image" i], [type="checkbox" i], [type="radio" i]) {
         appearance: none;
+        -webkit-appearance: none;
         border: none;
         outline: none;
         display: block;
         border-bottom: 1px solid #555;
+        border-radius: 0;
+        -webkit-border-radius:0;
         width: 100%;
     }
+    /*
+    .search-input {
+            width: 100%;
+            height: 100%;
+            font-size: 20px;
+            outline: none;
+            border: 2px solid var(--secondary-color);
+            border-radius: 0.5em;
+            padding-left: 0.7em;
+        }
+    */
 
     input [type=”radio”] {
         background-color: var(--secondary-color);
@@ -140,21 +155,6 @@ p {
     input[type="date"].filled {
         color: #000;
     }
-        /* placeholder text style */
-    // input[type="date"]::-webkit-datetime-edit-text,
-    // input[type="date"]::-webkit-datetime-edit-month-field,
-    // input[type="date"]::-webkit-datetime-edit-day-field,
-    // input[type="date"]::-webkit-datetime-edit-year-field {
-    // color: #ccc;
-    // }
-
-    // /* regular text style */
-    // input[type="date"].date-input--has-value::-webkit-datetime-edit-text,
-    // input[type="date"].date-input--has-value::-webkit-datetime-edit-month-field,
-    // input[type="date"].date-input--has-value::-webkit-datetime-edit-day-field,
-    // input[type="date"].date-input--has-value::-webkit-datetime-edit-year-field {
-    // color: #000000;
-    // }
 
     label {
         font-size: 0.9rem;

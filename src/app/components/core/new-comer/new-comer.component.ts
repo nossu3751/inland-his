@@ -79,7 +79,7 @@ export class NewComerComponent {
       phone: ['', [Validators.required]], // Adjust regex based on expected phone format
       p_address: ['', [Validators.required]],
       m_address: [''], // Optional with max length
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required]],
       baptized: ['', Validators.required] // Assuming this is a boolean field, input should be a checkbox
     });
     
